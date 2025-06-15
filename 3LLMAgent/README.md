@@ -25,19 +25,6 @@
 - Python 3.10+
 - OpenAI API key
 
-### Installation
-```bash
-git clone https://github.com/your-username/agentic-ai-strategist.git
-cd agentic-ai-strategist
-pip install -r requirements.txt
-
-
-Configuration
-Add your OpenAI API key to .env:
-
-ini
-OPENAI_API_KEY="sk-your-key-here"
-
 
 Modify Prompts
 Edit src/prompts.py to refine agent behavior:
