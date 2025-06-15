@@ -60,3 +60,13 @@ Focus on: {industry_focus}
 ├── tests/                   # Unit tests
 ├── docs/                    # Deployment guides
 └── requirements.txt         # Dependencies
+```mermaid
+flowchart TD
+    A[User Query: "Find Agentic AI Opportunity"] --> B(Step 1: Business Area Research)
+    B --> C{{"Industry Selected:\nE.g., Healthcare"}}
+    C --> D(Step 2: Pain Point Analysis)
+    D --> E{{"Key Pain Point:\nE.g., Medication Errors"}}
+    E --> F(Step 3: AI Solution Design)
+    F --> G{{"Proposed Solution:\nAutonomous MedGuardian Agent"}}
+    G --> H([Output])
+```
