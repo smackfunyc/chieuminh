@@ -1,5 +1,7 @@
-from agents import Agent, WebSearchTool, ModelSettings
+from agents import Agent, WebSearchTool, ModelSettings # Import necessary classes: Agent for creating AI agents, WebSearchTool to enable web searching, and ModelSettings for configuring the AI model's behavior.
 
+# Define the instructions for the "Search agent."
+# These instructions guide the AI on how to perform its research task specifically for crypto coins.
 INSTRUCTIONS = (
     "You are a crypto market research assistant. Given a specific crypto coin or Solana meme coin "
     "(by ticker or full name), you search recent market data, news, and community discussions. "
@@ -13,10 +15,12 @@ INSTRUCTIONS = (
     "relevant to the coin's current market standing and potential near-term trajectory."
 )
 
+# Create an instance of the Agent, named "Search agent."
 search_agent = Agent(
-    name="Search agent",
-    instructions=INSTRUCTIONS,
-    tools=[WebSearchTool(search_context_size="low")],
-    model="gpt-4o-mini",
-    model_settings=ModelSettings(tool_choice="required"),
+    name="Search agent",           # The name of this AI agent.
+    instructions=INSTRUCTIONS,     # The detailed instructions the agent will follow for crypto research.
+    tools=[WebSearchTool(search_context_size="low")], # Provide the agent with a WebSearchTool.
+                                # 'search_context_size="low"' suggests a concise search approach.
+    model="gpt-4o-mini",           # The specific AI model this agent will use for processing instructions and generating summaries.
+    model_settings=ModelSettings(tool_choice="required"), # Configure the model settings to ensure it always uses a tool (in this case, the WebSearchTool).
 )
