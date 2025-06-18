@@ -24,7 +24,7 @@ My **product design leadership** shines here too, where I’ve lead teams to bui
 
 ---
 
-## 📦 **What’s in mixtape?**
+## 📦 **What’s in the mixtape?**
 
 - **🤖 AI Projects**: Scripts for scraping data, training models, and algorithmic trading bots.
 - **🎨 Product Design Artifacts**: Case studies from leading teams through the circus of product development.
@@ -33,14 +33,14 @@ My **product design leadership** shines here too, where I’ve lead teams to bui
 
 ---
 
-## 🎪 **How to Survive This Repo**
+## 🎪 **So What?**
 
-1. **Poke Around**: Sift through folders for AI scripts and design docs. Each project has a `README` to guide you, no ID required.
+1. **Poke Around**: Sift through folders for AI scripts and design docs. Each project has a `README` to guide you, or not.
 2. **Run the Code**: Follow the instructions to fire up scripts or eyeball design artifacts.
 3. **Join the Chaos**: Read code comments and case studies to see how I dodged disaster, and pitch in if you want to lose a friend.
 
 ### How to pick up girls
-- **[X Scraper](x_scraper/)**: A Python script that grabs Solana tweets with the X API v2, filters out the junk, and saves ‘em to a CSV. I tested it while eating ramen.
+- **[X Scraper](x_scraper/)**: A Python script that grabs Solana tweets with the X API v2, filters out the junk, and saves ‘em to a CSV. 
 
 ---
 
