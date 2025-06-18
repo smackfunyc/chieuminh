@@ -4,15 +4,15 @@
   <img src="https://img.shields.io/badge/License-MIT-green?style=for-the-badge" alt="License">
 </p>
 
-# 💥 **AI & Product Design Portfolio: Catch It Before It Explodes!** 💥
+# 💥 **AI & Product Design Portfolio:!** 💥
 
-*WHAM!* Welcome to my **GitHub repository**, where I’ve been hurling code and seeing what sticks! This is my curated showcase of **Artificial Intelligence (AI)** and **Product Design**, stuffed with **vetted, working projects** that I built while dodging saving children and juggling TensorFlow scripts. You’ll also see my leadership in innovative products for **AI**, **data**, **anti-money laundering (AML)**, and **health-tech**, all without hundreds of selfies.
+*WHAM!* Welcome to my **GitHub repository**,This is my curated showcase of **Artificial Intelligence (AI)** and **Product Design**, stuffed with **vetted, working projects** that I built while juggling TensorFlow scripts. You’ll also see my leadership in innovative products for **AI**, **data**, **anti-money laundering (AML)**, and **health-tech**.
 
 ---
 
 ## 🌀 **AI likes long walks on the beach...**
 
-This repo is bouncing between **AI** and **product development**. Every project here is **battle-tested**—I’ve kicked the tires, shaken the bugs out, and made sure you don't get rickrolled. I used every tool I could grab, from Python libraries like Tweepy to custom data pipelines, all while doing windmills on a pile of code.
+This repo is bouncing between **AI** and **product development**. Every project here is **battle-tested**
 
 My **product design leadership** shines here too, where I’ve lead teams to build user-focused solutions in:
 - **🤖 Artificial Intelligence**: Co-Pilot, Machine learning models and NLP apps that don’t short-circuit.
@@ -24,12 +24,12 @@ My **product design leadership** shines here too, where I’ve lead teams to bui
 
 ---
 
-## 📦 **What’s in the Ipod?**
+## 📦 **What’s in mixtape?**
 
-- **🧠 AI Projects**: Scripts for scraping data, training models, and algorithmic trading bots.
+- **🤖 AI Projects**: Scripts for scraping data, training models, and algorithmic trading bots.
 - **🎨 Product Design Artifacts**: Case studies from leading teams through the circus of product development.
-- **✅ Vetted Code**: Clean, documented, and tougher than a rubber chicken.
-- **🛠️ Wild Tools**: Python, TensorFlow, PyTorch, Tweepy, Thingy-ma-jigs, whatever I could find.
+- **💰 Algo Trades**: Clean, documented, and tougher than a rubber chicken.
+- **🪚 Wild Tools**: Python, TensorFlow, PyTorch, Tweepy, Thingy-ma-jigs, whatever I could find.
 
 ---
 
