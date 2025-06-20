@@ -7,22 +7,11 @@
 # **Minh Nguyen**
 # **Director of Product Design: Celigo, EverydayHealth, Citigroup**
 
-Welcome to the **Product Design ** folder! As a **Director of Product Design**, 
-I’ve steered teams through the wild jungle of complex, data-heavy products in
-**Data Integration**, **Observability**, **API Builder**, **Automation**, and **EDI (Electronic Data Interchange)**. 
-This folder is a showcase of the work I’ve led, from crafting a crystal-clear vision to herding cross-functional teams 
-toward success without anyone getting lost in the data swamp.
-
 ---
 
 ## 🌟 **About This Folder**
 
-This folder captures the chaos and triumph of building user-focused, data-intensive products. I’ve led teams to create solutions that make data sing, automation hum, and APIs play nice. Each project started with a **bold vision and charter** for the product design team, followed by tight collaboration with **product**, **engineering**, and **marketing** teams to deliver tools that users love and businesses rely on.
-
-Here’s what you’ll find:
-- **Stratgey Documents**: Charters and Vision that kept our teams aligned, even when the data got messy.
-- **Case Studies**: Stories of how we tackled challenges and delivered value.
-- **Design Artifacts**: Wireframes, prototypes, and user flows that shaped our products.
+This folder captures the chaos and triumph of building user-focused, data-intensive products. I’ve led teams to create solutions that make AI work with data, automation, and APIs. Each project started with a **bold vision and charter** for the product design team, followed by tight collaboration with **product**, **engineering**, and **marketing** teams to deliver tools that users love and businesses rely on.
 
 ---
 
@@ -42,28 +31,14 @@ Each artifact reflects deep collaboration, rigorous iteration, and a relentless 
 ## 🏗️ **How to Explore**
 
 1. **Browse the Artifacts**: Dive into case studies. Each has notes explaining the context and impact.
-2. **Read the Charters**: Check out vision documents to see how I set the stage for success.
-3. **Connect the Dots**: Cross-reference with my [X Scraper](https://github.com/smackfunyc/chieuminh/tree/main/x_scraper) project,
-4. a data-scraping script that vibes with the data integration theme here.
-
-### Example Deliverable
-- **Observability Dashboard Prototype**: A clickable prototype for a monitoring tool that lets teams spot system hiccups in real-time, born from late-night brainstorming and coffee-fueled design sprints.
+2. **Connect the Dots**: Cross-reference with my [X Scraper](https://github.com/smackfunyc/chieuminh/tree/main/x_scraper) project,
+3. a data-scraping script that vibes with the data integration theme here.
 
 ---
 
 ## 💪 **Why This Matters**
 
-Leading product design isn’t just about pretty interfaces—it’s about wrestling complex data problems to the ground while keeping users happy. These projects show how I:
-- **Set the Vision**: Crafted clear charters that rallied teams like a battle cry.
-- **Fostered Collaboration**: Got product, engineering, and marketing to sync up like a well-oiled machine.
-- **Delivered Impact**: Built tools that solve real problems, from streamlining data flows to automating the boring stuff.
-
+Leading product design isn’t just about pretty interfaces—it’s about wrestling complex data problems to the ground while keeping users happy. 
 This folder is a testament to turning data chaos into elegant solutions, all while dodging the occasional flying wrench.
 
 ---
-
-## 🚀 **Getting Started**
-
-1. **Clone the Repo**:
-   ```bash
-   git clone https://github.com/smackfunyc/chieuminh
