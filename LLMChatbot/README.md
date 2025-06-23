@@ -1,35 +1,4 @@
 # LLM Chatbot Overview
-+-------------+
-|    User     |
-+-------------+
-      |
-      v
-+----------------+
-| Chat Interface  |
-| (e.g., Gradio)  |
-+----------------+
-      |
-      v
-+-------------------------+
-|     LLM (ChatGPT)      |
-| +---------------------+ |
-| |  Tokenization      | |
-| +---------------------+ |
-| |  Prediction Engine  | |
-| +---------------------+ |
-| |  Output Generation  | |
-| +---------------------+ |
-+-------------------------+
-      |
-      v
-+--------------+
-|   Response   |
-+--------------+
-      |
-      v
-+----------------+
-| Chat Interface  |
-+----------------+
 
 This project leverages the **LangGraph** library to create an interactive chat application that generates responses based on predefined constants and user input. It integrates several Python libraries to enhance functionality:
 
