@@ -13,7 +13,6 @@ A smart, AI-powered research assistant that digs deep into the web, compiles str
 - **Gradio UI**: User-friendly website to start, track, and receive research output.
 - **Modular Codebase**: Agents are separated for easy understanding and extensibility.
 
-
 ---
 
 ## 🧠 Architecture Overview
