@@ -1,96 +1,71 @@
-Deep Research AI Agent System: Your Smart Research Helper!
-This project is like having a researcg assistant that uses AI (Artificial Intelligence) to do deep dives into the internet for research. It can then write reports and even send emails, all from a simple website you can use! It's a team of agents working together to get your research done.
+# 🤖 Deep Research AI Agent System
 
-🚀 What It Does (Features)
-Smart Planning: A "Planner" agent figures out exactly what to search for online, breaking down big topics into smaller questions.
+A smart, AI-powered research assistant that digs deep into the web, compiles structured reports, and can even email them—all from a simple web interface.
 
-Web Surfer: A "Search" agent then goes out and finds information on the web for each of those questions.
+---
 
-Report Writer: A "Writer" agent takes all the messy information from the internet and turns it into a neat, easy-to-read report, with a quick summary and new questions you might have.
+## 🚀 Features
 
-Email Sender: An "Email" agent can even send that finished report to anyone you want!
+- **Planner Agent**: Breaks big topics into actionable research questions.
+- **Search Agent**: Gathers information from the web for each question.
+- **Writer Agent**: Summarizes findings into a clean report with takeaways.
+- **Email Agent**: Sends the report to any recipient (optional).
+- **Gradio UI**: User-friendly website to start, track, and receive research output.
+- **Modular Codebase**: Agents are separated for easy understanding and extensibility.
 
-Easy to Use: It has a simple website (built with something called Gradio) where you type what you want to research and see the results.
 
-Built Smart: All the "agents" (mini-robots) are organized neatly in separate code files, making it easy to understand and add new features later.
+---
 
-🛠️ How It's Built (Architecture Overview)
-Imagine a small, organized office with a few experts:
+## 🧠 Architecture Overview
 
-The Expert Agents:
+- **Planner** → decides what to search.
+- **Searcher** → fetches info online.
+- **Writer** → composes the final report.
+- **Emailer** → sends it via email (if enabled).
+- **Manager** → coordinates the above agents.
+- **Web UI** → built with Gradio (`Deepresearch.py`) for user interaction.
 
-Planner Agent: The "Strategist" – gets your main idea and maps out how to find information.
+---
 
-Search Agent: The "Librarian" – goes to the internet (like a huge library) and pulls out the right books (information).
+## ⚙️ Setup
 
-Writer Agent: The "Report Creator" – takes all the notes the Librarian found and writes a clear report.
+### Requirements
+- Python 3.9+
+- Pip
+- Google Generative AI key (Gemini)
 
-Email Agent: The "Mail Carrier" – sends your finished report to anyone you choose.
-
-The Research Manager:
-This is like the "Office Manager." It makes sure all the expert agents work together in the right order. It keeps you updated on their progress and makes sure they handle any problems that pop up.
-
-The Website (Deepresearch.py):
-This is the "Front Desk" where you interact. It's a simple website that lets you tell the Office Manager what you need, and then shows you the finished work.
-
-⚙️ Get Started! (Setup and Prerequisites)
-To make this cool research helper work, you'll need a few things on your computer:
-
-Python 3.9 or newer: This is the programming language it's built with.
-
-Pip: A tool that helps you install Python programs.
-
-1. Install the Pieces It Needs
-
-Open your computer's "Terminal" or "Command Prompt" (like a secret text-based control panel) and type this command. It tells your computer to download and install the necessary parts:
-
+### Install Dependencies
+```bash
 pip install google-generativeai gradio "pydantic<2"
 
-Note: The pydantic<2 part is for older versions of a tool it uses; you can remove it if you know your setup is newer.
+Set Your Gemini API Key
+Mac/Linux:
 
-2. Get Your AI "Key" (Secret Code)
+export GOOGLE_API_KEY='your-key-here'
+Windows (CMD):
 
-For the AI agents to work, they need a special "key" (a secret code) that connects them to Google's AI brain.
+set GOOGLE_API_KEY=your-key-here
+Windows (PowerShell):
 
-Go to Google AI Studio.
+$env:GOOGLE_API_KEY='your-key-here'
+(Optional) Email Setup
+Edit email_agent.py and add your email credentials.
 
-Follow the steps there to create a new AI key.
-
-Tell your computer your secret key! This is important. You need to set it as an "environment variable" named GOOGLE_API_KEY. Here's how, depending on your computer:
-
-If you have a Mac or Linux computer:
-
-export GOOGLE_API_KEY='YOUR_ACTUAL_GEMINI_API_KEY'
-# To make this stick forever, add the line above to your ~/.zshrc or ~/.bashrc file.
-
-If you have a Windows computer (in Command Prompt):
-
-set GOOGLE_API_KEY=YOUR_ACTUAL_GEMINI_API_KEY
-
-If you have a Windows computer (in PowerShell):
-
-$env:GOOGLE_API_KEY='YOUR_ACTUAL_GEMINI_API_KEY'
-
-Important: Replace YOUR_ACTUAL_GEMINI_API_KEY with the actual key you got from Google! You might need to close and reopen your Terminal/Command Prompt for this to work.
-
-3. Set Up Email (Optional)
-
-If you want the Email Agent to actually send emails, you need to tell it your email address in the Email Agent code file. Make sure you use an email address you've verified so it works!
-
-🚀 How to Make It Run
-Once everything is set up, go to the main folder of this project in your Terminal/Command Prompt and type:
+▶️ Run the App
 
 python Deepresearch.py
+The app will open in your browser (or visit the link shown in the terminal).
 
-This will start the website! It should open automatically in your web browser. If not, look in the Terminal/Command Prompt for a web address (like http://127.0.0.1:XXXX) and paste it into your browser.
+💡 How to Use
 
-💡 How to Use It
-Once the website opens, you'll see a simple page.
+Enter a topic in the textbox.
+Click Run.
+Watch the report build in real time.
+Optionally, email it to any recipient.
+📄 License
 
-Type the topic you want to research into the big text box.
+MIT License
 
-Click the "Run" button (or just press Enter).
+🙏 Credits
 
-You'll see the "Report" section update little by little as your smart agents work!
-
-When they're done, you'll see the full report and any extra questions.
+Created by Chieu Minh Nguyen
