@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Web3-Styled Python Code</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Prism.js CSS -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css" rel="stylesheet" />
+    <style>
+        body {
+            background: linear-gradient(135deg, #1e3a8a, #7e22ce);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-family: 'Inter', sans-serif;
+        }
+        .code-container {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 1rem;
+            padding: 2rem;
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.3);
+            max-width: 90%;
+            width: 1000px;
+        }
+        pre {
+            margin: 0;
+            border-radius: 0.5rem;
+            overflow-x: auto;
+        }
+        code {
+            font-size: 0.9rem;
+            line-height: 1.5;
+        }
+        .header {
+            text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+        }
+    </style>
+</head>
+<body>
+    <div class="code-container">
+        <h1 class="text-3xl font-bold text-white text-center mb-6 header">Digital Fishing Buddy Code</h1>
+        <pre><code class="language-python">#!/usr/bin/env python
+# coding: utf-8
+
+from typing import Annotated, TypedDict, List, Dict, Any, Optional
+from typing_extensions import TypedDict
+from langchain_core.messages import AIMessage, HumanMessage, SystemMessage
+from langchain_openai import ChatOpenAI
+from langchain_community.agent_toolkits import PlayWrightBrowserToolkit
+from langchain_community.tools.playwright.utils import create_async_playwright_browser
+from langgraph.graph import StateGraph, START, END
+from langgraph.checkpoint.memory import MemorySaver
+from langgraph.prebuilt import ToolNode, tools_condition
+from langgraph.graph.message import add_messages
+from pydantic import BaseModel, Field
+from IPython.display import Image, display
+import gradio as gr
+import uuid
+from dotenv import load_dotenv
+
+load_dotenv(override=True)
+
+class EvaluatorOutput(BaseModel):
+    feedback: str = Field(description="Feedback on the assistant's response")
+    success_criteria_met: bool = Field(description="Whether the success criteria have been met")
+    user_input_needed: bool = Field(description="True if more input is needed from the user, or clarifications, or the assistant is stuck")
+
+class State(TypedDict):
+    messages: Annotated[List[Any], add_messages]
+    success_criteria: str
+    feedback_on_work: Optional[str]
+    success_criteria_met: bool
+    user_input_needed: bool
+
+import nest_asyncio
+nest_asyncio.apply()
+async_browser = create_async_playwright_browser(headless=False)  # headful mode
+toolkit = PlayWrightBrowserToolkit.from_browser(async_browser=async_browser)
+tools = toolkit.get_tools()
+
+worker_llm = ChatOpenAI(model="gpt-4o-mini")
+worker_llm_with_tools = worker_llm.bind_tools(tools)
+
+evaluator_llm = ChatOpenAI(model="gpt-4o-mini")
+evaluator_llm_with_output = evaluator_llm.with_structured_output(EvaluatorOutput)
+
+def worker(state: State) -> Dict[str, Any]:
+    system_message = f"""You are a friendly and supportive assistant who is here to help the user with their emotions. 
+    Think of yourself as a good friend, like an australian friendliness who is ready to listen and 
+    offer guidance while making sure the user feels heard but not fake.
+
+Your job is to keep working on the task until either you need to ask a 
+clarifying question or the user's criteria for success is fully met. 
+
+Here's the success criteria for this task:
+{state['success_criteria']}
+
+When you reach out to the user, kindly express your question or provide your final answer. 
+If you're uncertain, it's perfectly fine. Just make sure to ask your question clearly. For example, you might say:
+
+"Hey, just to make sure, do you want a me to listen more or to give advice?"
+
+Keep it friendly and genuine! You're here to support them in the best way possible. 
+
+If you've finished, reply with the final supportive answer, and don't ask a question; simply reply with the answer.
+"""
+    
+    if state.get("feedback_on_work"):
+        system_message += f"""
+Previously you thought the friend was ok, but your reply was rejected because the success criteria was not met.
+Here is the feedback on why this was rejected:
+{state['feedback_on_work']}
+With this feedback, please continue the assignment, 
+ensuring that you meet the success criteria or have a question for the user."""
+    
+    found_system_message = False
+    messages = state["messages"]
+    for message in messages:
+        if isinstance(message, SystemMessage):
+            message.content = system_message
+            found_system_message = True
+    
+    if not found_system_message:
+        messages = [SystemMessage(content=system_message)] + messages
+    
+    response = worker_llm_with_tools.invoke(messages)
+    
+    return {
+        "messages": [response],
+    }
+
+def worker_router(state: State) -> str:
+    last_message = state["messages"][-1]
+    
+    if hasattr(last_message, "tool_calls") and last_message.tool_calls:
+        return "tools"
+    else:
+        return "evaluator"
+
+def format_conversation(messages: List[Any]) -> str:
+    conversation = "Conversation history:\n\n"
+    for message in messages:
+        if isinstance(message, HumanMessage):
+            conversation += f"User: {message.content}\n"
+        elif isinstance(message, AIMessage):
+            text = message.content or "[Tools use]"
+            conversation += f"Assistant: {text}\n"
+    return conversation
+
+def evaluator(state: State) -> State:
+    last_response = state["messages"][-1].content
+
+    system_message = f"""You are a compassionate therapist evaluating a conversation between the 
+    User and the Assistant. Your goal is to provide gentle feedback while assessing the 
+    last response from the Assistant."""
+    
+    user_message = f"""You are evaluating a conversation between the User and Assistant. You decide what action to take based on the last response from the Assistant.
+
+The entire conversation with the assistant, with the user's original request and all replies, is:
+{format_conversation(state['messages'])}
+
+The success criteria for this assignment is:
+{state['success_criteria']}
+
+And the final response from the Assistant that you are evaluating is:
+{last_response}
+
+As you reflect on this response, please respond with kind and thoughtful feedback. Consider whether the Assistant's response has adequately met the success criteria, keeping in mind the user's emotional needs. 
+
+Additionally, think about whether more input is needed from the user—if the Assistant is inviting further clarification, expresses curiosity, or might be feeling uncertain without additional guidance.
+
+Remember, your response should be warm, understanding, and supportive, aiming to foster a constructive and caring environment for the user.
+"""
+    if state["feedback_on_work"]:
+        user_message += f"Also, note that in a prior attempt from the Assistant, you provided this feedback: {state['feedback_on_work']}\n"
+        user_message += "If you're seeing the Assistant repeating the same mistakes, then consider responding that user input is required."
+    
+    evaluator_messages = [SystemMessage(content=system_message), HumanMessage(content=user_message)]
+
+    eval_result = evaluator_llm_with_output.invoke(evaluator_messages)
+    new_state = {
+        "messages": [{"role": "assistant", "content": f"Evaluator Feedback on this answer: {eval_result.feedback}"}],
+        "feedback_on_work": eval_result.feedback,
+        "success_criteria_met": eval_result.success_criteria_met,
+        "user_input_needed": eval_result.user_input_needed
+    }
+    return new_state
+
+def route_based_on_evaluation(state: State) -> str:
+    if state["success_criteria_met"] or state["user_input_needed"]:
+        return "END"
+    else:
+        return "worker"
+
+graph_builder = StateGraph(State)
+
+graph_builder.add_node("worker", worker)
+graph_builder.add_node("tools", ToolNode(tools=tools))
+graph_builder.add_node("evaluator", evaluator)
+
+graph_builder.add_conditional_edges("worker", worker_router, {"tools": "tools", "evaluator": "evaluator"})
+graph_builder.add_edge("tools", "worker")
+graph_builder.add_conditional_edges("evaluator", route_based_on_evaluation, {"worker": "worker", "END": END})
+graph_builder.add_edge(START, "worker")
+
+memory = MemorySaver()
+graph = graph_builder.compile(checkpointer=memory)
+
+display(Image(graph.get_graph().draw_mermaid_png()))
+
+def make_thread_id() -> str:
+    return str(uuid.uuid4())
+
+async def process_message(message, success_criteria, history, thread):
+    config = {"configurable": {"thread_id": thread}}
+    state = {
+        "messages": message,
+        "success_criteria": success_criteria,
+        "feedback_on_work": None,
+        "success_criteria_met": False,
+        "user_input_needed": False
+    }
+    result = await graph.ainvoke(state, config=config)
+    user = {"role": "user", "content": message}
+    reply = {"role": "assistant", "content": result["messages"][-2].content}
+    feedback = {"role": "assistant", "content": result["messages"][-1].content}
+    return history + [user, reply, feedback]
+
+async def reset():
+    return "", "", None, make_thread_id()
+
+with gr.Blocks(theme=gr.themes.Default(primary_hue="emerald")) as demo:
+    gr.Markdown("## Your Digital Fishing Buddy")
+    thread = gr.State(make_thread_id())
+    
+    with gr.Row():
+        chatbot = gr.Chatbot(label="Sidekick", height=300, type="messages")
+    with gr.Group():
+        with gr.Row():
+            message = gr.Textbox(show_label=False, placeholder="How's it going man?")
+        with gr.Row():
+            success_criteria = gr.Textbox(show_label=False, placeholder="What would make you content?")
+    with gr.Row():
+        reset_button = gr.Button("Reset", variant="stop")
+        go_button = gr.Button("Go!", variant="primary")
+    message.submit(process_message, [message, success_criteria, chatbot, thread], [chatbot])
+    success_criteria.submit(process_message, [message, success_criteria, chatbot, thread], [chatbot])
+    go_button.click(process_message, [message, success_criteria, chatbot, thread], [chatbot])
+    reset_button.click(reset, [], [message, success_criteria, chatbot, thread])
+
+demo.launch()
+</code></pre>
+    </div>
+    <!-- Prism.js JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-python.min.js"></script>
+</body>
+</html>
