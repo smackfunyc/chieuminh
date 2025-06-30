@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test Script Upload</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 40px; }
+        .upload-area { 
+            border: 2px dashed #ccc; 
+            padding: 40px; 
+            text-align: center; 
+            margin: 20px 0;
+            border-radius: 8px;
+        }
+        .upload-area.dragover { 
+            border-color: #007bff; 
+            background-color: #f8f9fa;
+        }
+        input, select, button { 
+            margin: 10px; 
+            padding: 8px; 
+            display: block; 
+            width: 300px;
+        }
+        button { 
+            background-color: #007bff; 
+            color: white; 
+            border: none; 
+            cursor: pointer; 
+            border-radius: 4px;
+        }
+        button:hover { background-color: #0056b3; }
+        #result { 
+            margin-top: 20px; 
+            padding: 20px; 
+            border-radius: 4px;
+        }
+        .success { background-color: #d4edda; color: #155724; }
+        .error { background-color: #f8d7da; color: #721c24; }
+    </style>
+</head>
+<body>
+    <h1>🚀 Algorithm Trading - Script Upload Test</h1>
+    
+    <form id="uploadForm" enctype="multipart/form-data">
+        <div class="upload-area" id="uploadArea">
+            <p>📁 Drag & drop a Python script here or click to select</p>
+            <input type="file" id="fileInput" accept=".py,.js" style="display: none;">
+        </div>
+        
+        <input type="text" id="scriptName" placeholder="Script Name" required>
+        
+        <select id="indicatorType" required>
+            <option value="">Select Indicator Type</option>
+            <option value="sma">Simple Moving Average (SMA)</option>
+            <option value="ema">Exponential Moving Average (EMA)</option>
+            <option value="bollinger">Bollinger Bands</option>
+            <option value="rsi">Relative Strength Index (RSI)</option>
+            <option value="macd">MACD</option>
+        </select>
+        
+        <input type="number" id="period" placeholder="Period (e.g., 20)" value="20">
+        
+        <button type="submit">🚀 Upload Script</button>
+    </form>
+    
+    <div id="result"></div>
+    
+    <script>
+        const uploadArea = document.getElementById('uploadArea');
+        const fileInput = document.getElementById('fileInput');
+        const uploadForm = document.getElementById('uploadForm');
+        const result = document.getElementById('result');
+        
+        let selectedFile = null;
+        
+        // Drag and drop handlers
+        uploadArea.addEventListener('click', () => fileInput.click());
+        uploadArea.addEventListener('dragover', (e) => {
+            e.preventDefault();
+            uploadArea.classList.add('dragover');
+        });
+        uploadArea.addEventListener('dragleave', () => {
+            uploadArea.classList.remove('dragover');
+        });
+        uploadArea.addEventListener('drop', (e) => {
+            e.preventDefault();
+            uploadArea.classList.remove('dragover');
+            selectedFile = e.dataTransfer.files[0];
+            updateUploadArea();
+        });
+        
+        fileInput.addEventListener('change', (e) => {
+            selectedFile = e.target.files[0];
+            updateUploadArea();
+        });
+        
+        function updateUploadArea() {
+            if (selectedFile) {
+                uploadArea.innerHTML = `<p>✅ Selected: ${selectedFile.name}</p>`;
+                if (!document.getElementById('scriptName').value) {
+                    document.getElementById('scriptName').value = selectedFile.name.replace(/\.[^/.]+$/, "");
+                }
+            }
+        }
+        
+        uploadForm.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            
+            if (!selectedFile) {
+                showResult('❌ Please select a file', 'error');
+                return;
+            }
+            
+            const formData = new FormData();
+            formData.append('file', selectedFile);
+            formData.append('name', document.getElementById('scriptName').value);
+            formData.append('indicator_type', document.getElementById('indicatorType').value);
+            formData.append('indicator_params', JSON.stringify({
+                period: parseInt(document.getElementById('period').value) || 20
+            }));
+            
+            try {
+                showResult('⏳ Uploading script...', '');
+                
+                const response = await fetch('http://localhost:5001/api/scripts', {
+                    method: 'POST',
+                    body: formData
+                });
+                
+                const data = await response.json();
+                
+                if (response.ok) {
+                    showResult(`✅ Script uploaded successfully! ID: ${data.id}, Name: ${data.name}`, 'success');
+                    uploadForm.reset();
+                    selectedFile = null;
+                    uploadArea.innerHTML = '<p>📁 Drag & drop a Python script here or click to select</p>';
+                } else {
+                    showResult(`❌ Upload failed: ${data.error || 'Unknown error'}`, 'error');
+                }
+            } catch (error) {
+                showResult(`❌ Upload failed: ${error.message}`, 'error');
+            }
+        });
+        
+        function showResult(message, type) {
+            result.innerHTML = message;
+            result.className = type;
+        }
+        
+        // Test backend connection
+        fetch('http://localhost:5001/api/portfolio')
+            .then(response => response.json())
+            .then(data => {
+                console.log('✅ Backend connected:', data);
+            })
+            .catch(error => {
+                showResult(`❌ Backend connection failed: ${error.message}`, 'error');
+            });
+    </script>
+</body>
+</html>
