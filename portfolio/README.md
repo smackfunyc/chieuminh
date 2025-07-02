@@ -5,7 +5,7 @@
 </p>
 
 # **Minh Nguyen**
-# **Director of Product Design: Celigo, EverydayHealth, Citigroup**
+# **Director of Product: Celigo, EverydayHealth, Citigroup**
 
 ---
 
