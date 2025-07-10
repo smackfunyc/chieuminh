@@ -63,6 +63,10 @@ def chat(message, history):
         
         
 gr.ChatInterface(fn=chat, type="messages",
+    fn=chat,
+    type="messages",
+    input_audio=True,    # Enable voice input
+    output_audio=True,   # Enable voice output
                  css="""
         /* 80s RETRO OVERRIDES */
         .gradio-container {
