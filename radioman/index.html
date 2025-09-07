@@ -1,0 +1,487 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Online Radio Player</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <div class="radio-player">
+        <h1>🎵 Minh's Radio </h1>
+
+        <audio id="audioPlayer" preload="none">
+            Your browser does not support the audio element.
+        </audio>
+
+        <div class="now-playing">
+            <h3>🎶 Now Playing</h3>
+            <div class="song-info" id="songInfo">
+                <div class="no-song">Loading song information...</div>
+            </div>
+        </div>
+
+        <div class="rating-section">
+            <h4>🎵 Rate This Song <small style="font-size: 0.7em; color: #ccc;">(click again to change/remove)</small></h4>
+            <div class="rating-buttons">
+                <button class="rating-btn" id="thumbsUpBtn" data-rating="up">
+                    👍
+                    <div style="font-size: 12px; margin-top: 5px;" id="upCount">0</div>
+                </button>
+                <button class="rating-btn" id="thumbsDownBtn" data-rating="down">
+                    👎
+                    <div style="font-size: 12px; margin-top: 5px;" id="downCount">0</div>
+                </button>
+            </div>
+            <div class="rating-stats">
+                <div class="rating-count">
+                    <span>Total Votes: <span id="totalVotes">0</span></span>
+                </div>
+            </div>
+            <div class="rating-percentage" id="ratingPercentage"></div>
+        </div>
+
+        <div class="history" id="historySection" style="display: none;">
+            <h4>📻 Recently Played</h4>
+            <div id="historyList"></div>
+        </div>
+
+        <div class="controls">
+            <button id="playBtn">▶️ Play</button>
+            <button id="skipBtn">⏭️ Skip</button>
+            <button id="stopBtn">⏹️ Stop</button>
+        </div>
+
+    <div class="volume-control">
+        <label for="volumeSlider">🔊 Volume:</label>
+        <input type="range" id="volumeSlider" min="0" max="100" value="50">
+    </div>
+
+    <div class="status" id="status">Ready to play</div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
+    <script>
+        const audioPlayer = document.getElementById('audioPlayer');
+        const playBtn = document.getElementById('playBtn');
+        const skipBtn = document.getElementById('skipBtn');
+        const stopBtn = document.getElementById('stopBtn');
+        const volumeSlider = document.getElementById('volumeSlider');
+        const status = document.getElementById('status');
+
+        const streamUrl = 'https://d3d4yli4hf5bmh.cloudfront.net/hls/live.m3u8';
+        const metadataUrl = 'https://d3d4yli4hf5bmh.cloudfront.net/metadatav2.json';
+        const songInfo = document.getElementById('songInfo');
+        const historySection = document.getElementById('historySection');
+        const historyList = document.getElementById('historyList');
+        const thumbsUpBtn = document.getElementById('thumbsUpBtn');
+        const thumbsDownBtn = document.getElementById('thumbsDownBtn');
+        const upCount = document.getElementById('upCount');
+        const downCount = document.getElementById('downCount');
+        const totalVotes = document.getElementById('totalVotes');
+        const ratingPercentage = document.getElementById('ratingPercentage');
+
+        let hls;
+        let isPlaying = false;
+        let songUpdateInterval;
+        let currentTrackId = null;
+        let currentSongRatings = { up: 0, down: 0 };
+        let userVotes = JSON.parse(localStorage.getItem('radioRatings') || '{}');
+
+        async function fetchMetadata() {
+            try {
+                const response = await fetch(metadataUrl + '?_=' + Date.now());
+                const data = await response.json();
+                return data;
+            } catch (error) {
+                console.error('Error fetching metadata:', error);
+                return null;
+            }
+        }
+
+        function updateSongInfo(metadata) {
+            if (!metadata) {
+                songInfo.innerHTML = '<div class="no-song">Unable to load song information</div>';
+                return;
+            }
+
+            const newTrackId = `${metadata.artist}-${metadata.title}-${metadata.album}`;
+            
+            // If song changed, load ratings for new song
+            if (currentTrackId !== newTrackId) {
+                currentTrackId = newTrackId;
+                loadSongRatings();
+                updateRatingButtons();
+            }
+
+            const techInfo = `
+                <div class="tech-info">
+                    🔧 ${metadata.bit_depth}-bit / ${metadata.sample_rate / 1000}kHz
+                    ${metadata.is_new ? ' • 🆕 New' : ''}
+                    ${metadata.is_summer ? ' • ☀️ Summer' : ''}
+                    ${metadata.is_vidgames ? ' • 🎮 Video Game' : ''}
+                </div>
+            `;
+
+            songInfo.innerHTML = `
+                <div class="song-title">🎵 ${metadata.title || 'Unknown Title'}</div>
+                <div class="song-artist">👤 ${metadata.artist || 'Unknown Artist'}</div>
+                <div class="song-album">💿 ${metadata.album || 'Unknown Album'}</div>
+                <div class="song-year">📅 ${metadata.date || 'Unknown Year'}</div>
+                ${techInfo}
+            `;
+        }
+
+        function updateHistory(metadata) {
+            if (!metadata) return;
+
+            const historyItems = [];
+            for (let i = 1; i <= 5; i++) {
+                const artist = metadata[`prev_artist_${i}`];
+                const title = metadata[`prev_title_${i}`];
+                if (artist && title) {
+                    const trackId = `${artist}-${title}-Unknown Album`;
+                    historyItems.push({ artist, title, trackId });
+                }
+            }
+
+            if (historyItems.length > 0) {
+                historySection.style.display = 'block';
+                historyList.innerHTML = historyItems.map((item, index) => {
+                    const savedRatings = JSON.parse(localStorage.getItem('songRatings') || '{}');
+                    const songRatings = savedRatings[item.trackId] || { up: 0, down: 0 };
+                    const userVote = userVotes[item.trackId];
+                    
+                    return `
+                        <div class="history-item">
+                            <div class="history-song-info">
+                                🎵 ${item.title} - ${item.artist}
+                            </div>
+                            <div class="history-ratings">
+                                <button class="history-rating-btn ${userVote === 'up' ? 'voted' : ''}" 
+                                        data-track-id="${item.trackId}" 
+                                        data-rating="up">
+                                    👍 <span class="rating-stats-mini">${songRatings.up}</span>
+                                </button>
+                                <button class="history-rating-btn ${userVote === 'down' ? 'voted down' : ''}" 
+                                        data-track-id="${item.trackId}" 
+                                        data-rating="down">
+                                    👎 <span class="rating-stats-mini">${songRatings.down}</span>
+                                </button>
+                            </div>
+                        </div>
+                    `;
+                }).join('');
+                
+                // Add event listeners to history rating buttons
+                document.querySelectorAll('.history-rating-btn').forEach(btn => {
+                    btn.addEventListener('click', handleHistoryRating);
+                });
+            } else {
+                historySection.style.display = 'none';
+            }
+        }
+
+        async function updateAll() {
+            const metadata = await fetchMetadata();
+            if (metadata) {
+                updateSongInfo(metadata);
+                updateHistory(metadata);
+            }
+        }
+
+        function startSongUpdates() {
+            updateAll(); // Update immediately
+            songUpdateInterval = setInterval(updateAll, 10000); // Update every 10 seconds
+        }
+
+        function stopSongUpdates() {
+            if (songUpdateInterval) {
+                clearInterval(songUpdateInterval);
+                songUpdateInterval = null;
+            }
+            songInfo.innerHTML = '<div class="no-song">No song information available</div>';
+        }
+
+        function initializePlayer() {
+            if (Hls.isSupported()) {
+                hls = new Hls({
+                    enableWorker: true,
+                    lowLatencyMode: true,
+                    backBufferLength: 90
+                });
+
+                hls.loadSource(streamUrl);
+                hls.attachMedia(audioPlayer);
+
+                hls.on(Hls.Events.MANIFEST_PARSED, function () {
+                    status.textContent = 'Stream loaded, ready to play';
+                });
+
+                hls.on(Hls.Events.ERROR, function (event, data) {
+                    if (data.fatal) {
+                        switch (data.type) {
+                            case Hls.ErrorTypes.NETWORK_ERROR:
+                                status.textContent = 'Network error occurred';
+                                hls.startLoad();
+                                break;
+                            case Hls.ErrorTypes.MEDIA_ERROR:
+                                status.textContent = 'Media error occurred';
+                                hls.recoverMediaError();
+                                break;
+                            default:
+                                status.textContent = 'Fatal error occurred';
+                                hls.destroy();
+                                break;
+                        }
+                    }
+                });
+            } else if (audioPlayer.canPlayType('application/vnd.apple.mpegurl')) {
+                audioPlayer.src = streamUrl;
+                status.textContent = 'Using native HLS support';
+            } else {
+                status.textContent = 'HLS not supported in this browser';
+            }
+        }
+
+        playBtn.addEventListener('click', function () {
+            if (!isPlaying) {
+                audioPlayer.play().then(() => {
+                    isPlaying = true;
+                    playBtn.textContent = '⏸️ Pause';
+                    status.textContent = 'Playing live stream';
+                    startSongUpdates();
+                }).catch(error => {
+                    status.textContent = 'Error playing stream: ' + error.message;
+                });
+            } else {
+                audioPlayer.pause();
+                isPlaying = false;
+                playBtn.textContent = '▶️ Play';
+                status.textContent = 'Paused';
+                stopSongUpdates();
+            }
+        });
+
+        skipBtn.addEventListener('click', function () {
+            if (isPlaying) {
+                status.textContent = 'Skipping to next song...';
+                skipBtn.disabled = true;
+                
+                // For live streams, we refresh the connection and update metadata
+                if (hls) {
+                    hls.stopLoad();
+                    setTimeout(() => {
+                        hls.startLoad();
+                        updateAll(); // Force immediate metadata update
+                        skipBtn.disabled = false;
+                        status.textContent = 'Playing live stream';
+                    }, 1000);
+                } else {
+                    // For native HLS support
+                    const currentTime = audioPlayer.currentTime;
+                    audioPlayer.load();
+                    audioPlayer.play().then(() => {
+                        updateAll();
+                        skipBtn.disabled = false;
+                        status.textContent = 'Playing live stream';
+                    }).catch(() => {
+                        skipBtn.disabled = false;
+                        status.textContent = 'Skip failed';
+                    });
+                }
+            }
+        });
+
+        stopBtn.addEventListener('click', function () {
+            audioPlayer.pause();
+            audioPlayer.currentTime = 0;
+            isPlaying = false;
+            playBtn.textContent = '▶️ Play';
+            status.textContent = 'Stopped';
+            stopSongUpdates();
+        });
+
+        volumeSlider.addEventListener('input', function () {
+            audioPlayer.volume = this.value / 100;
+        });
+
+        audioPlayer.addEventListener('loadstart', () => {
+            status.textContent = 'Loading...';
+        });
+
+        audioPlayer.addEventListener('canplay', () => {
+            status.textContent = 'Ready to play';
+        });
+
+        audioPlayer.addEventListener('playing', () => {
+            status.textContent = 'Playing live stream';
+        });
+
+        audioPlayer.addEventListener('pause', () => {
+            if (isPlaying) {
+                isPlaying = false;
+                playBtn.textContent = '▶️ Play';
+                status.textContent = 'Paused';
+            }
+        });
+
+        audioPlayer.addEventListener('error', (e) => {
+            status.textContent = 'Audio error: ' + e.message;
+        });
+
+        // Rating system functions
+        function loadSongRatings() {
+            const savedRatings = JSON.parse(localStorage.getItem('songRatings') || '{}');
+            currentSongRatings = savedRatings[currentTrackId] || { up: 0, down: 0 };
+            updateRatingDisplay();
+        }
+
+        function saveSongRatings() {
+            const savedRatings = JSON.parse(localStorage.getItem('songRatings') || '{}');
+            savedRatings[currentTrackId] = currentSongRatings;
+            localStorage.setItem('songRatings', JSON.stringify(savedRatings));
+        }
+
+        function updateRatingDisplay() {
+            const total = currentSongRatings.up + currentSongRatings.down;
+            upCount.textContent = currentSongRatings.up;
+            downCount.textContent = currentSongRatings.down;
+            totalVotes.textContent = total;
+            
+            if (total > 0) {
+                const upPercentage = Math.round((currentSongRatings.up / total) * 100);
+                ratingPercentage.textContent = `${upPercentage}% positive`;
+            } else {
+                ratingPercentage.textContent = 'No votes yet';
+            }
+        }
+
+        function updateRatingButtons() {
+            const userVote = userVotes[currentTrackId];
+            
+            // Reset buttons
+            thumbsUpBtn.classList.remove('voted', 'can-change');
+            thumbsDownBtn.classList.remove('voted', 'down', 'can-change');
+            
+            // Apply user's previous vote if exists and allow changing
+            if (userVote === 'up') {
+                thumbsUpBtn.classList.add('voted', 'can-change');
+            } else if (userVote === 'down') {
+                thumbsDownBtn.classList.add('voted', 'down', 'can-change');
+            }
+        }
+
+        function handleRating(rating) {
+            if (!currentTrackId) return;
+            
+            const existingVote = userVotes[currentTrackId];
+            
+            // If user is changing their vote
+            if (existingVote && existingVote !== rating) {
+                // Remove old vote
+                if (existingVote === 'up') {
+                    currentSongRatings.up--;
+                } else {
+                    currentSongRatings.down--;
+                }
+            }
+            
+            // If clicking same rating, remove vote
+            if (existingVote === rating) {
+                delete userVotes[currentTrackId];
+                if (rating === 'up') {
+                    currentSongRatings.up--;
+                } else {
+                    currentSongRatings.down--;
+                }
+            } else {
+                // Add new vote
+                userVotes[currentTrackId] = rating;
+                if (rating === 'up') {
+                    currentSongRatings.up++;
+                } else {
+                    currentSongRatings.down++;
+                }
+            }
+            
+            localStorage.setItem('radioRatings', JSON.stringify(userVotes));
+            saveSongRatings();
+            updateRatingDisplay();
+            updateRatingButtons();
+        }
+
+        function handleHistoryRating(event) {
+            const btn = event.currentTarget;
+            const trackId = btn.dataset.trackId;
+            const rating = btn.dataset.rating;
+            
+            const existingVote = userVotes[trackId];
+            const savedRatings = JSON.parse(localStorage.getItem('songRatings') || '{}');
+            let songRatings = savedRatings[trackId] || { up: 0, down: 0 };
+            
+            // If user is changing their vote
+            if (existingVote && existingVote !== rating) {
+                // Remove old vote
+                if (existingVote === 'up') {
+                    songRatings.up--;
+                } else {
+                    songRatings.down--;
+                }
+            }
+            
+            // If clicking same rating, remove vote
+            if (existingVote === rating) {
+                delete userVotes[trackId];
+                if (rating === 'up') {
+                    songRatings.up--;
+                } else {
+                    songRatings.down--;
+                }
+            } else {
+                // Add new vote
+                userVotes[trackId] = rating;
+                if (rating === 'up') {
+                    songRatings.up++;
+                } else {
+                    songRatings.down++;
+                }
+            }
+            
+            // Save changes
+            savedRatings[trackId] = songRatings;
+            localStorage.setItem('radioRatings', JSON.stringify(userVotes));
+            localStorage.setItem('songRatings', JSON.stringify(savedRatings));
+            
+            // Update current song display if it matches
+            if (trackId === currentTrackId) {
+                currentSongRatings = songRatings;
+                updateRatingDisplay();
+                updateRatingButtons();
+            }
+            
+            // Refresh history display
+            const currentMetadata = {};
+            const historyItems = Array.from(document.querySelectorAll('.history-item'));
+            historyItems.forEach((item, index) => {
+                const songInfo = item.querySelector('.history-song-info').textContent;
+                const parts = songInfo.replace('🎵 ', '').split(' - ');
+                currentMetadata[`prev_title_${index + 1}`] = parts[0];
+                currentMetadata[`prev_artist_${index + 1}`] = parts[1];
+            });
+            updateHistory(currentMetadata);
+        }
+
+        // Event listeners for rating buttons
+        thumbsUpBtn.addEventListener('click', () => handleRating('up'));
+        thumbsDownBtn.addEventListener('click', () => handleRating('down'));
+
+        audioPlayer.volume = 0.5;
+
+        initializePlayer();
+    </script>
+</body>
+
+</html>
