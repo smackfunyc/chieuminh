@@ -1,1 +1,766 @@
 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<title>GPT Blueprint Builder</title>
+
+<!-- Google Font -->
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+
+<style>
+  body {
+    margin: 0;
+    font-family: "Inter", sans-serif;
+    background: linear-gradient(135deg, #eef2f3, #dfe9f3);
+    display: flex;
+    min-height: 100vh;
+  }
+
+  /* SIDEBAR */
+  .sidebar {
+    width: 240px;
+    background: #ffffffdd;
+    backdrop-filter: blur(8px);
+    padding: 30px 20px;
+    box-shadow: 4px 0 15px rgba(0,0,0,0.08);
+    position: fixed;
+    top: 0;
+    bottom: 0;
+  }
+
+  .sidebar h2 {
+    font-size: 20px;
+    margin-bottom: 20px;
+    font-weight: 600;
+  }
+
+  .sidebar a {
+    display: block;
+    padding: 10px 12px;
+    margin-bottom: 8px;
+    border-radius: 8px;
+    text-decoration: none;
+    color: #333;
+    font-weight: 500;
+    transition: 0.2s;
+  }
+
+  .sidebar a:hover,
+  .sidebar a.active {
+    background: #6ea8ff33;
+    color: #2a5bd7;
+  }
+
+  /* MAIN CONTENT */
+  .main {
+    margin-left: 260px;
+    padding: 40px 40px 80px;
+    width: calc(100% - 260px);
+  }
+
+  h1 {
+    text-align: center;
+    font-weight: 600;
+    margin-bottom: 10px;
+  }
+
+  /* SECTIONS */
+  .section {
+    background: #ffffffcc;
+    backdrop-filter: blur(8px);
+    padding: 20px 25px;
+    border-radius: 14px;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+  }
+
+  .collapsible {
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 18px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .collapsible span {
+    transition: transform 0.3s ease;
+  }
+
+  .collapsible.active span {
+    transform: rotate(90deg);
+  }
+
+  .content {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.35s ease;
+    margin-top: 10px;
+  }
+
+  label {
+    font-weight: 600;
+    display: block;
+    margin-top: 15px;
+  }
+
+  input[type="text"], textarea, select {
+    width: 100%;
+    padding: 10px;
+    margin-top: 6px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    background: #fafafa;
+    transition: 0.2s;
+  }
+
+  input:focus, textarea:focus, select:focus {
+    outline: none;
+    border-color: #7aa7ff;
+    background: #fff;
+    box-shadow: 0 0 0 3px rgba(122,167,255,0.25);
+  }
+
+  textarea {
+    min-height: 80px;
+  }
+
+  /* BUTTONS */
+  .buttons {
+    margin-top: 25px;
+    text-align: center;
+  }
+
+  button {
+    padding: 10px 16px;
+    margin: 6px;
+    border: none;
+    border-radius: 10px;
+    font-size: 14px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: 0.25s;
+    background: linear-gradient(135deg, #6ea8ff, #4e8cff);
+    color: white;
+    box-shadow: 0 4px 12px rgba(78,140,255,0.3);
+  }
+
+  button.secondary {
+    background: #f3f4f6;
+    color: #333;
+    box-shadow: none;
+  }
+
+  button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 18px rgba(78,140,255,0.4);
+  }
+
+  button.secondary:hover {
+    box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+  }
+
+  /* PREVIEW */
+  #preview {
+    margin-top: 40px;
+    padding: 25px;
+    background: #ffffffdd;
+    border-radius: 14px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+    line-height: 1.5;
+  }
+
+  .small-note {
+    text-align: center;
+    margin-top: 10px;
+    color: #555;
+    font-size: 0.9em;
+  }
+
+  /* MODAL */
+  .modal-backdrop {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.4);
+    display: none;
+    align-items: center;
+    justify-content: center;
+    z-index: 999;
+  }
+
+  .modal {
+    background: #ffffff;
+    border-radius: 12px;
+    padding: 20px 24px;
+    max-width: 700px;
+    width: 90%;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.25);
+  }
+
+  .modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+  }
+
+  .modal-header h3 {
+    margin: 0;
+  }
+
+  .modal textarea {
+    width: 100%;
+    height: 260px;
+    border-radius: 8px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    resize: vertical;
+  }
+
+  .modal-footer {
+    margin-top: 10px;
+    text-align: right;
+  }
+
+  .score-badge {
+    display: inline-block;
+    padding: 4px 10px;
+    border-radius: 999px;
+    font-size: 12px;
+    font-weight: 600;
+    margin-left: 8px;
+  }
+</style>
+
+<!-- jsPDF -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+
+</head>
+<body>
+
+<!-- SIDEBAR -->
+<div class="sidebar">
+  <h2>Navigation</h2>
+  <a href="#prep" class="nav-link">Preparation</a>
+  <a href="#build" class="nav-link">Building</a>
+  <a href="#quality" class="nav-link">Quality</a>
+  <a href="#preview" class="nav-link">Preview</a>
+  <a href="#download" class="nav-link">Download</a>
+</div>
+
+<!-- MAIN CONTENT -->
+<div class="main">
+
+<h1>GPT Blueprint Builder</h1>
+<p style="text-align:center; color:#444;">Fill in the fields, generate a preview, then download or send to ChatGPT.</p>
+
+<!-- PREPARATION -->
+<div class="section" id="prep">
+  <div class="collapsible">Preparation <span>▶</span></div>
+  <div class="content">
+
+    <label>Project Name</label>
+    <input type="text" id="projectName" />
+
+    <label>Problem Statement</label>
+    <textarea id="problemStatement"></textarea>
+
+    <label>Goal Statement</label>
+    <textarea id="goalStatement"></textarea>
+
+    <label>Process (4–8 steps)</label>
+    <textarea id="process"></textarea>
+
+    <label>Primary Audience</label>
+    <select id="primaryAudience">
+      <option value="">Select...</option>
+      <option>Consultants</option>
+      <option>Project Coordinators</option>
+      <option>Project Managers</option>
+      <option>Marketing</option>
+      <option>Other</option>
+    </select>
+
+    <label>Successful Outcome</label>
+    <textarea id="successfulOutcome"></textarea>
+
+    <label>Dependencies</label>
+    <textarea id="dependencies"></textarea>
+
+    <label>Risks</label>
+    <textarea id="risks"></textarea>
+
+  </div>
+</div>
+
+<!-- BUILDING -->
+<div class="section" id="build">
+  <div class="collapsible">Building <span>▶</span></div>
+  <div class="content">
+
+    <label>GPT Name</label>
+    <input type="text" id="gptName" />
+
+    <label>GPT Description</label>
+    <textarea id="gptDescription"></textarea>
+
+    <label>GPT Instructions</label>
+    <textarea id="gptInstructions"></textarea>
+
+    <div class="buttons" style="text-align:left; margin-top:10px;">
+      <button class="secondary" onclick="openInstructionPromptModal('generate')">Generate Instructions with ChatGPT</button>
+      <button class="secondary" onclick="scoreInstructions()">Score Instructions</button>
+      <button class="secondary" onclick="openInstructionPromptModal('optimize')">Optimize Instructions with ChatGPT</button>
+      <button class="secondary" onclick="pasteFromClipboard()">Paste from Clipboard</button>
+    </div>
+
+    <label>Disclaimers</label>
+    <textarea id="disclaimers">AI can make mistakes, please check the output.</textarea>
+
+    <label>Capabilities</label>
+    <textarea id="capabilities">Enable Code Interpreter for DOCX/PDF. Disable Web Search and Image tools unless needed.</textarea>
+
+    <label>Examples of Successful Output</label>
+    <textarea id="examples"></textarea>
+
+  </div>
+</div>
+
+<!-- QUALITY -->
+<div class="section" id="quality">
+  <div class="collapsible">Quality / Output <span>▶</span></div>
+  <div class="content">
+
+    <label>Results Checklist</label>
+    <textarea id="resultsChecklist">- Goal achieved?
+- Output format correct?
+- Guardrails respected?
+- Risks mitigated?</textarea>
+
+    <div class="buttons" style="text-align:left; margin-top:10px;">
+      <button class="secondary" onclick="generateGPTReview()">GPT Review Prompt</button>
+    </div>
+
+  </div>
+</div>
+
+<!-- BUTTONS -->
+<div class="buttons" id="download">
+  <button onclick="generatePreview()">Generate Preview</button>
+  <button onclick="downloadWord()">Download Word</button>
+  <button onclick="downloadPDF()">Download PDF</button>
+  <button onclick="generateShareURL()">Share Blueprint</button>
+  <button onclick="clearAll()">Clear All</button>
+</div>
+
+<p class="small-note">
+  Files follow: <code>GPT_Blueprint_&lt;ProjectName&gt;_&lt;YYYY-MM-DD&gt;</code>
+</p>
+
+<!-- PREVIEW -->
+<div id="preview">
+  <h3 style="text-align:center; color:#777;">Preview will appear here</h3>
+</div>
+
+</div>
+
+<!-- MODAL FOR PROMPT PREVIEW -->
+<div class="modal-backdrop" id="promptModalBackdrop">
+  <div class="modal">
+    <div class="modal-header">
+      <h3 id="modalTitle">Prompt Preview</h3>
+      <button class="secondary" onclick="closePromptModal()">Close</button>
+    </div>
+    <textarea id="modalPromptText"></textarea>
+    <div class="modal-footer">
+      <button class="secondary" onclick="copyPrompt()">Copy Prompt</button>
+      <button onclick="openChatGPT()">Open in ChatGPT</button>
+    </div>
+  </div>
+</div>
+
+<script>
+/* -------------------------
+   COLLAPSIBLE SECTIONS
+-------------------------- */
+document.querySelectorAll(".collapsible").forEach(col => {
+  col.addEventListener("click", () => {
+    col.classList.toggle("active");
+    const content = col.nextElementSibling;
+    content.style.maxHeight = content.style.maxHeight ? null : content.scrollHeight + "px";
+  });
+});
+
+/* -------------------------
+   AUTOSAVE
+-------------------------- */
+const fields = [
+  "projectName","problemStatement","goalStatement","process","primaryAudience",
+  "successfulOutcome","dependencies","risks","gptName","gptDescription",
+  "gptInstructions","disclaimers","capabilities","examples","resultsChecklist"
+];
+
+function saveData() {
+  const data = {};
+  fields.forEach(id => data[id] = document.getElementById(id).value);
+  localStorage.setItem("blueprintData", JSON.stringify(data));
+}
+
+function loadData() {
+  const saved = localStorage.getItem("blueprintData");
+  if (!saved) return;
+  const data = JSON.parse(saved);
+  fields.forEach(id => {
+    if (data[id] !== undefined) document.getElementById(id).value = data[id];
+  });
+}
+
+fields.forEach(id => {
+  document.getElementById(id).addEventListener("input", saveData);
+});
+
+loadData();
+
+/* -------------------------
+   SHARE VIA URL
+-------------------------- */
+function generateShareURL() {
+  const data = {};
+  fields.forEach(id => data[id] = document.getElementById(id).value);
+
+  const encoded = encodeURIComponent(JSON.stringify(data));
+  const url = `${window.location.origin}${window.location.pathname}?data=${encoded}`;
+
+  navigator.clipboard.writeText(url);
+  alert("Shareable link copied to clipboard!");
+}
+
+function loadFromURL() {
+  const params = new URLSearchParams(window.location.search);
+  if (!params.has("data")) return;
+
+  try {
+    const data = JSON.parse(decodeURIComponent(params.get("data")));
+    fields.forEach(id => {
+      if (data[id]) document.getElementById(id).value = data[id];
+    });
+  } catch (e) {
+    console.error("Invalid share data");
+  }
+}
+
+loadFromURL();
+
+/* -------------------------
+   PREVIEW GENERATION
+-------------------------- */
+function escapeHtml(text) {
+  return text.replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;");
+}
+
+function generatePreview() {
+  const data = {};
+  fields.forEach(id => data[id] = document.getElementById(id).value.trim());
+
+  const html = `
+    <h2>PREPARATION</h2>
+    <h3>1. Define the Problem and Goal</h3>
+    <p><strong>Project Name:</strong> ${escapeHtml(data.projectName)}</p>
+    <p><strong>Problem Statement:</strong> ${escapeHtml(data.problemStatement)}</p>
+    <p><strong>Goal Statement:</strong> ${escapeHtml(data.goalStatement)}</p>
+    <p><strong>Process:</strong><br>${escapeHtml(data.process).replace(/\n/g,"<br>")}</p>
+    <p><strong>Primary Audience:</strong> ${escapeHtml(data.primaryAudience)}</p>
+    <p><strong>Successful Outcome:</strong><br>${escapeHtml(data.successfulOutcome).replace(/\n/g,"<br>")}</p>
+    <p><strong>Dependencies:</strong><br>${escapeHtml(data.dependencies).replace(/\n/g,"<br>")}</p>
+    <p><strong>Risks:</strong><br>${escapeHtml(data.risks).replace(/\n/g,"<br>")}</p>
+
+    <h2>BUILDING</h2>
+    <p><strong>GPT Name:</strong> ${escapeHtml(data.gptName)}</p>
+    <p><strong>GPT Description:</strong><br>${escapeHtml(data.gptDescription).replace(/\n/g,"<br>")}</p>
+    <p><strong>GPT Instructions:</strong><br>${escapeHtml(data.gptInstructions).replace(/\n/g,"<br>")}</p>
+    <p><strong>Disclaimers:</strong><br>${escapeHtml(data.disclaimers).replace(/\n/g,"<br>")}</p>
+    <p><strong>Capabilities:</strong><br>${escapeHtml(data.capabilities).replace(/\n/g,"<br>")}</p>
+    <p><strong>Examples of Successful Output:</strong><br>${escapeHtml(data.examples).replace(/\n/g,"<br>")}</p>
+
+    <h2>GPT QUALITY / OUTPUT</h2>
+    <p><strong>Results:</strong><br>${escapeHtml(data.resultsChecklist).replace(/\n/g,"<br>")}</p>
+  `;
+
+  document.getElementById("preview").innerHTML = html;
+}
+
+/* -------------------------
+   WORD DOWNLOAD
+-------------------------- */
+function buildDocHTML() {
+  return `<html><body>${document.getElementById("preview").innerHTML}</body></html>`;
+}
+
+function downloadWord() {
+  const name = document.getElementById("projectName").value.trim() || "Untitled";
+  const filename = `GPT_Blueprint_${name}_${new Date().toISOString().slice(0,10)}.doc`;
+
+  const blob = new Blob(['\ufeff', buildDocHTML()], { type: "application/msword" });
+  const url = URL.createObjectURL(blob);
+
+  const a = document.createElement("a");
+  a.href = url;
+  a.download = filename;
+  a.click();
+  URL.revokeObjectURL(url);
+}
+
+/* -------------------------
+   PDF DOWNLOAD
+-------------------------- */
+async function downloadPDF() {
+  const { jsPDF } = window.jspdf;
+  const doc = new jsPDF("p","pt","a4");
+
+  await doc.html(document.getElementById("preview"), {
+    x: 20,
+    y: 20,
+    width: 560,
+    callback: function(doc) {
+      const name = document.getElementById("projectName").value.trim() || "Untitled";
+      doc.save(`GPT_Blueprint_${name}_${new Date().toISOString().slice(0,10)}.pdf`);
+    }
+  });
+}
+
+/* -------------------------
+   CLEAR ALL
+-------------------------- */
+function clearAll() {
+  if (!confirm("Clear all saved data?")) return;
+  localStorage.removeItem("blueprintData");
+  fields.forEach(id => document.getElementById(id).value = "");
+  document.getElementById("preview").innerHTML = "<h3 style='text-align:center;color:#777;'>Preview cleared</h3>";
+}
+
+/* -------------------------
+   GPT REVIEW PROMPT
+-------------------------- */
+function generateGPTReview() {
+  const data = {};
+  fields.forEach(id => data[id] = document.getElementById(id).value.trim());
+
+  const reviewPrompt = `
+You are an expert GPT Blueprint Reviewer. Evaluate the following GPT blueprint for clarity, completeness, risks, and alignment with best practices.
+
+Provide:
+1. A summary of strengths
+2. A list of issues or ambiguities
+3. Recommended improvements
+4. A rewritten, improved version of any weak sections
+5. A final “quality score” from 1–10
+
+--- BLUEPRINT DATA ---
+
+Project Name:
+${data.projectName}
+
+Problem Statement:
+${data.problemStatement}
+
+Goal Statement:
+${data.goalStatement}
+
+Process:
+${data.process}
+
+Primary Audience:
+${data.primaryAudience}
+
+Successful Outcome:
+${data.successfulOutcome}
+
+Dependencies:
+${data.dependencies}
+
+Risks:
+${data.risks}
+
+GPT Name:
+${data.gptName}
+
+GPT Description:
+${data.gptDescription}
+
+GPT Instructions:
+${data.gptInstructions}
+
+Disclaimers:
+${data.disclaimers}
+
+Capabilities:
+${data.capabilities}
+
+Examples of Successful Output:
+${data.examples}
+
+Results Checklist:
+${data.resultsChecklist}
+
+--- END ---
+  `;
+
+  document.getElementById("preview").innerHTML = `
+    <h2>GPT Review Prompt</h2>
+    <p>Copy the text below and paste it into ChatGPT to get a full expert review.</p>
+    <textarea style="width:100%; height:400px; padding:12px; border-radius:8px;">${reviewPrompt}</textarea>
+  `;
+}
+
+/* -------------------------
+   INSTRUCTION PROMPT MODAL
+-------------------------- */
+let currentPromptType = null; // 'generate' or 'optimize'
+
+function openInstructionPromptModal(type) {
+  currentPromptType = type;
+  const modal = document.getElementById("promptModalBackdrop");
+  const title = document.getElementById("modalTitle");
+  const textarea = document.getElementById("modalPromptText");
+
+  if (type === "generate") {
+    title.textContent = "Generate GPT Instructions Prompt";
+    textarea.value = buildGenerateInstructionsPrompt();
+  } else {
+    title.textContent = "Optimize GPT Instructions Prompt";
+    textarea.value = buildOptimizeInstructionsPrompt();
+  }
+
+  modal.style.display = "flex";
+}
+
+function closePromptModal() {
+  document.getElementById("promptModalBackdrop").style.display = "none";
+}
+
+function buildGenerateInstructionsPrompt() {
+  const data = {};
+  fields.forEach(id => data[id] = document.getElementById(id).value.trim());
+
+  return `
+You are an expert GPT architect. Create the full “GPT Instructions” section for a custom GPT using the following blueprint fields.
+
+The instructions must:
+- Use positive, directive language
+- Include guardrails
+- Include process steps
+- Include safety constraints
+- Include how the GPT should interact with the user
+- Include what the GPT must avoid
+- Be written as if they will be pasted directly into the GPT builder
+
+--- BLUEPRINT FIELDS ---
+Project Name: ${data.projectName}
+Problem Statement: ${data.problemStatement}
+Goal Statement: ${data.goalStatement}
+Process: ${data.process}
+Primary Audience: ${data.primaryAudience}
+Successful Outcome: ${data.successfulOutcome}
+Dependencies: ${data.dependencies}
+Risks: ${data.risks}
+GPT Name: ${data.gptName}
+GPT Description: ${data.gptDescription}
+Examples of Successful Output: ${data.examples}
+--------------------------------
+
+Generate the full GPT Instructions now.
+  `.trim();
+}
+
+function buildOptimizeInstructionsPrompt() {
+  const instructions = document.getElementById("gptInstructions").value.trim();
+
+  return `
+You are an expert GPT optimization reviewer.
+
+Improve the following GPT Instructions by:
+- Tightening clarity
+- Removing redundancy
+- Strengthening guardrails
+- Ensuring one clear goal
+- Ensuring measurable outcomes
+- Ensuring safe sourcing and risk controls
+- Making the instructions GPT‑builder ready
+
+Return the improved instructions only.
+
+--- INSTRUCTIONS TO OPTIMIZE ---
+${instructions}
+--------------------------------
+  `.trim();
+}
+
+function copyPrompt() {
+  const text = document.getElementById("modalPromptText").value;
+  navigator.clipboard.writeText(text);
+  alert("Prompt copied to clipboard.");
+}
+
+function openChatGPT() {
+  const text = document.getElementById("modalPromptText").value;
+  const encoded = encodeURIComponent(text);
+  const url = `https://chatgpt.com/?q=${encoded}`;
+  window.open(url, "_blank");
+}
+
+/* -------------------------
+   PASTE FROM CLIPBOARD
+-------------------------- */
+async function pasteFromClipboard() {
+  try {
+    const text = await navigator.clipboard.readText();
+    if (!text) {
+      alert("Clipboard is empty or not accessible.");
+      return;
+    }
+    document.getElementById("gptInstructions").value = text;
+    saveData();
+    alert("Pasted into GPT Instructions.");
+  } catch (e) {
+    alert("Unable to read from clipboard in this browser/context.");
+  }
+}
+
+/* -------------------------
+   SCORE & WEAKNESS CHECK
+-------------------------- */
+function scoreInstructions() {
+  const text = document.getElementById("gptInstructions").value.trim();
+  if (!text) {
+    alert("No instructions to score. Paste or generate them first.");
+    return;
+  }
+
+  let score = 10;
+  const lower = text.toLowerCase();
+
+  if (text.length < 400) score -= 3;
+  if (!lower.includes("goal") && !lower.includes("purpose")) score -= 2;
+  if (!lower.includes("guardrail") && !lower.includes("do not")) score -= 2;
+  if (!lower.includes("step") && !lower.includes("process")) score -= 1;
+  if (!lower.includes("user") && !lower.includes("you will")) score -= 1;
+  if (!lower.includes("avoid") && !lower.includes("must not")) score -= 1;
+
+  if (score < 1) score = 1;
+
+  let message = `Estimated instruction quality score: ${score}/10.\n\n`;
+  if (score < 7) {
+    message += "These instructions look weak or incomplete. Consider running the Optimize flow with ChatGPT.";
+  } else if (score < 9) {
+    message += "These instructions are decent but could still be tightened and clarified.";
+  } else {
+    message += "These instructions look strong, but you can still optimize for polish.";
+  }
+
+  alert(message);
+}
+</script>
+
+</body>
+</html>
