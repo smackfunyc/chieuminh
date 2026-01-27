@@ -5,7 +5,7 @@
 </p>
 
 # **Minh Nguyen**
-# **Director of Product: Celigo, EverydayHealth, Citigroup**
+# **Director of AI: Russell Reynolds, Celigo, EverydayHealth, Citigroup**
 
 ---
 
