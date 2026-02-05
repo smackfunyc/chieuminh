@@ -1,0 +1,235 @@
+openapi: 3.1.0
+info:
+  title: GPT Usage Analyst API
+  description: Analyze and categorize RRA GPT usage data month-over-month
+  version: 1.0.0
+servers:
+  - url: https://your-api-domain.com
+    description: Production server
+
+paths:
+  /analyze:
+    post:
+      operationId: analyzeGptUsage
+      summary: Analyze single period GPT usage
+      description: Upload Excel file with GPTData to get categorized analysis
+      requestBody:
+        required: true
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                file:
+                  type: string
+                  format: binary
+                  description: Excel file with GPTData tab
+                period:
+                  type: string
+                  description: Period label
+      responses:
+        "200":
+          description: Successful analysis
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  metadata:
+                    type: object
+                    properties:
+                      period:
+                        type: string
+                      analysis_date:
+                        type: string
+                      file_processed:
+                        type: string
+                      total_live_gpts:
+                        type: integer
+                      excluded_gpts:
+                        type: integer
+                      included_gpts:
+                        type: integer
+                  exclusions:
+                    type: object
+                    properties:
+                      count:
+                        type: integer
+                      total_messages:
+                        type: integer
+                      top_excluded:
+                        type: array
+                        items:
+                          type: object
+                          properties:
+                            name:
+                              type: string
+                            messages:
+                              type: integer
+                            reason:
+                              type: string
+                  summary:
+                    type: object
+                    properties:
+                      total_gpts_analyzed:
+                        type: integer
+                      total_messages:
+                        type: integer
+                      total_unique_users:
+                        type: integer
+                      confidence_distribution:
+                        type: object
+                  categories:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        category:
+                          type: string
+                        gpt_count:
+                          type: integer
+                        total_messages:
+                          type: integer
+                        total_users:
+                          type: number
+                        percentage:
+                          type: number
+                  top_gpts_by_category:
+                    type: object
+                    additionalProperties:
+                      type: array
+                      items:
+                        type: object
+                        properties:
+                          name:
+                            type: string
+                          messages:
+                            type: integer
+                          users:
+                            type: number
+                          confidence:
+                            type: string
+                          description:
+                            type: string
+                  uncategorized_high_volume:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        name:
+                          type: string
+                        messages:
+                          type: integer
+                        description:
+                          type: string
+                  all_categorizations:
+                    type: array
+                    items:
+                      type: object
+        "500":
+          description: Analysis error
+
+  /compare:
+    post:
+      operationId: compareGptPeriods
+      summary: Compare two periods of GPT usage
+      description: Upload two Excel files to compare month-over-month trends
+      requestBody:
+        required: true
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                current_file:
+                  type: string
+                  format: binary
+                  description: Current period Excel file
+                previous_file:
+                  type: string
+                  format: binary
+                  description: Previous period Excel file
+                current_period:
+                  type: string
+                previous_period:
+                  type: string
+      responses:
+        "200":
+          description: Successful comparison
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  periods:
+                    type: object
+                    properties:
+                      current:
+                        type: string
+                      previous:
+                        type: string
+                  overall:
+                    type: object
+                    properties:
+                      current_gpts:
+                        type: integer
+                      previous_gpts:
+                        type: integer
+                      gpt_change:
+                        type: integer
+                      current_messages:
+                        type: integer
+                      previous_messages:
+                        type: integer
+                      message_change:
+                        type: integer
+                      pct_change:
+                        type: number
+                  category_changes:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        category:
+                          type: string
+                        current_messages:
+                          type: integer
+                        previous_messages:
+                          type: integer
+                        absolute_change:
+                          type: integer
+                        pct_change:
+                          type: number
+                        current_gpts:
+                          type: integer
+                        previous_gpts:
+                          type: integer
+                        status:
+                          type: string
+                  growing_categories:
+                    type: array
+                    items:
+                      type: object
+                  declining_categories:
+                    type: array
+                    items:
+                      type: object
+        "500":
+          description: Comparison error
+
+  /health:
+    get:
+      operationId: healthCheck
+      summary: Health check
+      responses:
+        "200":
+          description: Service is healthy
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: string
+                  timestamp:
+                    type: string
