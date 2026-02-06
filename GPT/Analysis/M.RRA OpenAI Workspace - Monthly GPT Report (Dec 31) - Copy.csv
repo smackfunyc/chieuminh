@@ -1,0 +1,641 @@
+cadence,period_start,period_end,gpt_name,config_type,gpt_description,is_active,first_day_active_in_period,last_day_active_in_period,messages_workspace,unique_messagers_workspace,gpt_creator_email
+Monthly,12/1/2025,12/31/2025,Training Video test,live,,0,,,0,0,william.clark@russellreynolds.com
+Monthly,12/1/2025,12/31/2025,Project Coordinator / EA,live,"A distinctive-level executive assistant and project coordinator, embodying excellence in firm support.",1,12/1/2025,12/4/2025,11,1,clara.marschall@russellreynolds.com
+Monthly,12/1/2025,12/31/2025,PRRA Interview notes,live,Uses transcript to summarize initial interview,1,12/5/2025,12/5/2025,2,1,katarina.knight@russellreynolds.com
+Monthly,12/1/2025,12/31/2025,,draft,,0,,,0,0,ron.ongley@russellreynolds.com
+Monthly,12/1/2025,12/31/2025,Highlights for SM,live,Write an executive bio of this individual in bullets. Keep it factual/concise.,1,12/3/2025,12/9/2025,56,1,kate.schermer@russellreynolds.com
+Monthly,12/1/2025,12/31/2025,Redefiners Host Onboarding GPT,live,"Streamline the onboarding process for new co-hosts of the Redefiners podcast. This agent will automatically generate three key outputs: welcome email, social media promotion, and Q&A session script.",0,,,0,0,sarah.lermsider@russellreynolds.com
+Monthly,12/1/2025,12/31/2025,,draft,,0,,,0,0,vitoria.roque@russellreynolds.com
+Monthly,12/1/2025,12/31/2025,L&D bot,draft,"Designs evidence-based, inclusive learning programs for leadership advisory professionals.",1,12/30/2025,12/30/2025,5,1,lauren.krouskoff@russellreynolds.com
+Monthly,12/1/2025,12/31/2025,HN-V7-SDK-Person-Smart-Pack-GPT,live,,0,,,0,0,hanuveer.nahar@russellreynolds.com
+Monthly,12/1/2025,12/31/2025,Presentation Design Assistant,live,Help me produce polished and clear powerpoint slides for presentations to business stakeholders and clients,0,,,0,0,lizzy.klumpp@russellreynolds.com
+Monthly,12/1/2025,12/31/2025,,draft,Converts transcripts into concise internal meeting notes.,1,12/14/2025,12/14/2025,4,1,heather.blonkenfeld@russellreynolds.com
+Monthly,12/1/2025,12/31/2025,,draft,,0,,,0,0,aimee.williamson@russellreynolds.com
+Monthly,12/1/2025,12/31/2025,SLT Update GPT,live,"SLT Update GPT converts the inconsistent, lengthy MarComms Weekly Summary into a polished SLT Update. The model must rewrite, refine, filter for relevance, and format content exactly as specified.",1,12/7/2025,12/22/2025,6,1,sarah.lermsider@russellreynolds.com
+Monthly,12/1/2025,12/31/2025,,draft,,0,,,0,0,cameron.page@russellreynolds.com
+Monthly,12/1/2025,12/31/2025,,draft,"Generates content in the style and format of the uploaded document, preserving structure, sections, and stylistic elements.",0,,,0,0,bryan.gibson@russellreynolds.com
+Monthly,12/1/2025,12/31/2025,Social Charge Info collect,live,,0,,,0,0,kelly.smith@russellreynolds.com
+Monthly,12/1/2025,12/31/2025,Psychometric Report Generator - Local Build,draft,"Generate a set of RRA Psych Only Assessment Slides based on the following files: hogan report, opq report",0,,,0,0,bryan.gibson@russellreynolds.com
+Monthly,12/1/2025,12/31/2025,Training Attendance Tool,live,,0,,,0,0,william.clark@russellreynolds.com
+Monthly,12/1/2025,12/31/2025,Candice,draft,Candidate Content Agent,1,12/4/2025,12/19/2025,154,1,gemma.fell@russellreynolds.com
+Monthly,12/1/2025,12/31/2025,Ask RRA Take Deux,live,GPT for answering AskRRA questions,0,,,0,0,tavis.barr@russellreynolds.com
+Monthly,12/1/2025,12/31/2025,Search Strategy,live,Creador de estrategias de búsqueda de empresas para proyectos de research y executive search.,1,12/12/2025,12/19/2025,12,2,alejandro.ortiz@russellreynolds.com
+Monthly,12/1/2025,12/31/2025,,draft,,0,,,0,0,william.donahue@russellreynolds.com
+Monthly,12/1/2025,12/31/2025,,draft,,0,,,0,0,angela.wong@russellreynolds.com
+Monthly,12/1/2025,12/31/2025,,draft,,0,,,0,0,stephen.brown@russellreynolds.com
+Monthly,12/1/2025,12/31/2025,,draft,,0,,,0,0,nicole.mai@russellreynolds.com
+Monthly,12/1/2025,12/31/2025,,draft,,0,,,0,0,gagan.saini@russellreynolds.com
+Monthly,12/1/2025,12/31/2025,,draft,,0,,,0,0,netila.demneri@russellreynolds.com
+Monthly,12/1/2025,12/31/2025,Candidate Report Writer,draft,Australian version,0,,,0,0,amanda.ingall@russellreynolds.com
+Monthly,12/1/2025,12/31/2025,,draft,,0,,,0,0,kate.schermer@russellreynolds.com
+Monthly,12/1/2025,12/31/2025,Elastic Query Helper,draft,,0,,,0,0,vijay.yadav@russellreynolds.com
+Monthly,12/1/2025,12/31/2025,,draft,,0,,,0,0,donatella.landotti@russellreynolds.com
+Monthly,12/1/2025,12/31/2025,HN Person-Smart-Pack-GPT_inprogress (copy),live,,0,,,0,0,hanuveer.nahar@russellreynolds.com
+Monthly,12/1/2025,12/31/2025,,draft,,0,,,0,0,david.porter@russellreynolds.com
+Monthly,12/1/2025,12/31/2025,Search Funnel Builder,live,"Builds evolving internal search reports with mapped titles, insights, and company segmentation.",0,,,0,0,christine.skovholt@russellreynolds.com
+Monthly,12/1/2025,12/31/2025,HN-V4-SDK-Person-Smart-Pack-GPT,live,,0,,,0,0,hanuveer.nahar@russellreynolds.com
+Monthly,12/1/2025,12/31/2025,CL creator - Zeppelin,live,Writes executive-style candidate letters following a structured three-part evaluation framework.,1,12/2/2025,12/3/2025,21,1,gabriel.czembor@russellreynolds.com
+Monthly,12/1/2025,12/31/2025,Answer Emails,live,,1,12/9/2025,12/12/2025,2,1,alejandro.ortiz@russellreynolds.com
+Monthly,12/1/2025,12/31/2025,,draft,,0,,,0,0,michelle.lalonde@russellreynolds.com
+Monthly,12/1/2025,12/31/2025,,draft,,0,,,0,0,ashish.pithawala@russellreynolds.com
+Monthly,12/1/2025,12/31/2025,Brief to Campaign,live,Expert global content marketing manager for executive audiences.,0,,,0,0,susie.sell@russellreynolds.com
+Monthly,12/1/2025,12/31/2025,GPT with Open-Ended Response Analysis,live,This GPT finds topics in open-ended responses,0,,,0,0,tavis.barr@russellreynolds.com
+Monthly,12/1/2025,12/31/2025,,draft,,0,,,0,0,tatiana.palatchi@russellreynolds.com
+Monthly,12/1/2025,12/31/2025,Profile Digger (Search),live,Profile Search Ideas (internally and externally),0,,,0,0,luis.pereirabaptista@russellreynolds.com
+Monthly,12/1/2025,12/31/2025,AI Policy Advisor 3.0,live,An  assistant to help RRA employees understand the firm’s AI Policy. Ask the GPT how to responsibly use AI tools in daily work. Use these quick start prompts below to help get you started,0,,,0,0,minh.nguyen@russellreynolds.com
+Monthly,12/1/2025,12/31/2025,Appraisal Builder - Research,live,Compare self appraisals and feedback with WGLL for Research,1,12/9/2025,12/18/2025,8,1,katarina.knight@russellreynolds.com
+Monthly,12/1/2025,12/31/2025,HN-V4-SDK-Person-Smart-Pack-GPT (copy),draft,,0,,,0,0,hanuveer.nahar@russellreynolds.com
+Monthly,12/1/2025,12/31/2025,SH-V1-SDK-Company-Smart-Pack-GPT,live,,0,,,0,0,sharad.awasthi@russellreynolds.com
+Monthly,12/1/2025,12/31/2025,Interview Notes Polisher,draft,"Cleans, formats, and refines executive search and interview notes for professional output.",0,,,0,0,francesca.descher@russellreynolds.com
+Monthly,12/1/2025,12/31/2025,,draft,,0,,,0,0,guillaume.morisset@russellreynolds.com
+Monthly,12/1/2025,12/31/2025,,draft,Cleans and polishes reference-call notes into client-ready RRA documents.,1,12/19/2025,12/19/2025,4,1,ashley.alvarezcalderon@russellreynolds.com
+Monthly,12/1/2025,12/31/2025,,draft,,0,,,0,0,ebe.bonner@russellreynolds.com
+Monthly,12/1/2025,12/31/2025,PE SIM Detail,live,,1,12/18/2025,12/18/2025,2,1,sam.smith@russellreynolds.com
+Monthly,12/1/2025,12/31/2025,Software Dev Lead 2,live,"You are a supportive technical lead and coach who helps a non-technical product manager reason through technical decisions, design tradeoffs, and implementation options.",0,,,0,0,lizzy.klumpp@russellreynolds.com
+Monthly,12/1/2025,12/31/2025,,draft,,0,,,0,0,lynn.lee@russellreynolds.com
+Monthly,12/1/2025,12/31/2025,,draft,,0,,,0,0,purnima.arora@russellreynolds.com
+Monthly,12/1/2025,12/31/2025,One-page CL generator,live,"creates deeply critical and insightful, crisp candidate reports to support clients with interviewing, evaluating and comparing candidates.",1,12/1/2025,12/16/2025,50,1,damini.arora@russellreynolds.com
+Monthly,12/1/2025,12/31/2025,Michelle YE appraisal writer,live,,1,12/17/2025,12/17/2025,15,1,michelle.lalonde@russellreynolds.com
+Monthly,12/1/2025,12/31/2025,,draft,,0,,,0,0,ashish.pithawala@russellreynolds.com
+Monthly,12/1/2025,12/31/2025,,draft,,0,,,0,0,tatiana.velloso@russellreynolds.com
+Monthly,12/1/2025,12/31/2025,Review Builder,draft,"Helps leaders craft polished, structured performance reviews using firm-approved prompts.",1,12/12/2025,12/17/2025,35,1,brooke.baker@russellreynolds.com
+Monthly,12/1/2025,12/31/2025,,draft,,0,,,0,0,camila.amieva@russellreynolds.com
+Monthly,12/1/2025,12/31/2025,Assessment Meeting Scheduler,live,Proposes a set of meeting times for Assessments given Consultant and Assessment Targets and a set of constraints.,0,,,0,0,bryan.gibson@russellreynolds.com
+Monthly,12/1/2025,12/31/2025,Drafting EL from Gantt chart,live,The agent will take information from a high-level gantt chart and draft an engagement letter.,0,,,0,0,valerie.fortin@russellreynolds.com
+Monthly,12/1/2025,12/31/2025,AI Content Detector,live,"Use this GPT to detect if content is AI Generated. Paste in an email, article or communication and the GPT will score the likelihood that it is AI Generated.",1,12/1/2025,12/29/2025,97,12,leah.christianson@russellreynolds.com
+Monthly,12/1/2025,12/31/2025,,draft,,0,,,0,0,hiren.vora@russellreynolds.com
+Monthly,12/1/2025,12/31/2025,,draft,,0,,,0,0,luke.higgins@russellreynolds.com
+Monthly,12/1/2025,12/31/2025,Stock Loan Memorandum,live,Creates individual stock loan letters for each Managing Director,0,,,0,0,drew.brengel@russellreynolds.com
+Monthly,12/1/2025,12/31/2025,Leadership Portrait Report writer,draft,"Write concise - insightful leadership assessment reports for c-suite leaders. Some are candidates some are in place but these insights will inform big people decisions. we re helping clients understand the DNA of the leader, what makes the leader they are -strengths, risks, development areas.",1,12/1/2025,12/2/2025,48,1,cat.nadeau@russellreynolds.com
+Monthly,12/1/2025,12/31/2025,,draft,,0,,,0,0,gabriel.czembor@russellreynolds.com
+Monthly,12/1/2025,12/31/2025,Social Cost Research,draft,,0,,,0,0,kelly.smith@russellreynolds.com
+Monthly,12/1/2025,12/31/2025,Meeting Notes Assistant,live,"Summarize meeting notes with clear succinct bullets with action items, key insights, owners, deadlines, and links.",1,12/1/2025,12/30/2025,40,4,sarah.lermsider@russellreynolds.com
+Monthly,12/1/2025,12/31/2025,CEO Candidate by Assignment OATH - brygib,draft,Get CEO candidates on a specific assignment ID,0,,,0,0,bryan.gibson@russellreynolds.com
+Monthly,12/1/2025,12/31/2025,Prompt Builder,live,This GPT helps you write effective prompts,1,12/1/2025,12/19/2025,107,18,daniela.andrade@russellreynolds.com
+Monthly,12/1/2025,12/31/2025,,draft,"Organizes meetings by day, tracks prep tasks, adds reminders.",0,,,0,0,eric.chang@russellreynolds.com
+Monthly,12/1/2025,12/31/2025,Meeting Transcription Converter,live,Convert transcriptions to structured notes,1,12/10/2025,12/22/2025,24,1,amanda.ingall@russellreynolds.com
+Monthly,12/1/2025,12/31/2025,Hogan Leadership Analyzer,live,Analyzes Hogan results and produces concise leadership reports in business language.,1,12/1/2025,12/17/2025,9,2,ritchie.castree-croad@russellreynolds.com
+Monthly,12/1/2025,12/31/2025,Company Details for SM,live,I give a company name and you answer in the format that I can paste into a document I am building,1,12/3/2025,12/8/2025,14,1,kate.schermer@russellreynolds.com
+Monthly,12/1/2025,12/31/2025,,draft,,0,,,0,0,jayaramaiah.dwarasila@russellreynolds.com
+Monthly,12/1/2025,12/31/2025,Viju Client Meeting Finder,live,Finds Vijuraj Eranazhath’s in-person client meetings with city tags,0,,,0,0,purnima.arora@russellreynolds.com
+Monthly,12/1/2025,12/31/2025,CL GPT,live,"Creates professional, fact-based Candidate Letters (CLs) for Russell Reynolds Associates.",1,12/9/2025,12/17/2025,9,1,lukas.renk@russellreynolds.com
+Monthly,12/1/2025,12/31/2025,Note Cleaner,live,"Cleans raw notes into clear, professional documents.",1,12/29/2025,12/29/2025,12,1,morgan.dyson@russellreynolds.com
+Monthly,12/1/2025,12/31/2025,,draft,,0,,,0,0,robert.macmillan@russellreynolds.com
+Monthly,12/1/2025,12/31/2025,Airbus Assessment Report Writer,draft,Produces Airbus-style executive assessment reports highlighting functional and technical expertise.,1,12/16/2025,12/16/2025,10,1,gabriel.czembor@russellreynolds.com
+Monthly,12/1/2025,12/31/2025,,draft,,0,,,0,0,ajeet.mishra@russellreynolds.com
+Monthly,12/1/2025,12/31/2025,Genie Fetcher,live,Hooked up to Genie via Databricks MCP server,0,,,0,0,tavis.barr@russellreynolds.com
+Monthly,12/1/2025,12/31/2025,AI Task Augmentation Analyst,live,Analyzes job descriptions to assess AI task automation and generate dashboards.,1,12/22/2025,12/23/2025,5,2,sarah.lermsider@russellreynolds.com
+Monthly,12/1/2025,12/31/2025,Candidate Letter Generator Plus,draft,"Creates compliant, polished candidate emails for recruiting.",0,,,0,0,purnima.arora@russellreynolds.com
+Monthly,12/1/2025,12/31/2025,Leadership News Lens,draft,"Creates timely, news-aligned thought leadership for advisors.",0,,,0,0,gemma.fell@russellreynolds.com
+Monthly,12/1/2025,12/31/2025,Target Company Researcher,draft,"Research analyst that builds clear, defensible target company lists.",1,12/18/2025,12/18/2025,8,1,roberta.zeme@russellreynolds.com
+Monthly,12/1/2025,12/31/2025,,draft,,0,,,0,0,ashima.jain@russellreynolds.com
+Monthly,12/1/2025,12/31/2025,Kyverna Candidate Letter GPT,live,"Generates structured, factual candidate letters in RRA format with tone matching the Mayo Pujols template.",1,12/1/2025,12/9/2025,21,1,eric.wimpfheimer@russellreynolds.com
+Monthly,12/1/2025,12/31/2025,,,,1,12/24/2025,12/24/2025,1,1,
+Monthly,12/1/2025,12/31/2025,CL Writer - Hylane,live,,1,12/2/2025,12/11/2025,38,1,daniel.werbnik@russellreynolds.com
+Monthly,12/1/2025,12/31/2025,Test,draft,Compares master roster with Zoom exports to mark session attendance.,0,,,0,0,amy.miller@russellreynolds.com
+Monthly,12/1/2025,12/31/2025,Project-Smart-Pack-GPT_qa,live,This GPT can Q&A on Assignment/PNB  data,0,,,0,0,vijay.yadav@russellreynolds.com
+Monthly,12/1/2025,12/31/2025,Psychometric Report Generator,live,"Generate a set of RRA Psych Only Assessment Slides based on the following files: hogan report, opq report",1,12/1/2025,12/19/2025,277,36,bryan.gibson@russellreynolds.com
+Monthly,12/1/2025,12/31/2025,CEO Candidate by Assignment QA API Key,live,Get CEO candidates on a specific assignment ID,0,,,0,0,sean.delessio@russellreynolds.com
+Monthly,12/1/2025,12/31/2025,Sylwia,draft,daily,0,,,0,0,sylwia.swaczynska@russellreynolds.com
+Monthly,12/1/2025,12/31/2025,easycreds,draft,"Strictly enforces fuzzy role consistency and a hard max of 30 Top Cred projects, with dynamic tightening and mandatory truncation if exceeded.",0,,,0,0,markus.knopf@russellreynolds.com
+Monthly,12/1/2025,12/31/2025,HN Final Person-Smart-Pack-GPT_inprogress,live,,0,,,0,0,hanuveer.nahar@russellreynolds.com
+Monthly,12/1/2025,12/31/2025,Translations,draft,,0,,,0,0,maria.raga@russellreynolds.com
+Monthly,12/1/2025,12/31/2025,SM Comments,draft,Basic 150 word summary for SM comments,0,,,0,0,melanie.berry@russellreynolds.com
+Monthly,12/1/2025,12/31/2025,Executive CV Summarizer,live,"Upload a CV to instantly generate a crisp, 300-word leadership career summary with facts, impact, and narrative flow.",1,12/3/2025,12/18/2025,4,2,christoph.schlegel@russellreynolds.com
+Monthly,12/1/2025,12/31/2025,Sharepoint Online Non-MS Graph,draft,,0,,,0,0,sean.delessio@russellreynolds.com
+Monthly,12/1/2025,12/31/2025,,draft,,0,,,0,0,patu.bajaj@russellreynolds.com
+Monthly,12/1/2025,12/31/2025,FeeShift GPT,live,Upload Excel File for analysis and set date range.,1,12/1/2025,12/2/2025,41,2,william.donahue@russellreynolds.com
+Monthly,12/1/2025,12/31/2025,CL Writer  NEW Template,draft,,0,,,0,0,daniel.werbnik@russellreynolds.com
+Monthly,12/1/2025,12/31/2025,,draft,,0,,,0,0,david.seeley@russellreynolds.com
+Monthly,12/1/2025,12/31/2025,Tom's CL's,live,CL's in my personal style,0,,,0,0,tom.roets@russellreynolds.com
+Monthly,12/1/2025,12/31/2025,Emma the Expertise Copywriter,live,"A leadership-focused copywriter crafting SEO-rich, diagnostic web content for senior executives.",1,12/1/2025,12/12/2025,280,2,susie.sell@russellreynolds.com
+Monthly,12/1/2025,12/31/2025,Assessment Bot,live,Helps write assessment report content,1,12/4/2025,12/4/2025,1,1,andrew.wood@russellreynolds.com
+Monthly,12/1/2025,12/31/2025,Engage check +PE/VC 1 role,live,"Verifies company links and PE/VC backing using concise, factual summaries.",0,,,0,0,johann.gruemmer@russellreynolds.com
+Monthly,12/1/2025,12/31/2025,,draft,,0,,,0,0,karin.tovar@russellreynolds.com
+Monthly,12/1/2025,12/31/2025,SM Assistant,live,Creates  tables summarising candidates' company experience,1,12/22/2025,12/22/2025,5,1,amanda.ingall@russellreynolds.com
+Monthly,12/1/2025,12/31/2025,GPT With AskRRA,live,GPT for answering AskRRA questions,0,,,0,0,tavis.barr@russellreynolds.com
+Monthly,12/1/2025,12/31/2025,Candidate Summary Write-up [TEST 24/11/25],draft,"Prepares concise, factual Russell Reynolds–style candidate summaries for client packs.",1,12/4/2025,12/4/2025,18,1,benjamin.yeo@russellreynolds.com
+Monthly,12/1/2025,12/31/2025,,draft,,0,,,0,0,alex.boyd@russellreynolds.com
+Monthly,12/1/2025,12/31/2025,,draft,,0,,,0,0,ganesh.chandrasekaran@russellreynolds.com
+Monthly,12/1/2025,12/31/2025,,draft,,0,,,0,0,andrew.wood@russellreynolds.com
+Monthly,12/1/2025,12/31/2025,,draft,Analyzes and writes global executive turnover insights for leadership reports.,0,,,0,0,gemma.fell@russellreynolds.com
+Monthly,12/1/2025,12/31/2025,Leadership Lounge Promotional Content Writer,live,"Generates all Leadership Lounge episode promotional content, including nurture emails.",1,12/5/2025,12/23/2025,4,1,emily.heinen@russellreynolds.com
+Monthly,12/1/2025,12/31/2025,Marlo,draft,Helps design and define a Marketing Ops AI team member.,0,,,0,0,surbhi.patel@russellreynolds.com
+Monthly,12/1/2025,12/31/2025,Succession & Governance Advisor,live,"You are a succession and governance advisor that provides concise, trusted insights on CEO succession and Board governance-related topics.",1,12/15/2025,12/15/2025,1,1,michelle.lalonde@russellreynolds.com
+Monthly,12/1/2025,12/31/2025,Constantine's YE appraisal writer,live,Write a first draft of Constantine's YE appraisals based on various pieces of input.,1,12/15/2025,12/19/2025,16,2,michelle.lalonde@russellreynolds.com
+Monthly,12/1/2025,12/31/2025,Pascal Manager Performance Review GPT,live,"Expert performance review GPT for managers.  Before using this GPT, managers should reference their notes and the documents downloaded from the “Stakeholder Feedback” section in the employee’s YE appraisal.",0,,,0,0,emma.golen@russellreynolds.com
+Monthly,12/1/2025,12/31/2025,DPIA Drafting Assistant,live,Helps you with the administrative part of the DPIA,0,,,0,0,xander.menger@russellreynolds.com
+Monthly,12/1/2025,12/31/2025,,draft,,0,,,0,0,drew.brengel@russellreynolds.com
+Monthly,12/1/2025,12/31/2025,,draft,,0,,,0,0,gagan.saini@russellreynolds.com
+Monthly,12/1/2025,12/31/2025,,draft,,0,,,0,0,sophie.vanorden@russellreynolds.com
+Monthly,12/1/2025,12/31/2025,Candidate Letter,live,Creates a CL based on notes + CV,1,12/2/2025,12/17/2025,62,1,francois.geenen@russellreynolds.com
+Monthly,12/1/2025,12/31/2025,,draft,,0,,,0,0,naveen.sebastian@russellreynolds.com
+Monthly,12/1/2025,12/31/2025,Susannah,draft,A warm but authoritative content marketing leader and trusted advisor.,1,12/2/2025,12/11/2025,94,1,susie.sell@russellreynolds.com
+Monthly,12/1/2025,12/31/2025,Study Mode Tutor,live,"One-click study mode: structured study plan, active recall and spaced-practice exercises.",0,,,0,0,john.wood@russellreynolds.com
+Monthly,12/1/2025,12/31/2025,A&D Case Study Creator,draft,"Creates cohesive, anonymized case studies and flags unrelated projects.",1,12/17/2025,12/17/2025,18,1,nisa.qosja@russellreynolds.com
+Monthly,12/1/2025,12/31/2025,Sharepoint File Retrieval PreProcessing,live,,0,,,0,0,sean.delessio@russellreynolds.com
+Monthly,12/1/2025,12/31/2025,Redefiners Guest Vetting GPT,live,This agent is designed to determine the merits of external guest recommendations for Redefiners Episodes.,0,,,0,0,sarah.lermsider@russellreynolds.com
+Monthly,12/1/2025,12/31/2025,,draft,,0,,,0,0,kay.adams@russellreynolds.com
+Monthly,12/1/2025,12/31/2025,test,draft,,0,,,0,0,andrew.wood@russellreynolds.com
+Monthly,12/1/2025,12/31/2025,,draft,,0,,,0,0,megan.moftakhar@russellreynolds.com
+Monthly,12/1/2025,12/31/2025,,draft,,0,,,0,0,kay.adams@russellreynolds.com
+Monthly,12/1/2025,12/31/2025,Candidate Letter Writer,live,"Creates factual, chronological candidate letters with clear $ figures and interpretive insights.",1,12/3/2025,12/13/2025,113,1,lizzie.michaelson@russellreynolds.com
+Monthly,12/1/2025,12/31/2025,,draft,,0,,,0,0,daniela.andrade@russellreynolds.com
+Monthly,12/1/2025,12/31/2025,Candidate/Client Assessor,live,Assess a client and/or candidate,1,12/5/2025,12/18/2025,44,1,sean.gooze@russellreynolds.com
+Monthly,12/1/2025,12/31/2025,,draft,,0,,,0,0,sylwia.swaczynska@russellreynolds.com
+Monthly,12/1/2025,12/31/2025,,draft,,0,,,0,0,amay.kothari@russellreynolds.com
+Monthly,12/1/2025,12/31/2025,,draft,,1,12/2/2025,12/2/2025,1,1,alessandro.melloni@russellreynolds.com
+Monthly,12/1/2025,12/31/2025,,draft,,0,,,0,0,manisha.kewalramani@russellreynolds.com
+Monthly,12/1/2025,12/31/2025,References Clean-up,draft,Cleans and polishes reference interview transcripts for executive search work.,0,,,0,0,tatiana.palatchi@russellreynolds.com
+Monthly,12/1/2025,12/31/2025,Executive Search Spec Writer,draft,Creates polished Position Specifications for IT executive searches,0,,,0,0,lizzy.klumpp@russellreynolds.com
+Monthly,12/1/2025,12/31/2025,Executive Summary + arquetipos,live,,0,,,0,0,jorge.fava@russellreynolds.com
+Monthly,12/1/2025,12/31/2025,Lucy,draft,help me work efficiently and smarter,0,,,0,0,rose.estevez-vidal@russellreynolds.com
+Monthly,12/1/2025,12/31/2025,,draft,,0,,,0,0,mariana.xavier@russellreynolds.com
+Monthly,12/1/2025,12/31/2025,,draft,,0,,,0,0,shelby.henry@russellreynolds.com
+Monthly,12/1/2025,12/31/2025,,draft,,0,,,0,0,justus.obrien@russellreynolds.com
+Monthly,12/1/2025,12/31/2025,,draft,,0,,,0,0,daniel.werbnik@russellreynolds.com
+Monthly,12/1/2025,12/31/2025,,draft,,0,,,0,0,reiaz.rashied@russellreynolds.com
+Monthly,12/1/2025,12/31/2025,Job description,draft,,0,,,0,0,sarah.demeulenaer@russellreynolds.com
+Monthly,12/1/2025,12/31/2025,,draft,,0,,,0,0,michelle.lalonde@russellreynolds.com
+Monthly,12/1/2025,12/31/2025,EA Invoice Assistant,live,"An assistant that reads invoices and instantly generates your AP submission email with the correct coding, description, and formatted template.",1,12/7/2025,12/22/2025,23,1,sarah.lermsider@russellreynolds.com
+Monthly,12/1/2025,12/31/2025,Search Briefing GPT,draft,,0,,,0,0,damini.arora@russellreynolds.com
+Monthly,12/1/2025,12/31/2025,RRA Social Copy Assistant,live,Writes and refines social copy in the Russell Reynolds Associates brand voice.,1,12/5/2025,12/23/2025,50,1,emily.heinen@russellreynolds.com
+Monthly,12/1/2025,12/31/2025,【英語】チェック,live,,1,12/2/2025,12/2/2025,4,1,anika.nagahiro@russellreynolds.com
+Monthly,12/1/2025,12/31/2025,Reminder Tracker,live,Gives a daily summary of outstanding tasks on first use each day.,0,,,0,0,stephen.brown@russellreynolds.com
+Monthly,12/1/2025,12/31/2025,,draft,,0,,,0,0,gretchen.garner@russellreynolds.com
+Monthly,12/1/2025,12/31/2025,,draft,,0,,,0,0,sylwia.swaczynska@russellreynolds.com
+Monthly,12/1/2025,12/31/2025,,draft,,0,,,0,0,viveka.wiberg@russellreynolds.com
+Monthly,12/1/2025,12/31/2025,Web Digger Company Infos,live,Dig the web,1,12/1/2025,12/22/2025,378,1,luis.pereirabaptista@russellreynolds.com
+Monthly,12/1/2025,12/31/2025,Art Linkedin Email,draft,,0,,,0,0,minh.nguyen@russellreynolds.com
+Monthly,12/1/2025,12/31/2025,Marshall Goldsmith,live,Your firm but witty Marshall Goldsmith–style coach with structured accountability and creative growth exercises.,0,,,0,0,cynthia.dow@russellreynolds.com
+Monthly,12/1/2025,12/31/2025,RRA Global-to-Regional Campaign Generator,live,"This GPT transforms a global RRA paper or article into a fully regionalized version and creates a suite of executive-ready, multi-channel marketing assets based on a detailed regional campaign brief. It ensures alignment with RRA’s global brand standards while applying region-specific messaging.",0,,,0,0,daniela.andrade@russellreynolds.com
+Monthly,12/1/2025,12/31/2025,Search Overview Generator,live,"Takes inputs from a range of client materials and interviews and populates a set template to provide a concise, structured overview for the search.",1,12/15/2025,12/15/2025,3,1,damini.arora@russellreynolds.com
+Monthly,12/1/2025,12/31/2025,,draft,,0,,,0,0,sean.dineen@russellreynolds.com
+Monthly,12/1/2025,12/31/2025,Translations,draft,,0,,,0,0,maria.raga@russellreynolds.com
+Monthly,12/1/2025,12/31/2025,,draft,,0,,,0,0,michael.egli@russellreynolds.com
+Monthly,12/1/2025,12/31/2025,Test Agent,live,"Create a Smart Pack with key details on any individual — their background, current role, and our firm's relationship with them. You can ask this GPT to review, enhance, or simplify the content. To get started, simply use a prompt like: “Create a Smart Pack on Marc Benioff.""",0,,,0,0,lizzy.klumpp@russellreynolds.com
+Monthly,12/1/2025,12/31/2025,,draft,,1,12/16/2025,12/16/2025,1,1,david.seeley@russellreynolds.com
+Monthly,12/1/2025,12/31/2025,Hensoldt Assessments,live,"Produces rigorous, executive-level Experience Analysis, Key Achievements, and Functional Summary sections for Hensoldt assessment reports.",0,,,0,0,gabriel.czembor@russellreynolds.com
+Monthly,12/1/2025,12/31/2025,Position spec writer,live,"Drafts clear, professional Position Specification content for executive search.",1,12/23/2025,12/23/2025,2,1,alexandra.boland@russellreynolds.com
+Monthly,12/1/2025,12/31/2025,Clio,live,"The Historian’s Lens — an artificial historian who interprets modern events through the analogies, patterns, and lessons of world history.",1,12/6/2025,12/25/2025,7,1,justus.obrien@russellreynolds.com
+Monthly,12/1/2025,12/31/2025,Speaking Note Creator,live,,1,12/23/2025,12/23/2025,1,1,johann.gruemmer@russellreynolds.com
+Monthly,12/1/2025,12/31/2025,Dev the Development Campaign Copywriting,draft,"A senior B2B copywriter crafting distinctive, advisor-led Insights for CHRO audiences.",0,,,0,0,susie.sell@russellreynolds.com
+Monthly,12/1/2025,12/31/2025,Leadership Profile Analyst,live,Synthesizes stakeholder interview notes into structured leadership success profiles.,0,,,0,0,palak.naik@russellreynolds.com
+Monthly,12/1/2025,12/31/2025,,draft,,0,,,0,0,ed.lowe@russellreynolds.com
+Monthly,12/1/2025,12/31/2025,Petula,draft,Podcast Script Writer Agent,1,12/11/2025,12/19/2025,6,1,gemma.fell@russellreynolds.com
+Monthly,12/1/2025,12/31/2025,,draft,,0,,,0,0,alex.rangel@russellreynolds.com
+Monthly,12/1/2025,12/31/2025,,draft,,0,,,0,0,hiren.vora@russellreynolds.com
+Monthly,12/1/2025,12/31/2025,,draft,,0,,,0,0,neha.baksh@russellreynolds.com
+Monthly,12/1/2025,12/31/2025,Cred Slide Decoder,live,"Counts logos, extracts credentials, flags unidentified positions, outputs sorted table and CSV.",1,12/18/2025,12/18/2025,4,1,alessandro.melloni@russellreynolds.com
+Monthly,12/1/2025,12/31/2025,,draft,,0,,,0,0,robert.gallagher@russellreynolds.com
+Monthly,12/1/2025,12/31/2025,,draft,,0,,,0,0,neha.baksh@russellreynolds.com
+Monthly,12/1/2025,12/31/2025,Redefiners & Leadership Lounge Assistant,draft,"Podcast assistant for Redefiners & Leadership Lounge—scripts, summaries, notes, and episode assets",0,,,0,0,gemma.fell@russellreynolds.com
+Monthly,12/1/2025,12/31/2025,Company-Smart-Pack-GPT_inprogress,live,This GPT can help RRA teams to create a Company smart-pack.,1,12/1/2025,12/29/2025,347,3,vijay.yadav@russellreynolds.com
+Monthly,12/1/2025,12/31/2025,Pitch Intro Creator,draft,"Trusted advisor and storyteller crafting authentic, strategic pitch intros.",0,,,0,0,maria.basler@russellreynolds.com
+Monthly,12/1/2025,12/31/2025,,,,1,12/24/2025,12/25/2025,18,2,
+Monthly,12/1/2025,12/31/2025,MarComms Invoice Assistant,draft,,0,,,0,0,sarah.lermsider@russellreynolds.com
+Monthly,12/1/2025,12/31/2025,Pam's Invoice and Collections,live,Drafts invoice and follow-up emails using Pam’s exact phrasing and tone.,0,,,0,0,purnima.arora@russellreynolds.com
+Monthly,12/1/2025,12/31/2025,Bios highlights,live,,1,12/1/2025,12/22/2025,102,1,jorge.fava@russellreynolds.com
+Monthly,12/1/2025,12/31/2025,,draft,,0,,,0,0,jorge.fava@russellreynolds.com
+Monthly,12/1/2025,12/31/2025,Speech's & SO Email,live,,1,12/2/2025,12/10/2025,14,1,alejandro.ortiz@russellreynolds.com
+Monthly,12/1/2025,12/31/2025,RRA Infra,live,,0,,,0,0,abilash.sivakumar@russellreynolds.com
+Monthly,12/1/2025,12/31/2025,Advanced Prompt Builder,live,Generate effective Custom GPT instructions,0,,,0,0,bryan.gibson@russellreynolds.com
+Monthly,12/1/2025,12/31/2025,Get CEO Assignment Targets,live,,0,,,0,0,sean.delessio@russellreynolds.com
+Monthly,12/1/2025,12/31/2025,,draft,,0,,,0,0,luke.higgins@russellreynolds.com
+Monthly,12/1/2025,12/31/2025,Reference Summary Assistant,draft,"Turns recruiter reference notes into polished, client-ready summaries with JC example tone.",1,12/18/2025,12/18/2025,5,1,kara.finnerty@russellreynolds.com
+Monthly,12/1/2025,12/31/2025,Firm Services Monthly GPT,draft,,0,,,0,0,william.donahue@russellreynolds.com
+Monthly,12/1/2025,12/31/2025,,draft,,0,,,0,0,andrew.turner@russellreynolds.com
+Monthly,12/1/2025,12/31/2025,,draft,,0,,,0,0,ron.ongley@russellreynolds.com
+Monthly,12/1/2025,12/31/2025,,draft,,0,,,0,0,kathy.vuturo@russellreynolds.com
+Monthly,12/1/2025,12/31/2025,Translations,draft,,0,,,0,0,maria.raga@russellreynolds.com
+Monthly,12/1/2025,12/31/2025,HN-V2-SDK-Person-Smart-Pack-GPT,live,,0,,,0,0,hanuveer.nahar@russellreynolds.com
+Monthly,12/1/2025,12/31/2025,HB Report Writer,live,,1,12/6/2025,12/16/2025,143,1,michelle.bandklayder@russellreynolds.com
+Monthly,12/1/2025,12/31/2025,,draft,,0,,,0,0,partha.saidapet@russellreynolds.com
+Monthly,12/1/2025,12/31/2025,ChatGPT Pro Helper,live,Hello! Ask me any questions you have about ChatGPT Pro and it's capabilities. You can use these Quick Start prompts below to get started.,1,12/3/2025,12/30/2025,39,10,minh.nguyen@russellreynolds.com
+Monthly,12/1/2025,12/31/2025,Christina,draft,Global CEO Turnover Index Report Writer,1,12/3/2025,12/3/2025,9,1,gemma.fell@russellreynolds.com
+Monthly,12/1/2025,12/31/2025,Executive Versatility Analysis,live,For generating Growth Factors + Potential Realization bullets in RRA slide-ready style,0,,,0,0,heather.blonkenfeld@russellreynolds.com
+Monthly,12/1/2025,12/31/2025,RRA Prompt Assistant,draft,"Secure RRA assistant with clear, professional language (no contractions).",1,12/1/2025,12/1/2025,40,1,runa.kitzing@russellreynolds.com
+Monthly,12/1/2025,12/31/2025,Critical Role Challenge Expert,live,Expert organization designer specializing in clarifying critical role challenges.,1,12/1/2025,12/23/2025,214,2,marcy.calaway@russellreynolds.com
+Monthly,12/1/2025,12/31/2025,Stationery Invoice Processor,live,"Automates the extraction and coding of monthly stationery invoices from Automation Graphics. It reads invoice PDFs, maps each office to its correct budget code, and generates a polished email summary ready to send to Accounts Payable for payment processing.",1,12/12/2025,12/22/2025,3,1,sarah.lermsider@russellreynolds.com
+Monthly,12/1/2025,12/31/2025,Amy's Agenda Snapshot,live,Review Amy Scissons’s calendar for the upcoming week and create a polished “Agenda Snapshot” email that mirrors the reference sample provided.,1,12/12/2025,12/12/2025,9,1,sarah.lermsider@russellreynolds.com
+Monthly,12/1/2025,12/31/2025,,draft,,0,,,0,0,amy.miller@russellreynolds.com
+Monthly,12/1/2025,12/31/2025,Candidate Career Bullet Points,live,Creates a summary of candidate career history (PE),1,12/10/2025,12/10/2025,2,1,demi.charalab@russellreynolds.com
+Monthly,12/1/2025,12/31/2025,,draft,,0,,,0,0,valentina.vujeva@russellreynolds.com
+Monthly,12/1/2025,12/31/2025,Leadership Writing Editor,live,,1,12/3/2025,12/3/2025,5,1,palak.naik@russellreynolds.com
+Monthly,12/1/2025,12/31/2025,CPP Aid,live,Extracts CPP data from reports then writes a summary,1,12/1/2025,12/18/2025,62,1,ritchie.castree-croad@russellreynolds.com
+Monthly,12/1/2025,12/31/2025,,draft,,0,,,0,0,wakako.matsuyama@russellreynolds.com
+Monthly,12/1/2025,12/31/2025,PE Highlights,draft,,0,,,0,0,annabelle.williams@russellreynolds.com
+Monthly,12/1/2025,12/31/2025,Reference Report Builder,live,"Creates structured, verbatim-style executive reference reports.",1,12/3/2025,12/15/2025,30,1,amanda.ingall@russellreynolds.com
+Monthly,12/1/2025,12/31/2025,GPT Instructions Improver,live,"Given a set of GPT instructions (prompt) and an issue, explain how it might be solved and suggest new instructions",0,,,0,0,bryan.gibson@russellreynolds.com
+Monthly,12/1/2025,12/31/2025,Tina Turnover,draft,Expert data journalist analyzing and explaining CEO turnover trends.,0,,,0,0,susie.sell@russellreynolds.com
+Monthly,12/1/2025,12/31/2025,Polished PC Partner,live,Polished yet personable executive‑search assistant for drafting emails.,1,12/1/2025,12/17/2025,18,1,desiree.alemansour@russellreynolds.com
+Monthly,12/1/2025,12/31/2025,Morning Client Brief,live,Delivers daily organization and leadership news briefs for select clients.,1,12/3/2025,12/12/2025,23,1,rachel.vargas@russellreynolds.com
+Monthly,12/1/2025,12/31/2025,GPT with AskRRA Question Answering,live,Answers AskRRA questions about personnel policies,0,,,0,0,tavis.barr@russellreynolds.com
+Monthly,12/1/2025,12/31/2025,Executive Meeting Advisor,live,"You are an executive briefing assistant that prepares consistent, reliable “Meeting Smart Packs"". Your purpose is to prepare concise, credible, and well-structured briefings for meetings with senior executives.",1,12/15/2025,12/15/2025,3,1,michelle.lalonde@russellreynolds.com
+Monthly,12/1/2025,12/31/2025,SPEC reader,draft,It monitors trends in job specs over time,0,,,0,0,ed.lowe@russellreynolds.com
+Monthly,12/1/2025,12/31/2025,,draft,,0,,,0,0,nalina.shapiro@russellreynolds.com
+Monthly,12/1/2025,12/31/2025,Search Strategy,draft,,0,,,0,0,sarah.demeulenaer@russellreynolds.com
+Monthly,12/1/2025,12/31/2025,,draft,,0,,,0,0,johann.gruemmer@russellreynolds.com
+Monthly,12/1/2025,12/31/2025,Person-Smart-Pack-GPT_qa (copy),draft,,0,,,0,0,vijay.yadav@russellreynolds.com
+Monthly,12/1/2025,12/31/2025,Nvidia Candidate Letter,draft,A precise letter writer for Nvidia candidate recommendations.,0,,,0,0,ed.sweet@russellreynolds.com
+Monthly,12/1/2025,12/31/2025,,draft,,0,,,0,0,natalie.murphy@russellreynolds.com
+Monthly,12/1/2025,12/31/2025,SM Trends Advisor,live,"A strategic intelligence partner responsible for monitoring platform changes, algorithm updates, audience behavior shifts, and cultural or industry trends—and translating those signals into clear, actionable recommendations for content strategy, publishing cadence, and engagement tactics.",1,12/29/2025,12/29/2025,5,1,emily.heinen@russellreynolds.com
+Monthly,12/1/2025,12/31/2025,,draft,,0,,,0,0,jennifer.fodor@russellreynolds.com
+Monthly,12/1/2025,12/31/2025,,draft,,0,,,0,0,hiren.vora@russellreynolds.com
+Monthly,12/1/2025,12/31/2025,AI Detector 2.1,live,"Use this GPT to detect if content is AI Generated. Paste in an email, article or communication and the GPT will score the likelihood that it is AI Generated.",0,,,0,0,minh.nguyen@russellreynolds.com
+Monthly,12/1/2025,12/31/2025,The Growth Coach,live,A challenging leadership coach helping you grow into a trusted advisor and commercial leader.,0,,,0,0,carlos.oyaga@russellreynolds.com
+Monthly,12/1/2025,12/31/2025,,draft,,0,,,0,0,amy.miller@russellreynolds.com
+Monthly,12/1/2025,12/31/2025,,draft,,0,,,0,0,sylwia.swaczynska@russellreynolds.com
+Monthly,12/1/2025,12/31/2025,Tech Mentor for PMs,draft,,0,,,0,0,lizzy.klumpp@russellreynolds.com
+Monthly,12/1/2025,12/31/2025,Kiki's Morning Report & Evening Reflection,live,"Send me my daily schedule, to-do list, business news headlines for the day, a daily affirmation, and a goal",1,12/8/2025,12/8/2025,2,1,kate.schermer@russellreynolds.com
+Monthly,12/1/2025,12/31/2025,Person-Smart-Pack-GPT_inprogress,live,"This GPT can generate comprehensive smart pack document which will include RRA history, connections and relationships with this person and its company",1,12/1/2025,12/31/2025,402,3,vijay.yadav@russellreynolds.com
+Monthly,12/1/2025,12/31/2025,,draft,,0,,,0,0,naveen.sebastian@russellreynolds.com
+Monthly,12/1/2025,12/31/2025,Hello World,draft,Gets a greeting from a mcp server,0,,,0,0,bryan.gibson@russellreynolds.com
+Monthly,12/1/2025,12/31/2025,Executive Brand Builder,live,"Creates authentic, flexible LinkedIn posts blending AI, security, and leadership insights.",0,,,0,0,ron.ongley@russellreynolds.com
+Monthly,12/1/2025,12/31/2025,,draft,,0,,,0,0,anna.sun@russellreynolds.com
+Monthly,12/1/2025,12/31/2025,Client Updates Assistant,live,Uses the Client Summary & Outreach Template to deliver adaptive client updates and personalized follow-ups.,0,,,0,0,yenling.shek@russellreynolds.com
+Monthly,12/1/2025,12/31/2025,Gimme Creds,draft,Business-savvy research assistant for finding relevant RRA projects.,0,,,0,0,markus.knopf@russellreynolds.com
+Monthly,12/1/2025,12/31/2025,HN-V5-SDK-Person-Smart-Pack-GPT,live,,0,,,0,0,hanuveer.nahar@russellreynolds.com
+Monthly,12/1/2025,12/31/2025,Candidate Report Writer,live,"Writes structured, objective candidate reports based on CVs and interviews for senior executive search.",1,12/3/2025,12/17/2025,71,1,amanda.ingall@russellreynolds.com
+Monthly,12/1/2025,12/31/2025,Write Reference,live,For all references,0,,,0,0,francois.geenen@russellreynolds.com
+Monthly,12/1/2025,12/31/2025,Sarah Lermsider's Self-Appraisal GPT,live,"Self-Appraisal GPT helps you craft thoughtful, authentic, and strategic reflections for your yearly performance review. It analyzes your past reviews, achievements, and career goals to generate clear, impactful responses that highlight your growth, contributions, and future priorities.",1,12/16/2025,12/16/2025,4,1,sarah.lermsider@russellreynolds.com
+Monthly,12/1/2025,12/31/2025,One Pager Notes,live,Notes for candidates one pagers for status reports,1,12/4/2025,12/12/2025,14,1,maja.kulic@russellreynolds.com
+Monthly,12/1/2025,12/31/2025,,draft,Creates polished RRA-style sign-off comments from candidate feedback.,0,,,0,0,johann.gruemmer@russellreynolds.com
+Monthly,12/1/2025,12/31/2025,Company-Smart-Pack-GPT_qa (copy),draft,This GPT can help RRA teams to create a Company smart-pack.,0,,,0,0,hanuveer.nahar@russellreynolds.com
+Monthly,12/1/2025,12/31/2025,,draft,,0,,,0,0,bartek.zachara@russellreynolds.com
+Monthly,12/1/2025,12/31/2025,Paige Quality,draft,Expert content editor that scores and optimizes executive-level digital content for impact and SEO.,0,,,0,0,susie.sell@russellreynolds.com
+Monthly,12/1/2025,12/31/2025,Vijay_Company_Agent,live,,0,,,0,0,vijay.yadav@russellreynolds.com
+Monthly,12/1/2025,12/31/2025,Status Call Prep,live,"Helps prepare structured talking points and narratives for executive-search client calls, including candidate pros/cons, differentiators, and open questions. Supports role-playing and summarizing updates for confident, business-ready delivery.",1,12/5/2025,12/16/2025,33,1,ed.sweet@russellreynolds.com
+Monthly,12/1/2025,12/31/2025,,draft,,0,,,0,0,sophie.gilliatt@russellreynolds.com
+Monthly,12/1/2025,12/31/2025,,draft,,0,,,0,0,morgan.dyson@russellreynolds.com
+Monthly,12/1/2025,12/31/2025,360 Feedback Analyst,draft,Analyzes 360° feedback files and produces evidence-based Strengths and Development Areas tables with full verbatim quotes.,0,,,0,0,aimee.williamson@russellreynolds.com
+Monthly,12/1/2025,12/31/2025,Voice Message Generator,live,"Formuliert gesprochene Inputs zu fertigen Nachrichten mit passendem Ton, Formatierung und Kontextbezug.",0,,,0,0,johann.gruemmer@russellreynolds.com
+Monthly,12/1/2025,12/31/2025,Industry Trend Advisor,live,"You are an industry trend advisor that provides concise, high-impact industry and leadership insights.",1,12/15/2025,12/15/2025,4,1,michelle.lalonde@russellreynolds.com
+Monthly,12/1/2025,12/31/2025,PE Investor Tearsheet,live,,0,,,0,0,harpreet.khurana@russellreynolds.com
+Monthly,12/1/2025,12/31/2025,Guten Morgan,draft,Translates text,0,,,0,0,seadeladmin@russellreynolds.com
+Monthly,12/1/2025,12/31/2025,,draft,"Acts as a Search Excellence coach, guiding users on how to execute search according to a set of standards based on provided slides. Offers coaching, answers questions, and provides actionable feedback to help users adhere to best practices.",0,,,0,0,bryan.gibson@russellreynolds.com
+Monthly,12/1/2025,12/31/2025,Business Analysis Co-Pilot,draft,,0,,,0,0,richard.mcglynn@russellreynolds.com
+Monthly,12/1/2025,12/31/2025,,draft,,0,,,0,0,antonella.meschiari@russellreynolds.com
+Monthly,12/1/2025,12/31/2025,Candidate Letter Generator - DEV,live,"Interactively create a Candidate Letter from documents, notes and examples",0,,,0,0,bryan.gibson@russellreynolds.com
+Monthly,12/1/2025,12/31/2025,test,live,single prompts,0,,,0,0,susan.hendel@russellreynolds.com
+Monthly,12/1/2025,12/31/2025,Person-Smart-Pack-GPT_inprogress (copy),draft,"This GPT can generate comprehensive smart pack document which will include RRA history, connections and relationships with this person and its company",0,,,0,0,hanuveer.nahar@russellreynolds.com
+Monthly,12/1/2025,12/31/2025,Sylwia's,draft,Development chats,0,,,0,0,sylwia.swaczynska@russellreynolds.com
+Monthly,12/1/2025,12/31/2025,,draft,,0,,,0,0,neha.baksh@russellreynolds.com
+Monthly,12/1/2025,12/31/2025,Psychometric Report Writing,live,,1,12/1/2025,12/30/2025,193,1,claire.wilson@russellreynolds.com
+Monthly,12/1/2025,12/31/2025,,draft,,0,,,0,0,ela.buczynska@russellreynolds.com
+Monthly,12/1/2025,12/31/2025,MAP,live,"Transforms executive search call notes into clean, Excel-ready structured data lines for tracking contacts.",1,12/1/2025,12/4/2025,39,1,lizzie.michaelson@russellreynolds.com
+Monthly,12/1/2025,12/31/2025,A.YearEndReview-WIP,live,"Evaluates FYF progress, metrics, and feedback to craft next-year goals.",0,,,0,0,minh.nguyen@russellreynolds.com
+Monthly,12/1/2025,12/31/2025,,draft,,0,,,0,0,david.nicolet@russellreynolds.com
+Monthly,12/1/2025,12/31/2025,Project-Smart-Pack-GPT_inprogress,live,This GPT can Q&A on Assignment/PNB  data,0,,,0,0,vijay.yadav@russellreynolds.com
+Monthly,12/1/2025,12/31/2025,Redefiners Promotional Content Writer,live,"Input episode title, description, video clip transcripts, and quote card text to receive all promo assets for the episode.",1,12/5/2025,12/23/2025,14,1,emily.heinen@russellreynolds.com
+Monthly,12/1/2025,12/31/2025,OneNote GPT - qa,live,,1,12/3/2025,12/19/2025,70,3,sean.delessio@russellreynolds.com
+Monthly,12/1/2025,12/31/2025,,draft,,0,,,0,0,eric.chang@russellreynolds.com
+Monthly,12/1/2025,12/31/2025,,draft,,0,,,0,0,rafael.martinezgallardo@russellreynolds.com
+Monthly,12/1/2025,12/31/2025,RRA Insight PowerShell Data Tool,live,"Builds Salesforce–SQL PowerShell scripts with auth, timestamped logs, and environment-based defaults.",1,12/5/2025,12/18/2025,93,1,stephen.brown@russellreynolds.com
+Monthly,12/1/2025,12/31/2025,,draft,,0,,,0,0,hiren.vora@russellreynolds.com
+Monthly,12/1/2025,12/31/2025,Company Description generator,draft,"Short English company summaries with revenue, market cap, and ownership type in USD only.",1,12/10/2025,12/10/2025,18,1,liam.chapman@russellreynolds.com
+Monthly,12/1/2025,12/31/2025,Leadership Span™ Slide Builder,live,,0,,,0,0,heather.blonkenfeld@russellreynolds.com
+Monthly,12/1/2025,12/31/2025,Call Notes Polisher,live,,0,,,0,0,carlos.oyaga@russellreynolds.com
+Monthly,12/1/2025,12/31/2025,,draft,,0,,,0,0,kay.adams@russellreynolds.com
+Monthly,12/1/2025,12/31/2025,,draft,,0,,,0,0,susie.sell@russellreynolds.com
+Monthly,12/1/2025,12/31/2025,Boilerplate Cleaner – Events/Contacts/Sponsored,draft,"Cleans newsletters, emails, or text dumps by removing event listings, contact/masthead blocks, and sponsored content. Returns JSON with the cleaned text and a removal audit.",0,,,0,0,robert.macmillan@russellreynolds.com
+Monthly,12/1/2025,12/31/2025,Global Leadership Monitor Insights Advisor,draft,"Produces concise, weighted GLM insights; reports unweighted base sizes only on request.",1,12/15/2025,12/17/2025,63,1,ela.buczynska@russellreynolds.com
+Monthly,12/1/2025,12/31/2025,Professional Notes Assistant,draft,Automatically cleans and elevates raw notes into client-ready documentation.,1,12/29/2025,12/29/2025,7,1,morgan.dyson@russellreynolds.com
+Monthly,12/1/2025,12/31/2025,RegalRexnord Candidate Letter,draft,"Writes balanced, tailored Regal Rexnord candidate letters.",1,12/4/2025,12/4/2025,37,1,mark.fastabend@russellreynolds.com
+Monthly,12/1/2025,12/31/2025,,draft,,0,,,0,0,richard.mcglynn@russellreynolds.com
+Monthly,12/1/2025,12/31/2025,,draft,,0,,,0,0,katarina.knight@russellreynolds.com
+Monthly,12/1/2025,12/31/2025,Proofreading,live,,0,,,0,0,valerie.fortin@russellreynolds.com
+Monthly,12/1/2025,12/31/2025,Lead Developer Coach,live,You are a Lead Developer and Technical Coach helping a non-technical Product Manager who designs internal tools and business applications at a consulting firm.,0,,,0,0,lizzy.klumpp@russellreynolds.com
+Monthly,12/1/2025,12/31/2025,,draft,,0,,,0,0,sharad.awasthi@russellreynolds.com
+Monthly,12/1/2025,12/31/2025,,draft,,0,,,0,0,sarah.lucasruhland@russellreynolds.com
+Monthly,12/1/2025,12/31/2025,Position Spec Generator,live,Creates professional leadership Position Specifications for executive search at RRA.,0,,,0,0,lizzy.klumpp@russellreynolds.com
+Monthly,12/1/2025,12/31/2025,SM highlights for NED assignments,live,Creates short professional bio comments for NEDs,0,,,0,0,kirsten.ludlow@russellreynolds.com
+Monthly,12/1/2025,12/31/2025,Vijay_Test_GPT (copy),draft,,0,,,0,0,vijay.yadav@russellreynolds.com
+Monthly,12/1/2025,12/31/2025,Leadership Advice Content Strategist,draft,Expert content marketer crafting leadership development articles for executives.,0,,,0,0,gemma.fell@russellreynolds.com
+Monthly,12/1/2025,12/31/2025,,draft,,0,,,0,0,ela.buczynska@russellreynolds.com
+Monthly,12/1/2025,12/31/2025,,draft,,0,,,0,0,amy.miller@russellreynolds.com
+Monthly,12/1/2025,12/31/2025,CEO Candidate by Assignment (copy),draft,Get CEO candidates on a specific assignment ID,0,,,0,0,bryan.gibson@russellreynolds.com
+Monthly,12/1/2025,12/31/2025,,draft,,0,,,0,0,ron.ongley@russellreynolds.com
+Monthly,12/1/2025,12/31/2025,Candidate Letter Generator,live,"Interactively create a Candidate Letter from documents, notes and examples",1,12/1/2025,12/31/2025,2810,149,bryan.gibson@russellreynolds.com
+Monthly,12/1/2025,12/31/2025,The Psychometric Stylist,live,A psychometric expert that crafts and refines reports in your preferred tone and style.,1,12/9/2025,12/13/2025,12,1,marcy.calaway@russellreynolds.com
+Monthly,12/1/2025,12/31/2025,,draft,,0,,,0,0,seadeladmin@russellreynolds.com
+Monthly,12/1/2025,12/31/2025,,draft,,0,,,0,0,misha.martinez@russellreynolds.com
+Monthly,12/1/2025,12/31/2025,,draft,,0,,,0,0,francesca.descher@russellreynolds.com
+Monthly,12/1/2025,12/31/2025,,draft,,0,,,0,0,sibylle.lane@russellreynolds.com
+Monthly,12/1/2025,12/31/2025,BioMarin Candidate Letter GPT,live,"Generates structured, factual candidate letters in RRA format with tone matching the Anuj Gaggar template.",1,12/9/2025,12/17/2025,3,1,eric.wimpfheimer@russellreynolds.com
+Monthly,12/1/2025,12/31/2025,,draft,,0,,,0,0,yoshimi.iwamura@russellreynolds.com
+Monthly,12/1/2025,12/31/2025,Candidate Letter Generator - Backup 20251120,live,"Interactively create a Candidate Letter from documents, notes and examples",0,,,0,0,bryan.gibson@russellreynolds.com
+Monthly,12/1/2025,12/31/2025,Winning Business Credit Allocation Assistant,live,"deliver deterministic, auditable credit allocation recommendations for winning business, using a rules first approach",0,,,0,0,minh.nguyen@russellreynolds.com
+Monthly,12/1/2025,12/31/2025,,draft,,0,,,0,0,richard.davis@russellreynolds.com
+Monthly,12/1/2025,12/31/2025,,draft,,0,,,0,0,rowena.valencia@russellreynolds.com
+Monthly,12/1/2025,12/31/2025,,draft,,0,,,0,0,william.donahue@russellreynolds.com
+Monthly,12/1/2025,12/31/2025,Person Smart Pack GPT,live,"Create a Smart Pack with key details on an individual person — their background, current role, and our firm's relationship with them. You can ask this GPT to review, enhance, or simplify the content. To get started, simply use a prompt like:",1,12/1/2025,12/31/2025,1606,120,vijay.yadav@russellreynolds.com
+Monthly,12/1/2025,12/31/2025,Quick Guide Writer,draft,"Creates concise, casual quick guides for software adoption",0,,,0,0,amy.miller@russellreynolds.com
+Monthly,12/1/2025,12/31/2025,RRA Policy Advisor2.0,draft,An AI assistant that helps RRA employeesHelping RRA employees navigate AI policy with clarity and confidence.,0,,,0,0,minh.nguyen@russellreynolds.com
+Monthly,12/1/2025,12/31/2025,Candidate Archetype,live,Segment candidate profiles into archetypes that can be used to identify strengths for a given role/job description,1,12/3/2025,12/19/2025,22,7,chris.davis@russellreynolds.com
+Monthly,12/1/2025,12/31/2025,,draft,,0,,,0,0,ganesh.chandrasekaran@russellreynolds.com
+Monthly,12/1/2025,12/31/2025,Business Analyst,live,,1,12/8/2025,12/8/2025,5,1,maja.kulic@russellreynolds.com
+Monthly,12/1/2025,12/31/2025,Media Summarizer 📑,live,,1,12/16/2025,12/29/2025,9,1,eduardo.cordoba@russellreynolds.com
+Monthly,12/1/2025,12/31/2025,MI,draft,,0,,,0,0,sylwia.swaczynska@russellreynolds.com
+Monthly,12/1/2025,12/31/2025,,draft,,0,,,0,0,hiren.vora@russellreynolds.com
+Monthly,12/1/2025,12/31/2025,Development Coach,live,"Helps you craft thoughtful, balanced self and peer performance reviews.",0,,,0,0,palak.naik@russellreynolds.com
+Monthly,12/1/2025,12/31/2025,,draft,,0,,,0,0,kay.adams@russellreynolds.com
+Monthly,12/1/2025,12/31/2025,Bios avanzadas + Highlights,live,,1,12/1/2025,12/1/2025,3,1,jorge.fava@russellreynolds.com
+Monthly,12/1/2025,12/31/2025,,draft,,0,,,0,0,catalina.calvet@russellreynolds.com
+Monthly,12/1/2025,12/31/2025,Profile Digger,draft,Profile Search Ideas,0,,,0,0,luis.pereirabaptista@russellreynolds.com
+Monthly,12/1/2025,12/31/2025,CAPstone GPT,live,"Uses RRA CAPstone models including CCE, Talent Gap, PESTLE, Pyramid, and Outcome–Intent framing.",0,,,0,0,cynthia.dow@russellreynolds.com
+Monthly,12/1/2025,12/31/2025,,draft,,0,,,0,0,alessandro.melloni@russellreynolds.com
+Monthly,12/1/2025,12/31/2025,Korn Ferry Results vs RRA,live,,0,,,0,0,rowena.valencia@russellreynolds.com
+Monthly,12/1/2025,12/31/2025,Self-Awareness GPT,live,"A self-awareness and strategy assistant for Sarah Lermsider, designed to analyze work patterns, reinforce RRA standards, and support growth.",0,,,0,0,sarah.lermsider@russellreynolds.com
+Monthly,12/1/2025,12/31/2025,,draft,"Coordinates change leadership projects, tracking deliverables and timelines.",0,,,0,0,palak.naik@russellreynolds.com
+Monthly,12/1/2025,12/31/2025,,,,1,12/24/2025,12/24/2025,3,1,
+Monthly,12/1/2025,12/31/2025,,draft,,0,,,0,0,johann.gruemmer@russellreynolds.com
+Monthly,12/1/2025,12/31/2025,,draft,,0,,,0,0,emily.heinen@russellreynolds.com
+Monthly,12/1/2025,12/31/2025,,draft,,0,,,0,0,michelle.lalonde@russellreynolds.com
+Monthly,12/1/2025,12/31/2025,,draft,,0,,,0,0,wakako.matsuyama@russellreynolds.com
+Monthly,12/1/2025,12/31/2025,CL Writer BayWa (GER),draft,,0,,,0,0,daniel.werbnik@russellreynolds.com
+Monthly,12/1/2025,12/31/2025,MLT Weekly Update,live,,0,,,0,0,eduardo.cordoba@russellreynolds.com
+Monthly,12/1/2025,12/31/2025,,draft,An expert in organizational change and leadership development materials.,0,,,0,0,palak.naik@russellreynolds.com
+Monthly,12/1/2025,12/31/2025,Building meeting agendas,live,This GPT will scan notes from previous meetings and project plan and take this information to draft meeting agendas.,0,,,0,0,valerie.fortin@russellreynolds.com
+Monthly,12/1/2025,12/31/2025,CEO Candidate by Assignment OATH - brygib,live,Get CEO candidates on a specific assignment ID,0,,,0,0,bryan.gibson@russellreynolds.com
+Monthly,12/1/2025,12/31/2025,Role Design Architect,live,Expert in designing roles with clear performance milestones and ideal profiles.,1,12/1/2025,12/23/2025,302,6,marcy.calaway@russellreynolds.com
+Monthly,12/1/2025,12/31/2025,Person-Smart-Pack-GPT_qa,live,"This GPT can generate comprehensive smart pack document which will include RRA history, connections and relationships with this person and its company",1,12/1/2025,12/18/2025,111,5,vijay.yadav@russellreynolds.com
+Monthly,12/1/2025,12/31/2025,,draft,,0,,,0,0,hiren.vora@russellreynolds.com
+Monthly,12/1/2025,12/31/2025,,draft,,0,,,0,0,rebecca.lyken@russellreynolds.com
+Monthly,12/1/2025,12/31/2025,Leadership Assessment Partner,draft,"Interprets assessment data and builds structured, executive-ready leadership insights.",1,12/9/2025,12/9/2025,4,1,aidan.pelino@russellreynolds.com
+Monthly,12/1/2025,12/31/2025,Industry trend advisor,draft,"You are a succession and governance advisor that provides concise, trusted insights on CEO succession and Board governance-related topics.",0,,,0,0,michelle.lalonde@russellreynolds.com
+Monthly,12/1/2025,12/31/2025,SM Scaling and Prep,draft,,0,,,0,0,amanda.ingall@russellreynolds.com
+Monthly,12/1/2025,12/31/2025,,draft,,0,,,0,0,muskan.agrawal@russellreynolds.com
+Monthly,12/1/2025,12/31/2025,EDM Company Reader,live,,0,,,0,0,sean.delessio@russellreynolds.com
+Monthly,12/1/2025,12/31/2025,,draft,,0,,,0,0,susie.sell@russellreynolds.com
+Monthly,12/1/2025,12/31/2025,References Clean-up,draft,,1,12/1/2025,12/1/2025,13,1,tatiana.palatchi@russellreynolds.com
+Monthly,12/1/2025,12/31/2025,,draft,RRA search co‑pilot that tunes each query with your per‑search inputs.,0,,,0,0,purnima.arora@russellreynolds.com
+Monthly,12/1/2025,12/31/2025,,draft,,0,,,0,0,ela.buczynska@russellreynolds.com
+Monthly,12/1/2025,12/31/2025,SmartPack Builder for Karalee Close,draft,Instantly creates full SmartPack drafts for Karalee Close.,1,12/17/2025,12/17/2025,4,1,margot.schenck@russellreynolds.com
+Monthly,12/1/2025,12/31/2025,,draft,,0,,,0,0,andrew.wood@russellreynolds.com
+Monthly,12/1/2025,12/31/2025,,draft,,0,,,0,0,luke.higgins@russellreynolds.com
+Monthly,12/1/2025,12/31/2025,,draft,,0,,,0,0,ryan.shaw@russellreynolds.com
+Monthly,12/1/2025,12/31/2025,,draft,,0,,,0,0,gulzar.elavia@russellreynolds.com
+Monthly,12/1/2025,12/31/2025,Company-Smart-Pack-GPT_qa,live,This GPT can help RRA teams to create a Company smart-pack.,1,12/1/2025,12/18/2025,58,4,vijay.yadav@russellreynolds.com
+Monthly,12/1/2025,12/31/2025,OneNote GPT,live,"Browse, search, and summarize your OneNote notebooks in read-only mode.  This GPT does not create, edit, or delete content and is designed for safe exploration and insights.",1,12/18/2025,12/22/2025,67,4,gowtham.kanchi@russellreynolds.com
+Monthly,12/1/2025,12/31/2025,,draft,,0,,,0,0,harpreet.khurana@russellreynolds.com
+Monthly,12/1/2025,12/31/2025,SM Resume,live,Crea resúmenes profesionales a partir de notas y enlaces de LinkedIn.,1,12/11/2025,12/23/2025,118,1,alejandro.ortiz@russellreynolds.com
+Monthly,12/1/2025,12/31/2025,REF Writer,live,,1,12/10/2025,12/11/2025,5,1,daniel.werbnik@russellreynolds.com
+Monthly,12/1/2025,12/31/2025,Candidate Letter,live,,0,,,0,0,sarah.demeulenaer@russellreynolds.com
+Monthly,12/1/2025,12/31/2025,,,,1,12/24/2025,12/24/2025,10,1,
+Monthly,12/1/2025,12/31/2025,,draft,,0,,,0,0,danny.santos@russellreynolds.com
+Monthly,12/1/2025,12/31/2025,,draft,Creates polished executive career summaries in a structured P&L-based format.,0,,,0,0,francesca.descher@russellreynolds.com
+Monthly,12/1/2025,12/31/2025,Development Coaching,draft,"Transforms leadership feedback into clear, empowering, growth oriented insights.",0,,,0,0,cat.nadeau@russellreynolds.com
+Monthly,12/1/2025,12/31/2025,RRA Regional Campaign Asset Generator,live,"This agent creates executive-ready, multi-channel marketing assets to promote a regionally authored RRA paper or article. It translates a regional campaign brief into sophisticated, insight-led promotional content while maintaining alignment with RRA’s global brand standards.",1,12/23/2025,12/23/2025,3,1,daniela.andrade@russellreynolds.com
+Monthly,12/1/2025,12/31/2025,,draft,,0,,,0,0,amanda.ingall@russellreynolds.com
+Monthly,12/1/2025,12/31/2025,,draft,,0,,,0,0,david.seeley@russellreynolds.com
+Monthly,12/1/2025,12/31/2025,,draft,,0,,,0,0,stephanie.tomasso@russellreynolds.com
+Monthly,12/1/2025,12/31/2025,,draft,,0,,,0,0,clare.snow@russellreynolds.com
+Monthly,12/1/2025,12/31/2025,,draft,,0,,,0,0,brooke.baker@russellreynolds.com
+Monthly,12/1/2025,12/31/2025,,draft,,0,,,0,0,merrick.chaffer@russellreynolds.com
+Monthly,12/1/2025,12/31/2025,,draft,,0,,,0,0,kristen.scott@russellreynolds.com
+Monthly,12/1/2025,12/31/2025,Company Smart Pack - Quality Tester,live,GPT Tester,1,12/16/2025,12/19/2025,96,2,vijay.yadav@russellreynolds.com
+Monthly,12/1/2025,12/31/2025,Consultant LinkedIn Assistant,live,"Your LinkedIn writing partner for Russell Reynolds Associates. This GPT helps consultants transform their insights, experiences, and content into authentic, on-brand LinkedIn posts that reflect their unique voice while aligning with the firm’s personal brand principles.",0,,,0,0,sarah.lermsider@russellreynolds.com
+Monthly,12/1/2025,12/31/2025,,draft,,0,,,0,0,robert.gallagher@russellreynolds.com
+Monthly,12/1/2025,12/31/2025,Candidate Letter Generator - test 5.0 regression,live,"Interactively create a Candidate Letter from documents, notes and examples",0,,,0,0,bryan.gibson@russellreynolds.com
+Monthly,12/1/2025,12/31/2025,,draft,,0,,,0,0,tatiana.palatchi@russellreynolds.com
+Monthly,12/1/2025,12/31/2025,,draft,,0,,,0,0,jorge.fava@russellreynolds.com
+Monthly,12/1/2025,12/31/2025,HN-V3-SDK-Person-Smart-Pack-GPT,draft,,0,,,0,0,hanuveer.nahar@russellreynolds.com
+Monthly,12/1/2025,12/31/2025,,draft,,0,,,0,0,lizzy.klumpp@russellreynolds.com
+Monthly,12/1/2025,12/31/2025,Pro Notes,draft,Turns rough client call notes into structured summaries with bullet-style themes and feedback.,1,12/11/2025,12/12/2025,17,1,riya.ahuja@russellreynolds.com
+Monthly,12/1/2025,12/31/2025,Lead Developer Coach,draft,,0,,,0,0,lizzy.klumpp@russellreynolds.com
+Monthly,12/1/2025,12/31/2025,News Builder,live,"Formats pasted news into clean, precise summaries in plain text with lines between entries.",0,,,0,0,christine.skovholt@russellreynolds.com
+Monthly,12/1/2025,12/31/2025,Candidate Letter Generator V4 - Local,live,Create a CL,0,,,0,0,bryan.gibson@russellreynolds.com
+Monthly,12/1/2025,12/31/2025,Person-SP-UserPreference,live,"This GPT can generate comprehensive smart pack document which will include RRA history, connections and relationships with this person and its company",1,12/17/2025,12/24/2025,65,1,hanuveer.nahar@russellreynolds.com
+Monthly,12/1/2025,12/31/2025,Sharepoint File Retrieval Azure Function,live,,0,,,0,0,sean.delessio@russellreynolds.com
+Monthly,12/1/2025,12/31/2025,Balkan Mom GPT,draft,"A blunt, no-nonsence reviewer of feedback that can be used to coach consultants on selling work",1,12/3/2025,12/3/2025,2,1,aleks.trpkovska@russellreynolds.com
+Monthly,12/1/2025,12/31/2025,funnel assistant,draft,Extracts metrics from Excel and updates PowerPoints.,1,12/12/2025,12/12/2025,12,1,riya.ahuja@russellreynolds.com
+Monthly,12/1/2025,12/31/2025,Client Feedback Q&A - dev data issue,live,"Get answers to questions about our Client Feedback. Ask by Consultant, Client, Industry, Office, Service Line, and time-period. NOTE: Data is limited by project membership and leadership roles. You can only ask questions over data you have access to.",0,,,0,0,bryan.gibson@russellreynolds.com
+Monthly,12/1/2025,12/31/2025,Candidate Letter Generator V3,live,,0,,,0,0,bryan.gibson@russellreynolds.com
+Monthly,12/1/2025,12/31/2025,,draft,,0,,,0,0,sara.schneider@russellreynolds.com
+Monthly,12/1/2025,12/31/2025,,draft,,0,,,0,0,clare.snow@russellreynolds.com
+Monthly,12/1/2025,12/31/2025,Product Storysmith,live,"Generates and prioritizes RRA-style user stories with annotated mockups based on feedback, problems, or media.",0,,,0,0,gerald.asante@russellreynolds.com
+Monthly,12/1/2025,12/31/2025,HN-V8-SDK-Person-Smart-Pack-GPT,live,,0,,,0,0,hanuveer.nahar@russellreynolds.com
+Monthly,12/1/2025,12/31/2025,,draft,,0,,,0,0,damini.arora@russellreynolds.com
+Monthly,12/1/2025,12/31/2025,,draft,,0,,,0,0,tim.vranckx@russellreynolds.com
+Monthly,12/1/2025,12/31/2025,Meeting Summary Points,live,This GPT reads a meeting summary and extracts the key action points for your team or department,1,12/11/2025,12/11/2025,1,1,minh.nguyen@russellreynolds.com
+Monthly,12/1/2025,12/31/2025,Manager Performance Review GPT,live,"Expert performance review GPT for managers. Before using this GPT, managers should reference their notes and the documents downloaded from the “Stakeholder Feedback” section in the employee’s YE appraisal.",1,12/1/2025,12/19/2025,124,5,pascal.becotte@russellreynolds.com
+Monthly,12/1/2025,12/31/2025,Company Snapshot for SMs,draft,,0,,,0,0,michael.egli@russellreynolds.com
+Monthly,12/1/2025,12/31/2025,Hyperstack Engineer,live,"A platform engineer for IaC, DevOps, automation, and builds.",0,,,0,0,abilash.sivakumar@russellreynolds.com
+Monthly,12/1/2025,12/31/2025,English Translator and professionalizer,draft,,0,,,0,0,carlos.oyaga@russellreynolds.com
+Monthly,12/1/2025,12/31/2025,Software Development/AI Specialist Advisor,live,"Software Development Advisor to help me make decisions, evaluate dev effort/timelines, and learn more about the perspective and process of software development team.",0,,,0,0,lizzy.klumpp@russellreynolds.com
+Monthly,12/1/2025,12/31/2025,,draft,,0,,,0,0,eric.chang@russellreynolds.com
+Monthly,12/1/2025,12/31/2025,Create Promotional Assets for Events,live,"Create promotional email, landing page and LinkedIn post for promotional event",1,12/18/2025,12/19/2025,7,1,minh.nguyen@russellreynolds.com
+Monthly,12/1/2025,12/31/2025,Security Operations GPT,draft,,0,,,0,0,neha.baksh@russellreynolds.com
+Monthly,12/1/2025,12/31/2025,Firm Services Monthly GPT,live,"Upload Post Close excel and say ""Generate the Firm Services email from the attached workbook and return the final email body""",1,12/3/2025,12/30/2025,238,1,william.donahue@russellreynolds.com
+Monthly,12/1/2025,12/31/2025,Healthcare KM Strategist 2.0,live,Elite strategist who explains and analyzes healthcare companies and industry terms.,1,12/2/2025,12/22/2025,43,1,grant.gilchrist@russellreynolds.com
+Monthly,12/1/2025,12/31/2025,,draft,,0,,,0,0,stephen.brown@russellreynolds.com
+Monthly,12/1/2025,12/31/2025,Transcript Intelligence Assistant (TIA),live,"A tool that processes transcripts by cleaning, theming, analyzing nuance, extracting insights, and preparing outputs for different audiences.",1,12/16/2025,12/30/2025,87,1,heather.blonkenfeld@russellreynolds.com
+Monthly,12/1/2025,12/31/2025,TEST | Executive reporter,live,To create reports from explanations,1,12/3/2025,12/3/2025,3,1,eduardo.cordoba@russellreynolds.com
+Monthly,12/1/2025,12/31/2025,AB Candidate Report Writer,draft,A GPT to automate the initial draft of candidate reports using my writing style and format.,0,,,0,0,alex.boyd@russellreynolds.com
+Monthly,12/1/2025,12/31/2025,CL Writer - Börse,live,Candidate Report Writer,1,12/2/2025,12/17/2025,7,1,daniel.werbnik@russellreynolds.com
+Monthly,12/1/2025,12/31/2025,,draft,,0,,,0,0,ravish.roshan@russellreynolds.com
+Monthly,12/1/2025,12/31/2025,Tom's EA's,live,"Training a GPT to help write Executive Assessment reports, in particular the B&E sections",1,12/8/2025,12/8/2025,11,1,tom.roets@russellreynolds.com
+Monthly,12/1/2025,12/31/2025,Sharepoint Online Query,live,Get information from a Sharepoint Online Site,0,,,0,0,sean.delessio@russellreynolds.com
+Monthly,12/1/2025,12/31/2025,Monthly Variance Report,live,Generates a Monthly Variance Analysis Report for Russell Reynolds based on financial data,0,,,0,0,bryan.gibson@russellreynolds.com
+Monthly,12/1/2025,12/31/2025,,draft,,0,,,0,0,christian.komecki@russellreynolds.com
+Monthly,12/1/2025,12/31/2025,Lead Assignment Agent,live,You are a smart lead assignment assistant for a marketing team. Your job is to evaluate incoming marketing leads and assign them to the most appropriate RRA colleague.,0,,,0,0,sarah.lermsider@russellreynolds.com
+Monthly,12/1/2025,12/31/2025,BHP Exec Edge Data Extraction,live,Use this GPT to get data ready for analysis and report production.,1,12/16/2025,12/16/2025,7,1,ritchie.castree-croad@russellreynolds.com
+Monthly,12/1/2025,12/31/2025,,draft,,0,,,0,0,marie-eve.soder@russellreynolds.com
+Monthly,12/1/2025,12/31/2025,Highlights (3 Bullet Point),live,GPT helps synthesize candidate experiences into highlights for status updates.,1,12/1/2025,12/18/2025,69,1,izzat.jaradat@russellreynolds.com
+Monthly,12/1/2025,12/31/2025,Person-Finders-qa,live,,1,12/5/2025,12/8/2025,35,2,sharad.awasthi@russellreynolds.com
+Monthly,12/1/2025,12/31/2025,Company Corporate Structure/Hierarchy,live,Corporate Structures,0,,,0,0,luis.pereirabaptista@russellreynolds.com
+Monthly,12/1/2025,12/31/2025,Interview Notes Transcription,live,This transcribes zoom transcripts of interview notes into my format.,1,12/2/2025,12/18/2025,2,1,sam.smith@russellreynolds.com
+Monthly,12/1/2025,12/31/2025,,draft,,0,,,0,0,margot.mcshane@russellreynolds.com
+Monthly,12/1/2025,12/31/2025,,draft,,0,,,0,0,amy.hayes@russellreynolds.com
+Monthly,12/1/2025,12/31/2025,,draft,,0,,,0,0,william.donahue@russellreynolds.com
+Monthly,12/1/2025,12/31/2025,Candidate comments (150 words),live,"Creates concise, client-ready executive summaries from public sources.",1,12/19/2025,12/19/2025,3,1,alexander.prokot@russellreynolds.com
+Monthly,12/1/2025,12/31/2025,,draft,,0,,,0,0,lukas.renk@russellreynolds.com
+Monthly,12/1/2025,12/31/2025,,draft,,0,,,0,0,keesha-ann.murphy@russellreynolds.com
+Monthly,12/1/2025,12/31/2025,Meeting Summary Main Points,draft,This GPT reads meeting summary and extracts the key action points for your team or department,0,,,0,0,minh.nguyen@russellreynolds.com
+Monthly,12/1/2025,12/31/2025,Calendar Scriptsmith,draft,,0,,,0,0,marie.est@russellreynolds.com
+Monthly,12/1/2025,12/31/2025,,draft,,0,,,0,0,bryan.gibson@russellreynolds.com
+Monthly,12/1/2025,12/31/2025,,draft,,0,,,0,0,tess.namane@russellreynolds.com
+Monthly,12/1/2025,12/31/2025,RRA Brand Voice GPT,live,"Easily check if your article, slides (PDF), whitepaper or internal documents complies with the RRA style guide. Simply attach the draft or copy/paste the text into the GPT. Use these Quick Start chats below to get started.",1,12/12/2025,12/12/2025,2,1,amy.scissons@russellreynolds.com
+Monthly,12/1/2025,12/31/2025,,draft,,0,,,0,0,caris.paynter@russellreynolds.com
+Monthly,12/1/2025,12/31/2025,HC Coding Classifier,live,"Classifies healthcare companies into sub-sectors with concise, factual reasoning.",1,12/10/2025,12/19/2025,36,1,grant.gilchrist@russellreynolds.com
+Monthly,12/1/2025,12/31/2025,Global CEO Turnover Index Report Writer,draft,"This GPT will review RRA's Global CEO Turnover Index Data and write a report looking at the trends in 2025. The GPT will review the data, identify key themes. create questions to ask our leadership advisors, write a report outline, write the report & create associated marketing assets.",0,,,0,0,gemma.fell@russellreynolds.com
+Monthly,12/1/2025,12/31/2025,CL writer,live,Writes candidate reports,1,12/3/2025,12/23/2025,87,1,maja.kulic@russellreynolds.com
+Monthly,12/1/2025,12/31/2025,,draft,,0,,,0,0,jordan.merrill@russellreynolds.com
+Monthly,12/1/2025,12/31/2025,Company-Smart-Pack-GPT_inprogress (copy),draft,This GPT can help RRA teams to create a Company smart-pack.,0,,,0,0,vijay.yadav@russellreynolds.com
+Monthly,12/1/2025,12/31/2025,,draft,,0,,,0,0,jim.mcglone@russellreynolds.com
+Monthly,12/1/2025,12/31/2025,CV Analyser,draft,,0,,,0,0,daniel.werbnik@russellreynolds.com
+Monthly,12/1/2025,12/31/2025,Overnight Brief Briefing,draft,Relevant missed information from Outlook and Slack.,0,,,0,0,nic.blomfield@russellreynolds.com
+Monthly,12/1/2025,12/31/2025,Candidate Report Generator,live,,1,12/1/2025,12/10/2025,57,1,sam.smith@russellreynolds.com
+Monthly,12/1/2025,12/31/2025,Creds combiner from excel and ppt,draft,"Extracts companies and roles from Excel, PPT, and screenshots, includes a secondary 'check-on-insight' table for PPT-only items.",0,,,0,0,aumeya.goswami@russellreynolds.com
+Monthly,12/1/2025,12/31/2025,CL Writer BayWa (GER),live,,1,12/1/2025,12/1/2025,2,1,daniel.werbnik@russellreynolds.com
+Monthly,12/1/2025,12/31/2025,HealthTech Paper Collab,live,"Provides concise, structured feedback and integrates external insights into Grant Gilchrist’s HealthTech CEO paper.",1,12/1/2025,12/10/2025,45,1,grant.gilchrist@russellreynolds.com
+Monthly,12/1/2025,12/31/2025,,draft,,0,,,0,0,damini.arora@russellreynolds.com
+Monthly,12/1/2025,12/31/2025,Generate ChatGPT GPT Analytics Executive Summary,live,,1,12/1/2025,12/1/2025,3,1,sean.delessio@russellreynolds.com
+Monthly,12/1/2025,12/31/2025,,draft,,0,,,0,0,grace.yormak@russellreynolds.com
+Monthly,12/1/2025,12/31/2025,RRA Client Insights Support v2.0,live,"Allow user to search article on RRA Insights, creates talking points, Linkedin post and email about article",0,,,0,0,minh.nguyen@russellreynolds.com
+Monthly,12/1/2025,12/31/2025,RRA TOKYO Wakako's Translator,draft,Automatically translates between English and Japanese with three tone variations.,1,12/12/2025,12/16/2025,35,1,wakako.matsuyama@russellreynolds.com
+Monthly,12/1/2025,12/31/2025,,draft,,0,,,0,0,clement.chatel@russellreynolds.com
+Monthly,12/1/2025,12/31/2025,Test Running Python,live,Test out running python code embedded in a GPT,0,,,0,0,bryan.gibson@russellreynolds.com
+Monthly,12/1/2025,12/31/2025,,draft,,0,,,0,0,vitoria.roque@russellreynolds.com
+Monthly,12/1/2025,12/31/2025,Assessment project status update,live,RRA-style Word reference guide outlining the standard method for assessment tracker analysis.,0,,,0,0,valerie.fortin@russellreynolds.com
+Monthly,12/1/2025,12/31/2025,CV Analyser,live,,1,12/17/2025,12/17/2025,1,1,daniel.werbnik@russellreynolds.com
+Monthly,12/1/2025,12/31/2025,SM Comments,live,"Drafts concise, factual 3–4 paragraph career highlights using only provided facts.",1,12/1/2025,12/18/2025,261,1,lizzie.michaelson@russellreynolds.com
+Monthly,12/1/2025,12/31/2025,Clarke's Executive Voice Copy Creator,live,"Writes authentic, story-driven LinkedIn posts in Clarke Murphy’s human, reflective voice.",1,12/4/2025,12/22/2025,29,1,emily.heinen@russellreynolds.com
+Monthly,12/1/2025,12/31/2025,Creative CEO Thought Partner,draft,A creative strategic advisor for CEOs on emerging topics and future possibilities.,1,12/4/2025,12/4/2025,3,1,dean.stamoulis@russellreynolds.com
+Monthly,12/1/2025,12/31/2025,D.Emails RRA style,live,write exec level emails,0,,,0,0,minh.nguyen@russellreynolds.com
+Monthly,12/1/2025,12/31/2025,,draft,,0,,,0,0,helen.metcalfe@russellreynolds.com
+Monthly,12/1/2025,12/31/2025,,draft,,0,,,0,0,kay.adams@russellreynolds.com
+Monthly,12/1/2025,12/31/2025,Marketing & Branding Coach,draft,"Polishes corporate writing to be pithy, strategic, and on-brand with Russell Reynolds style.",0,,,0,0,christian.komecki@russellreynolds.com
+Monthly,12/1/2025,12/31/2025,,draft,,0,,,0,0,sarmistha.ghosh@russellreynolds.com
+Monthly,12/1/2025,12/31/2025,Monthly Variance Report,live,Generates a Monthly Variance Analysis Report for CompanyA based on financial data,0,,,0,0,bryan.gibson@russellreynolds.com
+Monthly,12/1/2025,12/31/2025,,draft,,0,,,0,0,amy.hayes@russellreynolds.com
+Monthly,12/1/2025,12/31/2025,,draft,,0,,,0,0,jorge.fava@russellreynolds.com
+Monthly,12/1/2025,12/31/2025,,draft,,0,,,0,0,hillary.fazekas@russellreynolds.com
+Monthly,12/1/2025,12/31/2025,Search Briefing Generator,draft,,0,,,0,0,damini.arora@russellreynolds.com
+Monthly,12/1/2025,12/31/2025,Kay’s Email Assistant,live,"Default email processing behavior and warmth calibration applied. Automatically detects, analyzes, and rewrites pasted emails with professional warmth, clarity, and directness.",1,12/2/2025,12/2/2025,8,1,kay.adams@russellreynolds.com
+Monthly,12/1/2025,12/31/2025,Screen Call Notes Consolidator,live,Cleans up and Organizes Prospect Screen Call Notes,1,12/5/2025,12/19/2025,7,1,izzat.jaradat@russellreynolds.com
+Monthly,12/1/2025,12/31/2025,,draft,,0,,,0,0,michael.chan@russellreynolds.com
+Monthly,12/1/2025,12/31/2025,CPP evaluation,live,,1,12/3/2025,12/23/2025,12,1,melanie.polke@russellreynolds.com
+Monthly,12/1/2025,12/31/2025,Candidate Letter Tool,live,Erstellt Candidate Letters im RRA-Stil auf Basis eines Master Samples und spezifischen Contents.,1,12/16/2025,12/16/2025,15,1,johann.gruemmer@russellreynolds.com
+Monthly,12/1/2025,12/31/2025,Pam's CL creator,live,"Creates formal, factual candidate letters with a narrative and verifiable focus.",1,12/1/2025,12/23/2025,40,1,purnima.arora@russellreynolds.com
+Monthly,12/1/2025,12/31/2025,Job-Spec criteria extractor,draft,Analyzes job specs and outputs keyword tables with insights and search-optimized Boolean lists including importance and assessment data.,0,,,0,0,tomasz.hus@russellreynolds.com
+Monthly,12/1/2025,12/31/2025,Run Log Assistant,live,Coach that logs runs to one CSV and shows progress toward a half marathon.,1,12/8/2025,12/9/2025,112,1,nic.blomfield@russellreynolds.com
+Monthly,12/1/2025,12/31/2025,,draft,,0,,,0,0,christoph.schlegel@russellreynolds.com
+Monthly,12/1/2025,12/31/2025,Appraisals,live,,0,,,0,0,jorge.fava@russellreynolds.com
+Monthly,12/1/2025,12/31/2025,Global Monthly Variance,live,"Upload the latest Global Variance excel and instruct the GPT to ""Please run the report""",1,12/2/2025,12/29/2025,49,2,william.donahue@russellreynolds.com
+Monthly,12/1/2025,12/31/2025,Candidate Letter Generator - Prod connection test,live,"Interactively create a Candidate Letter from documents, notes and examples",0,,,0,0,bryan.gibson@russellreynolds.com
+Monthly,12/1/2025,12/31/2025,RRA Enterprise GPT Router,live,Routes User To GPT,1,12/17/2025,12/17/2025,9,2,vijay.yadav@russellreynolds.com
+Monthly,12/1/2025,12/31/2025,Appraisal Outline,live,Locate and concisely summarize the key components to write my self assessment,0,,,0,0,drew.brengel@russellreynolds.com
+Monthly,12/1/2025,12/31/2025,PE Check,draft,A senior PE operating partner lens for leadership and value creation analysis.,1,12/20/2025,12/21/2025,18,1,cat.nadeau@russellreynolds.com
+Monthly,12/1/2025,12/31/2025,,draft,,0,,,0,0,ashley.wallace@russellreynolds.com
+Monthly,12/1/2025,12/31/2025,Another Test Coach with Study Mode Instructions,live,Test,0,,,0,0,amy.miller@russellreynolds.com
+Monthly,12/1/2025,12/31/2025,Caliper Analysis,live,Caliper Analysis,1,12/1/2025,12/15/2025,8,1,katarina.knight@russellreynolds.com
+Monthly,12/1/2025,12/31/2025,,draft,"Writes rigorous, evidence-based executive assessment reports using RRA frameworks.",0,,,0,0,jason.friedman@russellreynolds.com
+Monthly,12/1/2025,12/31/2025,PNB's,live,Crea slides claras y estratégicas que explican la comprensión de una situación.,1,12/1/2025,12/19/2025,33,1,alejandro.ortiz@russellreynolds.com
+Monthly,12/1/2025,12/31/2025,Sophie the Sub-Industry Copywriter,live,"A senior-level copywriter creating authoritative, SEO-optimized leadership content.",1,12/2/2025,12/11/2025,80,2,susie.sell@russellreynolds.com
+Monthly,12/1/2025,12/31/2025,,draft,Refines and polishes dictated or spoken text in the same language.,0,,,0,0,johann.gruemmer@russellreynolds.com
+Monthly,12/1/2025,12/31/2025,training,draft,,0,,,0,0,bryan.gibson@russellreynolds.com
+Monthly,12/1/2025,12/31/2025,Amazonia Special Project,live,,1,12/17/2025,12/30/2025,175,2,alejandro.ortiz@russellreynolds.com
+Monthly,12/1/2025,12/31/2025,Reference Report Assistant,draft,Produces formal reference reports aligned with RRA reporting standards.,0,,,0,0,arunima.poricha@russellreynolds.com
+Monthly,12/1/2025,12/31/2025,,draft,,0,,,0,0,alexander.prokot@russellreynolds.com
+Monthly,12/1/2025,12/31/2025,RRA New Hire Orientation GPT,draft,Friendly assistant guiding new hires through their first 90 days.,1,12/17/2025,12/18/2025,11,1,stacey.mazurek@russellreynolds.com
+Monthly,12/1/2025,12/31/2025,Position Specification Writer,draft,Writes compelling executive position specifications,1,12/22/2025,12/22/2025,10,1,gabriel.czembor@russellreynolds.com
+Monthly,12/1/2025,12/31/2025,,draft,"Draft concise, tone-aware emails with subject lines, variants, and follow-ups.",0,,,0,0,purnima.arora@russellreynolds.com
+Monthly,12/1/2025,12/31/2025,,draft,,0,,,0,0,emily.hunt@russellreynolds.com
+Monthly,12/1/2025,12/31/2025,,draft,,0,,,0,0,wakako.matsuyama@russellreynolds.com
+Monthly,12/1/2025,12/31/2025,Family Enterprise Advisory Content Partner,draft,Creates polished campaign assets for family enterprise advisory work.,0,,,0,0,gemma.fell@russellreynolds.com
+Monthly,12/1/2025,12/31/2025,Salesforce DEV009 Test GPT,live,,0,,,0,0,sean.delessio@russellreynolds.com
+Monthly,12/1/2025,12/31/2025,,draft,,0,,,0,0,jill.spencer@russellreynolds.com
+Monthly,12/1/2025,12/31/2025,HN-SDK-Person-Smart-Pack-GPT,live,,0,,,0,0,hanuveer.nahar@russellreynolds.com
+Monthly,12/1/2025,12/31/2025,,draft,,0,,,0,0,amy.miller@russellreynolds.com
+Monthly,12/1/2025,12/31/2025,,draft,,0,,,0,0,kay.adams@russellreynolds.com
+Monthly,12/1/2025,12/31/2025,,draft,,0,,,0,0,minh.nguyen@russellreynolds.com
+Monthly,12/1/2025,12/31/2025,M365 Outlook GPT,live,Manages emails and calendar events in Microsoft Outlook,0,,,0,0,sean.delessio@russellreynolds.com
+Monthly,12/1/2025,12/31/2025,Client References,draft,Helps create polished client-ready referencing documents.,1,12/16/2025,12/18/2025,12,1,david.seeley@russellreynolds.com
+Monthly,12/1/2025,12/31/2025,Person-Finders,live,,1,12/1/2025,12/8/2025,65,4,sharad.awasthi@russellreynolds.com
+Monthly,12/1/2025,12/31/2025,,draft,,0,,,0,0,william.clark@russellreynolds.com
+Monthly,12/1/2025,12/31/2025,Monthly Variance Report - Amay,live,Generate Monthly Variance Report - created by Amay Kothari,0,,,0,0,bryan.gibson@russellreynolds.com
+Monthly,12/1/2025,12/31/2025,Executive Briefing Agent - EA to CMCO,live,"Input: Paste in a Meeting Transcript, Agenda, and Short-Hand Notes  Output: A formatted summary of the meeting with action items, key discussion points, and next steps",1,12/1/2025,12/17/2025,31,1,sarah.lermsider@russellreynolds.com
+Monthly,12/1/2025,12/31/2025,REF Writer,draft,,0,,,0,0,daniel.werbnik@russellreynolds.com
+Monthly,12/1/2025,12/31/2025,,draft,,0,,,0,0,guillaume.morisset@russellreynolds.com
+Monthly,12/1/2025,12/31/2025,,draft,,0,,,0,0,tomasz.hus@russellreynolds.com
+Monthly,12/1/2025,12/31/2025,,draft,,0,,,0,0,hannah.brazier@russellreynolds.com
+Monthly,12/1/2025,12/31/2025,Cyber Security Assistant,live,"Helps with cybersecurity operations, risk assessment, and threat analysis.",0,,,0,0,neha.baksh@russellreynolds.com
+Monthly,12/1/2025,12/31/2025,,draft,,0,,,0,0,janice.wong@russellreynolds.com
+Monthly,12/1/2025,12/31/2025,Prompt Coach,live,"Welcome to RRA ChatGPT Pro!  Work with the Prompt Coach to build prompt engineering skill and confidence through short, role-specific exercises. Dive in, stay curious, and discover what you and ChatGPT Pro can do together!",1,12/1/2025,12/30/2025,636,77,amy.miller@russellreynolds.com
+Monthly,12/1/2025,12/31/2025,Internal Comms Companion,draft,Trusted comms advisor focused on strategy and audience engagement.,0,,,0,0,robert.gallagher@russellreynolds.com
+Monthly,12/1/2025,12/31/2025,Post Client Meeting Notes,live,"Capture CEO notes, follow up actions, and email a client after meeting.",0,,,0,0,minh.nguyen@russellreynolds.com
+Monthly,12/1/2025,12/31/2025,,draft,,0,,,0,0,gowtham.kanchi@russellreynolds.com
+Monthly,12/1/2025,12/31/2025,Reindeer Genie,live,Fetch information from a Genie space about Santa's reindeer,1,12/5/2025,12/5/2025,1,1,tavis.barr@russellreynolds.com
+Monthly,12/1/2025,12/31/2025,,draft,,0,,,0,0,netila.demneri@russellreynolds.com
+Monthly,12/1/2025,12/31/2025,,draft,,0,,,0,0,chris.chia@russellreynolds.com
+Monthly,12/1/2025,12/31/2025,google drive test,draft,testing the sync,0,,,0,0,naveen.sebastian@russellreynolds.com
+Monthly,12/1/2025,12/31/2025,,,,1,12/24/2025,12/24/2025,24,3,
+Monthly,12/1/2025,12/31/2025,Profile Matcher,live,,0,,,0,0,harpreet.khurana@russellreynolds.com
+Monthly,12/1/2025,12/31/2025,PC - Target Asset Deck Builder,live,"RRA-branded deal-prep researcher with PDF download option (UK English, investor-neutral, balanced-depth)",1,12/2/2025,12/14/2025,25,1,cameron.page@russellreynolds.com
+Monthly,12/1/2025,12/31/2025,Marketing Campaign Generator,live,,0,,,0,0,daniela.andrade@russellreynolds.com
+Monthly,12/1/2025,12/31/2025,360 Interview Notes Analyzer,live,Takes uploaded 360 notes and identifies themes,0,,,0,0,ritchie.castree-croad@russellreynolds.com
+Monthly,12/1/2025,12/31/2025,IdioMatic,live,"Polishes any sentence or text, providing 3 versions in idiomatic business English.",1,12/1/2025,12/18/2025,30,1,alessandro.melloni@russellreynolds.com
+Monthly,12/1/2025,12/31/2025,,draft,,0,,,0,0,makiko.murai@russellreynolds.com
+Monthly,12/1/2025,12/31/2025,,draft,,0,,,0,0,david.seeley@russellreynolds.com
+Monthly,12/1/2025,12/31/2025,Client Feedback Q&A - Prod Connection Test,live,"Get answers to questions about our Client Feedback. Ask by Consultant, Client, Industry, Office, Service Line, and time-period. NOTE: Data is limited by project membership and leadership roles. You can only ask questions over data you have access to.",0,,,0,0,bryan.gibson@russellreynolds.com
+Monthly,12/1/2025,12/31/2025,Elastic Query Helper,live,,0,,,0,0,vijay.yadav@russellreynolds.com
+Monthly,12/1/2025,12/31/2025,Psychometric Report Generator - test recs,draft,"Generate a set of RRA Psych Only Assessment Slides based on the following files: hogan report, opq report",0,,,0,0,bryan.gibson@russellreynolds.com
+Monthly,12/1/2025,12/31/2025,Leaves E-mail Summarizer,draft,"This GPT will help to parse e-mail exchanges about leaves, identify relevant information, and create a summary document for data input into Workday",1,12/18/2025,12/18/2025,2,1,paul.deremer@russellreynolds.com
+Monthly,12/1/2025,12/31/2025,Weekly Two Things Update,live,Creates finalized Weekly Two Things Updates focused on top business themes from the past 7 days.,0,,,0,0,christian.komecki@russellreynolds.com
+Monthly,12/1/2025,12/31/2025,,draft,,0,,,0,0,muskan.agrawal@russellreynolds.com
+Monthly,12/1/2025,12/31/2025,Davos Support,live,"Creates concise, structured Support Briefs for senior executives, modeled on Russell Reynolds Associates’. This GPT generates professional, fact-based summaries ready for pre-meeting briefing use.",0,,,0,0,minh.nguyen@russellreynolds.com
+Monthly,12/1/2025,12/31/2025,,draft,,0,,,0,0,sophie.yiannopoulos@russellreynolds.com
+Monthly,12/1/2025,12/31/2025,,draft,,0,,,0,0,neha.baksh@russellreynolds.com
+Monthly,12/1/2025,12/31/2025,,draft,,0,,,0,0,dean.stamoulis@russellreynolds.com
+Monthly,12/1/2025,12/31/2025,Cecilia - The Strategic Relationship Coach,draft,"Strategic and empathetic coach helping Susie strengthen influence, trust, and leadership.",1,12/3/2025,12/31/2025,60,1,susie.sell@russellreynolds.com
+Monthly,12/1/2025,12/31/2025,Performance Review.RRA,live,write a reviews based on your writing style and tone,0,,,0,0,minh.nguyen@russellreynolds.com
+Monthly,12/1/2025,12/31/2025,,draft,,0,,,0,0,alyce.ellis@russellreynolds.com
+Monthly,12/1/2025,12/31/2025,Search Excellence Agent - Sabina,live,"Acts as a Search Excellence coach, guiding users on how to execute search according to a set of standards based on provided slides. Offers coaching, answers questions, and provides actionable feedback to help users adhere to best practices.",0,,,0,0,bryan.gibson@russellreynolds.com
+Monthly,12/1/2025,12/31/2025,Generate ChatGPT User Analytics Executive Summary,live,,1,12/1/2025,12/1/2025,4,1,sean.delessio@russellreynolds.com
+Monthly,12/1/2025,12/31/2025,Newsletter text cleaning,draft,"Removes event listings, contact/masthead blocks and sponsored sections from text and returns a strict JSON audit",0,,,0,0,robert.macmillan@russellreynolds.com
+Monthly,12/1/2025,12/31/2025,,draft,,0,,,0,0,gagan.saini@russellreynolds.com
+Monthly,12/1/2025,12/31/2025,,draft,,1,12/11/2025,12/11/2025,1,1,angelina.riet@russellreynolds.com
+Monthly,12/1/2025,12/31/2025,Fortune 500 GC Insights,live,Analyzes trends and profiles in Fortune 500 legal and governance leadership.,1,12/16/2025,12/18/2025,6,2,cynthia.dow@russellreynolds.com
+Monthly,12/1/2025,12/31/2025,,draft,Professional planner for RRA team events.,0,,,0,0,robert.gallagher@russellreynolds.com
+Monthly,12/1/2025,12/31/2025,Company_Agent_Elastic_v1,live,"This GPT is to create smartpack for a Company. These smartpack contains information about the company, its executives, RRA activity on ASN, PNB and BD, latest news, Stock analysis, SWOT Analysis",0,,,0,0,gagan.saini@russellreynolds.com
+Monthly,12/1/2025,12/31/2025,OneNote GPT_v1,live,OneNote Connector,1,12/3/2025,12/3/2025,3,1,gagan.saini@russellreynolds.com
+Monthly,12/1/2025,12/31/2025,,draft,,0,,,0,0,christine.skovholt@russellreynolds.com
+Monthly,12/1/2025,12/31/2025,,draft,,0,,,0,0,chelsea.glanville@russellreynolds.com
+Monthly,12/1/2025,12/31/2025,Brand House Creator,live,Create Brand Houses aligned to our MarComms Personal Brand training,1,12/3/2025,12/3/2025,1,1,sarah.lermsider@russellreynolds.com
+Monthly,12/1/2025,12/31/2025,Json Formatter  GPT,live,Fix JSON formats,1,12/5/2025,12/5/2025,2,1,vijay.yadav@russellreynolds.com
+Monthly,12/1/2025,12/31/2025,Email Polisher,live,Polishes emails into professional business English or German in RRA style.,1,12/1/2025,12/30/2025,368,1,johann.gruemmer@russellreynolds.com
+Monthly,12/1/2025,12/31/2025,Meeting Notes Assistant - EA to CMCO,draft,"Summarize meeting notes with clear succinct bullets with action items, key insights, owners, deadlines, and links.",0,,,0,0,sarah.lermsider@russellreynolds.com
+Monthly,12/1/2025,12/31/2025,Consultant Finder,live,"Consultant Finder aims to make it dramatically easier to locate internal expertise — accelerating client teaming, business development, and knowledge sharing.",1,12/8/2025,12/18/2025,31,12,justus.obrien@russellreynolds.com
+Monthly,12/1/2025,12/31/2025,,draft,,1,12/22/2025,12/22/2025,1,1,alexandra.boland@russellreynolds.com
+Monthly,12/1/2025,12/31/2025,Company-Smart-Pack-GPT_inprogress (copy),draft,This GPT can help RRA teams to create a Company smart-pack.,0,,,0,0,hanuveer.nahar@russellreynolds.com
+Monthly,12/1/2025,12/31/2025,Vijay_Core_Entity_Agent_v1,live,,0,,,0,0,vijay.yadav@russellreynolds.com
+Monthly,12/1/2025,12/31/2025,,draft,,0,,,0,0,heather.blonkenfeld@russellreynolds.com
+Monthly,12/1/2025,12/31/2025,Industry Trends Agent,draft,Create a “Trends Redefining [Industry] and Talent Implications” slide that connects macro forces reshaping the business to leadership and talent requirements specific to the client company. The goal is to translate external industry shifts into internal leadership imperatives.,1,12/10/2025,12/11/2025,6,1,alex.madronal@russellreynolds.com
+Monthly,12/1/2025,12/31/2025,WIP AI Proofreader Assistant,live,,1,12/3/2025,12/3/2025,1,1,kelly.smith@russellreynolds.com
+Monthly,12/1/2025,12/31/2025,,draft,,0,,,0,0,luke.higgins@russellreynolds.com
+Monthly,12/1/2025,12/31/2025,Spec Writer (ENG),live,,1,12/1/2025,12/1/2025,1,1,daniel.werbnik@russellreynolds.com
+Monthly,12/1/2025,12/31/2025,Company Smart Pack GPT,live,"Create a Smart Pack with key insights about a company — including financial highlights, recent news, and our firm’s relationship with them. You can ask this GPT to review, enhance, or simplify the content. To get started, simply use a prompt like:",1,12/1/2025,12/30/2025,1808,193,vijay.yadav@russellreynolds.com
+Monthly,12/1/2025,12/31/2025,,draft,,0,,,0,0,hiren.vora@russellreynolds.com
+Monthly,12/1/2025,12/31/2025,Company-SP-UserPreference,live,This GPT can help RRA teams to create a Company smart-pack.,1,12/24/2025,12/24/2025,12,1,hanuveer.nahar@russellreynolds.com
+Monthly,12/1/2025,12/31/2025,BoardEx Genie,live,Retrieve information about company leaders from BoardEx,0,,,0,0,tavis.barr@russellreynolds.com
+Monthly,12/1/2025,12/31/2025,Lalo's Ghost writer 👻,live,,1,12/1/2025,12/29/2025,59,1,eduardo.cordoba@russellreynolds.com
+Monthly,12/1/2025,12/31/2025,Poirot,live,Identifies Consultant Expertise in the RRA Ecosystem,0,,,0,0,justus.obrien@russellreynolds.com
+Monthly,12/1/2025,12/31/2025,,draft,,0,,,0,0,aditi.banerjee@russellreynolds.com
+Monthly,12/1/2025,12/31/2025,Work Personality Coach,live,Analyzes Outlook and work data to reveal leadership potential and growth paths.,0,,,0,0,robert.gallagher@russellreynolds.com
+Monthly,12/1/2025,12/31/2025,,draft,,0,,,0,0,amanda.ingall@russellreynolds.com
+Monthly,12/1/2025,12/31/2025,Look4Creds,draft,Your intelligent assistant for discovering the most relevant RRA project credentials for your task at hand.,0,,,0,0,markus.knopf@russellreynolds.com
+Monthly,12/1/2025,12/31/2025,test apim,draft,test connection to apim,0,,,0,0,bryan.gibson@russellreynolds.com
+Monthly,12/1/2025,12/31/2025,Highlights,draft,Creates professional career summaries written in full sentences.,1,12/3/2025,12/17/2025,37,1,clare.snow@russellreynolds.com
+Monthly,12/1/2025,12/31/2025,YEA - Feedback builder,live,Cross references WGLL with collated feedback,0,,,0,0,katarina.knight@russellreynolds.com
+Monthly,12/1/2025,12/31/2025,,draft,,0,,,0,0,william.clark@russellreynolds.com
+Monthly,12/1/2025,12/31/2025,,draft,,0,,,0,0,thor.lange@russellreynolds.com
+Monthly,12/1/2025,12/31/2025,,draft,,0,,,0,0,david.finke@russellreynolds.com
+Monthly,12/1/2025,12/31/2025,,draft,,0,,,0,0,maria.raga@russellreynolds.com
+Monthly,12/1/2025,12/31/2025,Company-Finders,live,,1,12/4/2025,12/9/2025,4,1,sharad.awasthi@russellreynolds.com
+Monthly,12/1/2025,12/31/2025,,draft,,0,,,0,0,natalie.leiner@russellreynolds.com
+Monthly,12/1/2025,12/31/2025,Nathaniel (Nate for short),draft,Email marketer,1,12/11/2025,12/11/2025,1,1,gemma.fell@russellreynolds.com
+Monthly,12/1/2025,12/31/2025,SM Private Equity,live,,1,12/16/2025,12/23/2025,25,2,ines.martinezfresneda@russellreynolds.com
+Monthly,12/1/2025,12/31/2025,Executive Assessment Advisor,live,An expert industrial psychologist who helps craft executive assessment reports.,0,,,0,0,marcy.calaway@russellreynolds.com
+Monthly,12/1/2025,12/31/2025,Client Feedback Q&A,live,"Get answers to questions about our Client Feedback. Ask by Consultant, Client, Industry, Office, Service Line, and time-period. NOTE: Data is limited by project membership and leadership roles. You can only ask questions over data you have access to.",1,12/3/2025,12/26/2025,93,11,bryan.gibson@russellreynolds.com
+Monthly,12/1/2025,12/31/2025,,draft,,0,,,0,0,xander.menger@russellreynolds.com
+Monthly,12/1/2025,12/31/2025,,draft,,0,,,0,0,anna.andrews@russellreynolds.com
+Monthly,12/1/2025,12/31/2025,(Test) Person Get Smart Pack Agent 🔍,live,"Create a Person Get Smart Pack to quickly understand key details about an individual — including their background, current role, and our firm’s relationship with them. To get started, simply use a prompt like: “Create a Get Smart Pack on Bennett Reading.”",0,,,0,0,lizzy.klumpp@russellreynolds.com
+Monthly,12/1/2025,12/31/2025,,draft,,0,,,0,0,avery.vaughan@russellreynolds.com
+Monthly,12/1/2025,12/31/2025,Search Email,draft,Return email from a timeperiod for a person,0,,,0,0,bryan.gibson@russellreynolds.com
+Monthly,12/1/2025,12/31/2025,,draft,,0,,,0,0,florencia.schindler@russellreynolds.com
+Monthly,12/1/2025,12/31/2025,,draft,,0,,,0,0,michele.catach@russellreynolds.com
+Monthly,12/1/2025,12/31/2025,,draft,,0,,,0,0,tara.nensi@russellreynolds.com
+Monthly,12/1/2025,12/31/2025,Company Insight Formatter,live,"Generates concise, verified company descriptions with key stats in a consistent, report-ready format.",0,,,0,0,francesca.descher@russellreynolds.com
+Monthly,12/1/2025,12/31/2025,,draft,,0,,,0,0,paul.deremer@russellreynolds.com
+Monthly,12/1/2025,12/31/2025,RRA Client Insights Support(for Consultants),live,"Allow user to search article on RRA Insights, creates talking points, Linkedin post and email about article",1,12/17/2025,12/19/2025,8,1,minh.nguyen@russellreynolds.com
+Monthly,12/1/2025,12/31/2025,Search Strategy,draft,,0,,,0,0,sarah.demeulenaer@russellreynolds.com
+Monthly,12/1/2025,12/31/2025,Fortune 500 GC Insights 2.0,live,Analyzes trends and profiles in Fortune 500 legal and governance leadership.,1,12/18/2025,12/18/2025,2,1,minh.nguyen@russellreynolds.com
+Monthly,12/1/2025,12/31/2025,,draft,,0,,,0,0,robert.gallagher@russellreynolds.com
+Monthly,12/1/2025,12/31/2025,Candidate Career Bullet Points,live,Creates a summary of candidate career history,1,12/2/2025,12/16/2025,36,1,allie.miller@russellreynolds.com
+Monthly,12/1/2025,12/31/2025,,draft,,0,,,0,0,sarah.lucasruhland@russellreynolds.com
+Monthly,12/1/2025,12/31/2025,Falstaff,live,"Agent to suggest jokes, anecdotes, and amusing stories to fit a circumstance",0,,,0,0,justus.obrien@russellreynolds.com
+Monthly,12/1/2025,12/31/2025,【日本語】チェック,live,"Polishes Japanese communication for tone, fluency, and clarity.",1,12/2/2025,12/2/2025,2,1,anika.nagahiro@russellreynolds.com
+Monthly,12/1/2025,12/31/2025,,draft,,0,,,0,0,william.clark@russellreynolds.com
+Monthly,12/1/2025,12/31/2025,,draft,Guides users to design a custom GPT step by step.,1,12/29/2025,12/29/2025,2,1,morgan.dyson@russellreynolds.com
