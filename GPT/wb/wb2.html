@@ -1,0 +1,749 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Winning Business Award Calculator</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Inter', sans-serif; background-color: #f8fafc; }
+        .step-active { background-color: #3b82f6; color: white; border-color: #3b82f6; }
+        .step-inactive { background-color: white; color: #64748b; border-color: #cbd5e1; }
+        .step-completed { background-color: #10b981; color: white; border-color: #10b981; }
+        .contribution-card { transition: all 0.2s; }
+        .contribution-card:hover { transform: translateY(-2px); box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1); }
+        .range-slider::-webkit-slider-thumb { -webkit-appearance: none; appearance: none; width: 20px; height: 20px; background: #3b82f6; cursor: pointer; border-radius: 50%; }
+        .fade-in { animation: fadeIn 0.3s ease-in; }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+        .json-output { font-family: 'Courier New', monospace; background: #1e293b; color: #e2e8f0; }
+    </style>
+</head>
+<body class="min-h-screen text-slate-800">
+
+    <!-- Header -->
+    <header class="bg-white border-b border-slate-200 sticky top-0 z-50">
+        <div class="max-w-6xl mx-auto px-4 py-4 flex justify-between items-center">
+            <div class="flex items-center gap-3">
+                <div class="w-10 h-10 bg-blue-600 rounded-lg flex items-center justify-center text-white font-bold text-xl">WB</div>
+                <div>
+                    <h1 class="text-xl font-bold text-slate-900">Winning Business Award Calculator</h1>
+                    <p class="text-xs text-slate-500">Based on WB User's Guide 3.0 | Pages 8-15</p>
+                </div>
+            </div>
+            <div class="text-sm text-slate-600">
+                <span class="font-semibold">Policy Caps:</span> Individual 100% | Team 200%
+            </div>
+        </div>
+    </header>
+
+    <main class="max-w-6xl mx-auto px-4 py-8">
+       
+        <!-- Progress Steps -->
+        <div class="mb-8">
+            <div class="flex items-center justify-between relative">
+                <div class="absolute left-0 right-0 top-1/2 h-0.5 bg-slate-200 -z-10"></div>
+                <button onclick="app.goToStep(1)" class="step-btn step-active w-10 h-10 rounded-full border-2 flex items-center justify-center font-semibold text-sm transition-all" id="step-1-btn">1</button>
+                <button onclick="app.goToStep(2)" class="step-btn step-inactive w-10 h-10 rounded-full border-2 flex items-center justify-center font-semibold text-sm transition-all" id="step-2-btn">2</button>
+                <button onclick="app.goToStep(3)" class="step-btn step-inactive w-10 h-10 rounded-full border-2 flex items-center justify-center font-semibold text-sm transition-all" id="step-3-btn">3</button>
+                <button onclick="app.goToStep(4)" class="step-btn step-inactive w-10 h-10 rounded-full border-2 flex items-center justify-center font-semibold text-sm transition-all" id="step-4-btn">4</button>
+            </div>
+            <div class="flex justify-between mt-2 text-xs font-medium text-slate-600">
+                <span>Team Setup</span>
+                <span>Contributions</span>
+                <span>Financials</span>
+                <span>Results</span>
+            </div>
+        </div>
+
+        <!-- Step 1: Team Setup -->
+        <div id="step-1" class="step-content fade-in">
+            <div class="bg-white rounded-xl shadow-sm border border-slate-200 p-6 mb-6">
+                <h2 class="text-lg font-semibold mb-4 flex items-center gap-2">
+                    <span class="w-6 h-6 bg-blue-100 text-blue-600 rounded-full flex items-center justify-center text-xs">1</span>
+                    Who is on the team?
+                </h2>
+                <p class="text-sm text-slate-600 mb-4">List all team members who contributed to this win. Include names and optional roles for clarity.</p>
+               
+                <div id="team-list" class="space-y-3 mb-4">
+                    <!-- Dynamic team members inserted here -->
+                </div>
+
+                <button onclick="app.addTeamMember()" class="w-full py-3 border-2 border-dashed border-slate-300 rounded-lg text-slate-600 hover:border-blue-400 hover:text-blue-600 transition-colors font-medium flex items-center justify-center gap-2">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"></path></svg>
+                    Add Team Member
+                </button>
+
+                <div class="mt-6 flex justify-end">
+                    <button onclick="app.validateStep1()" class="bg-blue-600 text-white px-6 py-2.5 rounded-lg hover:bg-blue-700 transition-colors font-medium flex items-center gap-2">
+                        Continue to Contributions
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Step 2: Contributions -->
+        <div id="step-2" class="step-content hidden fade-in">
+            <div class="bg-white rounded-xl shadow-sm border border-slate-200 p-6 mb-6">
+                <div class="flex justify-between items-start mb-6">
+                    <div>
+                        <h2 class="text-lg font-semibold flex items-center gap-2">
+                            <span class="w-6 h-6 bg-blue-100 text-blue-600 rounded-full flex items-center justify-center text-xs">2</span>
+                            Direct Contributions
+                        </h2>
+                        <p class="text-sm text-slate-600 mt-1">Map each person's direct impact to the contribution grid. <span class="text-red-600 font-medium">Only direct contributions to the win count.</span></p>
+                    </div>
+                    <div class="text-right text-sm">
+                        <div class="font-medium text-slate-900">Current Team Total</div>
+                        <div class="text-2xl font-bold text-blue-600" id="current-base-total">0%</div>
+                    </div>
+                </div>
+
+                <div id="contributions-container" class="space-y-6">
+                    <!-- Contribution forms per team member -->
+                </div>
+
+                <div class="mt-6 flex justify-between">
+                    <button onclick="app.goToStep(1)" class="text-slate-600 hover:text-slate-900 font-medium px-4 py-2">← Back</button>
+                    <button onclick="app.validateStep2()" class="bg-blue-600 text-white px-6 py-2.5 rounded-lg hover:bg-blue-700 transition-colors font-medium">
+                        Review Calculations →
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Step 3: Financial Inputs -->
+        <div id="step-3" class="step-content hidden fade-in">
+            <div class="bg-white rounded-xl shadow-sm border border-slate-200 p-6 mb-6 max-w-2xl mx-auto">
+                <h2 class="text-lg font-semibold mb-4 flex items-center gap-2">
+                    <span class="w-6 h-6 bg-blue-100 text-blue-600 rounded-full flex items-center justify-center text-xs">3</span>
+                    Award Parameters
+                </h2>
+
+                <div class="space-y-6">
+                    <div>
+                        <label class="block text-sm font-medium text-slate-700 mb-2">WB Award Dollar Basis</label>
+                        <div class="grid grid-cols-2 gap-4">
+                            <div class="relative">
+                                <input type="radio" name="dollar-basis-type" value="per100" id="basis-per100" class="peer hidden" checked onchange="app.toggleDollarBasis()">
+                                <label for="basis-per100" class="block p-4 border-2 border-slate-200 rounded-lg cursor-pointer peer-checked:border-blue-500 peer-checked:bg-blue-50 transition-all">
+                                    <div class="font-medium text-slate-900">Per 100% WB</div>
+                                    <div class="text-xs text-slate-500 mt-1">Dollar value for 100% allocation</div>
+                                </label>
+                            </div>
+                            <div class="relative">
+                                <input type="radio" name="dollar-basis-type" value="for200" id="basis-for200" class="peer hidden" onchange="app.toggleDollarBasis()">
+                                <label for="basis-for200" class="block p-4 border-2 border-slate-200 rounded-lg cursor-pointer peer-checked:border-blue-500 peer-checked:bg-blue-50 transition-all">
+                                    <div class="font-medium text-slate-900">Total Pool (200%)</div>
+                                    <div class="text-xs text-slate-500 mt-1">Total dollars for full 200% team cap</div>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div>
+                        <label class="block text-sm font-medium text-slate-700 mb-2">
+                            Dollar Amount <span id="dollar-label-suffix">per 100% WB</span>
+                        </label>
+                        <div class="relative">
+                            <span class="absolute left-3 top-1/2 -translate-y-1/2 text-slate-500">$</span>
+                            <input type="number" id="dollar-amount" class="w-full pl-8 pr-4 py-3 border border-slate-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition-all" placeholder="50000">
+                        </div>
+                    </div>
+
+                    <div>
+                        <label class="block text-sm font-medium text-slate-700 mb-2">Scaling Percentage</label>
+                        <div class="flex items-center gap-4">
+                            <input type="range" id="scale-slider" min="0" max="100" value="100" class="flex-1 h-2 bg-slate-200 rounded-lg appearance-none cursor-pointer" oninput="document.getElementById('scale-value').value = this.value">
+                            <div class="relative w-24">
+                                <input type="number" id="scale-value" value="100" min="0" max="100" class="w-full pr-8 pl-3 py-2 border border-slate-300 rounded-lg text-center" oninput="document.getElementById('scale-slider').value = this.value">
+                                <span class="absolute right-3 top-1/2 -translate-y-1/2 text-slate-500">%</span>
+                            </div>
+                        </div>
+                        <p class="text-xs text-slate-500 mt-2">Payout percentage (e.g., 80% pays 80% of computed awards)</p>
+                    </div>
+
+                    <div class="bg-amber-50 border border-amber-200 rounded-lg p-4">
+                        <div class="flex items-start gap-3">
+                            <svg class="w-5 h-5 text-amber-600 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                            <div>
+                                <div class="font-medium text-amber-900 text-sm">Preview</div>
+                                <div class="text-sm text-amber-800 mt-1">
+                                    WB $ per 100%: <span id="preview-per100" class="font-bold">$0</span> |
+                                    Scale: <span id="preview-scale" class="font-bold">100%</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="mt-6 flex justify-between">
+                    <button onclick="app.goToStep(2)" class="text-slate-600 hover:text-slate-900 font-medium px-4 py-2">← Back</button>
+                    <button onclick="app.calculateAndShowResults()" class="bg-green-600 text-white px-6 py-2.5 rounded-lg hover:bg-green-700 transition-colors font-medium shadow-lg shadow-green-200">
+                        Calculate Final Awards
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Step 4: Results -->
+        <div id="step-4" class="step-content hidden fade-in">
+            <div class="grid lg:grid-cols-3 gap-6">
+                <!-- Summary Table -->
+                <div class="lg:col-span-2 space-y-6">
+                    <div class="bg-white rounded-xl shadow-sm border border-slate-200 p-6">
+                        <h2 class="text-lg font-semibold mb-4 flex items-center gap-2">
+                            <span class="w-6 h-6 bg-green-100 text-green-600 rounded-full flex items-center justify-center text-xs">✓</span>
+                            Final Allocation Summary
+                        </h2>
+
+                        <div class="overflow-x-auto">
+                            <table class="w-full text-sm">
+                                <thead class="bg-slate-50 text-slate-600 font-medium border-b border-slate-200">
+                                    <tr>
+                                        <th class="text-left py-3 px-3">Team Member</th>
+                                        <th class="text-right py-3 px-3">Base WB%</th>
+                                        <th class="text-right py-3 px-3">Capped WB%</th>
+                                        <th class="text-right py-3 px-3">Scaled WB%</th>
+                                        <th class="text-right py-3 px-3">Final Award</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="results-table-body" class="divide-y divide-slate-100">
+                                    <!-- Results inserted here -->
+                                </tbody>
+                                <tfoot class="bg-slate-50 font-semibold border-t border-slate-200">
+                                    <tr>
+                                        <td class="py-3 px-3">TOTAL</td>
+                                        <td class="text-right py-3 px-3" id="total-base">0%</td>
+                                        <td class="text-right py-3 px-3" id="total-capped">0%</td>
+                                        <td class="text-right py-3 px-3 text-blue-600" id="total-scaled">0%</td>
+                                        <td class="text-right py-3 px-3 text-green-600" id="total-dollars">$0</td>
+                                    </tr>
+                                </tfoot>
+                            </table>
+                        </div>
+
+                        <div id="scaling-notice" class="mt-4 p-3 bg-blue-50 border border-blue-200 rounded-lg text-sm text-blue-800 hidden">
+                            <strong>Scaling Applied:</strong> Team total exceeded 200%. Awards scaled down by factor of <span id="scale-factor-display">0.00</span>x to meet policy cap.
+                        </div>
+
+                        <div id="capping-notice" class="mt-4 p-3 bg-amber-50 border border-amber-200 rounded-lg text-sm text-amber-800 hidden">
+                            <strong>Individual Capping:</strong> One or more team members exceeded 100% individual cap. Excess moved to house/surplus.
+                        </div>
+                    </div>
+
+                    <!-- Contribution Details -->
+                    <div class="bg-white rounded-xl shadow-sm border border-slate-200 p-6">
+                        <h3 class="font-semibold mb-4">Contribution Breakdown</h3>
+                        <div id="contribution-details" class="space-y-4">
+                            <!-- Detailed breakdown -->
+                        </div>
+                    </div>
+                </div>
+
+                <!-- JSON Output -->
+                <div class="lg:col-span-1">
+                    <div class="bg-white rounded-xl shadow-sm border border-slate-200 p-6 sticky top-24">
+                        <div class="flex justify-between items-center mb-4">
+                            <h3 class="font-semibold">Machine-Readable JSON</h3>
+                            <button onclick="app.copyJSON()" class="text-xs bg-slate-100 hover:bg-slate-200 px-3 py-1 rounded font-medium transition-colors">Copy</button>
+                        </div>
+                        <pre id="json-output" class="json-output p-4 rounded-lg text-xs overflow-x-auto max-h-[600px] overflow-y-auto"></pre>
+                    </div>
+                </div>
+            </div>
+
+            <div class="mt-8 flex justify-between">
+                <button onclick="app.reset()" class="text-red-600 hover:text-red-700 font-medium px-4 py-2">Start New Calculation</button>
+                <button onclick="window.print()" class="bg-slate-800 text-white px-6 py-2.5 rounded-lg hover:bg-slate-900 transition-colors font-medium">
+                    Print / Save PDF
+                </button>
+            </div>
+        </div>
+
+    </main>
+
+    <script>
+        const app = {
+            currentStep: 1,
+            team: [],
+            contributions: {},
+            calculation: null,
+           
+            categories: [
+                { id: 'random_lead', label: 'Random lead / referral', levels: ['NIL', '25%', '50%', '75%', '100%'] },
+                { id: 'existing_client', label: 'Existing client or relationships', levels: ['NIL', '25%', '50%', '75%', '100%'] },
+                { id: 'prior_work', label: 'Prior work related', levels: ['NIL', '25%', '50%', '75%', '100%'] },
+                { id: 'new_client', label: 'Acquiring a new client', levels: ['NIL', '25%', '50%', '75%', '100%'] },
+                { id: 'market_rep', label: 'Market reputation related', levels: ['NIL', '25%', '50%', '75%', '100%'] },
+                { id: 'pitch_help', label: 'Helping with a pitch, providing expertise', levels: ['NIL', '25%', '50%', '75%', '100%'] },
+                { id: 'msa', label: 'MSA situation', levels: ['NIL', '25%', '50%', '75%', '100%'] },
+                { id: 'open_close', label: 'Open/Close (anticipated or unanticipated)', special: true },
+                { id: 'extension', label: 'Project extensions and SREA', special: true },
+                { id: 'rm_team', label: 'Relationship management contribution', levels: ['NIL', '25%', '50%', '75%', '100%'], rm_team: true }
+            ],
+
+            init() {
+                this.addTeamMember();
+            },
+
+            addTeamMember() {
+                const id = Date.now();
+                this.team.push({ id, name: '', role: '' });
+                this.renderTeamList();
+            },
+
+            removeTeamMember(id) {
+                if (this.team.length > 1) {
+                    this.team = this.team.filter(m => m.id !== id);
+                    delete this.contributions[id];
+                    this.renderTeamList();
+                }
+            },
+
+            updateTeamMember(id, field, value) {
+                const member = this.team.find(m => m.id === id);
+                if (member) member[field] = value;
+            },
+
+            renderTeamList() {
+                const container = document.getElementById('team-list');
+                container.innerHTML = this.team.map((member, idx) => `
+                    <div class="flex gap-3 items-center bg-slate-50 p-3 rounded-lg border border-slate-200">
+                        <div class="w-8 h-8 bg-blue-100 text-blue-600 rounded-full flex items-center justify-center text-sm font-bold shrink-0">
+                            ${idx + 1}
+                        </div>
+                        <input type="text" placeholder="Full Name" value="${member.name}"
+                            onchange="app.updateTeamMember(${member.id}, 'name', this.value)"
+                            class="flex-1 px-3 py-2 border border-slate-300 rounded-md focus:ring-2 focus:ring-blue-500 outline-none">
+                        <input type="text" placeholder="Role (optional)" value="${member.role}"
+                            onchange="app.updateTeamMember(${member.id}, 'role', this.value)"
+                            class="w-48 px-3 py-2 border border-slate-300 rounded-md focus:ring-2 focus:ring-blue-500 outline-none hidden sm:block">
+                        <button onclick="app.removeTeamMember(${member.id})" class="text-red-500 hover:text-red-700 p-2" ${this.team.length === 1 ? 'disabled' : ''}>
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+                        </button>
+                    </div>
+                `).join('');
+            },
+
+            validateStep1() {
+                const valid = this.team.every(m => m.name.trim() !== '');
+                if (!valid) {
+                    alert('Please enter names for all team members.');
+                    return;
+                }
+                this.goToStep(2);
+                this.renderContributions();
+            },
+
+            renderContributions() {
+                const container = document.getElementById('contributions-container');
+                container.innerHTML = this.team.map(member => {
+                    const memberContributions = this.contributions[member.id] || [];
+                    return `
+                        <div class="border border-slate-200 rounded-xl p-5 bg-slate-50/50">
+                            <div class="flex justify-between items-center mb-4">
+                                <div>
+                                    <h3 class="font-semibold text-lg text-slate-900">${member.name || 'Unnamed'}</h3>
+                                    ${member.role ? `<p class="text-sm text-slate-500">${member.role}</p>` : ''}
+                                </div>
+                                <div class="text-right">
+                                    <div class="text-xs text-slate-500 uppercase tracking-wide">Current Total</div>
+                                    <div class="text-xl font-bold text-blue-600" id="member-total-${member.id}">0%</div>
+                                </div>
+                            </div>
+                           
+                            <div class="space-y-3" id="member-contributions-${member.id}">
+                                ${memberContributions.map((contrib, idx) => this.renderContributionRow(member.id, idx, contrib)).join('')}
+                            </div>
+                           
+                            <button onclick="app.addContribution(${member.id})" class="mt-3 text-sm text-blue-600 hover:text-blue-800 font-medium flex items-center gap-1">
+                                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"></path></svg>
+                                Add Contribution
+                            </button>
+                        </div>
+                    `;
+                }).join('');
+               
+                this.updateCurrentBaseTotal();
+            },
+
+            renderContributionRow(memberId, idx, contrib = {}) {
+                const categories = this.categories.map(c =>
+                    `<option value="${c.id}" ${contrib.category === c.id ? 'selected' : ''}>${c.label}</option>`
+                ).join('');
+               
+                const category = this.categories.find(c => c.id === contrib.category);
+                let levelSelector = '';
+               
+                if (category && !category.special) {
+                    const levels = category.levels.map(l =>
+                        `<option value="${l}" ${contrib.level === l ? 'selected' : ''}>${l}</option>`
+                    ).join('');
+                    levelSelector = `
+                        <select onchange="app.updateContribution(${memberId}, ${idx}, 'level', this.value)" class="px-3 py-2 border border-slate-300 rounded-md text-sm focus:ring-2 focus:ring-blue-500 outline-none">
+                            <option value="">Select Level...</option>
+                            ${levels}
+                        </select>
+                    `;
+                } else if (category && category.special) {
+                    if (category.id === 'open_close') {
+                        levelSelector = `
+                            <select onchange="app.updateContribution(${memberId}, ${idx}, 'openCloseType', this.value)" class="px-3 py-2 border border-slate-300 rounded-md text-sm focus:ring-2 focus:ring-blue-500 outline-none">
+                                <option value="">Select Type...</option>
+                                <option value="anticipated" ${contrib.openCloseType === 'anticipated' ? 'selected' : ''}>Anticipated (use original split)</option>
+                                <option value="unanticipated" ${contrib.openCloseType === 'unanticipated' ? 'selected' : ''}>Unanticipated (execution involvement)</option>
+                            </select>
+                            ${contrib.openCloseType === 'unanticipated' ? `
+                                <select onchange="app.updateContribution(${memberId}, ${idx}, 'level', this.value)" class="px-3 py-2 border border-slate-300 rounded-md text-sm focus:ring-2 focus:ring-blue-500 outline-none mt-2">
+                                    <option value="">Relative Involvement...</option>
+                                    <option value="25%" ${contrib.level === '25%' ? 'selected' : ''}>Minor (25%)</option>
+                                    <option value="50%" ${contrib.level === '50%' ? 'selected' : ''}>Moderate (50%)</option>
+                                    <option value="75%" ${contrib.level === '75%' ? 'selected' : ''}>Significant (75%)</option>
+                                    <option value="100%" ${contrib.level === '100%' ? 'selected' : ''}>Primary (100%)</option>
+                                </select>
+                            ` : ''}
+                        `;
+                    } else if (category.id === 'extension') {
+                        levelSelector = `
+                            <select onchange="app.updateContribution(${memberId}, ${idx}, 'extensionType', this.value)" class="px-3 py-2 border border-slate-300 rounded-md text-sm focus:ring-2 focus:ring-blue-500 outline-none">
+                                <option value="">Select Scenario...</option>
+                                <option value="no_selling" ${contrib.extensionType === 'no_selling' ? 'selected' : ''}>No additional selling (keep original)</option>
+                                <option value="new_scope" ${contrib.extensionType === 'new_scope' ? 'selected' : ''}>New scope/additional team</option>
+                            </select>
+                            ${contrib.extensionType === 'new_scope' ? `
+                                <div class="mt-2 text-xs text-amber-700 bg-amber-50 p-2 rounded">Treat as new allocation using standard grid</div>
+                            ` : ''}
+                        `;
+                    }
+                }
+
+                return `
+                    <div class="contribution-row bg-white p-4 rounded-lg border border-slate-200 shadow-sm">
+                        <div class="grid md:grid-cols-2 gap-3 mb-3">
+                            <select onchange="app.updateContribution(${memberId}, ${idx}, 'category', this.value)" class="w-full px-3 py-2 border border-slate-300 rounded-md text-sm focus:ring-2 focus:ring-blue-500 outline-none">
+                                <option value="">Select Category...</option>
+                                ${categories}
+                            </select>
+                            ${levelSelector}
+                        </div>
+                        <div class="flex items-center justify-between">
+                            <label class="flex items-center gap-2 text-sm cursor-pointer">
+                                <input type="checkbox" onchange="app.updateContribution(${memberId}, ${idx}, 'direct', this.checked)" ${contrib.direct !== false ? 'checked' : ''}
+                                    class="w-4 h-4 text-blue-600 rounded focus:ring-blue-500">
+                                <span class="text-slate-700">Directly influenced the win</span>
+                            </label>
+                            <button onclick="app.removeContribution(${memberId}, ${idx})" class="text-red-500 hover:text-red-700 text-sm">Remove</button>
+                        </div>
+                        ${contrib.direct === false ? '<div class="mt-2 text-xs text-red-600 bg-red-50 p-2 rounded">⚠️ Only direct contributions should be awarded WB per policy.</div>' : ''}
+                    </div>
+                `;
+            },
+
+            addContribution(memberId) {
+                if (!this.contributions[memberId]) this.contributions[memberId] = [];
+                this.contributions[memberId].push({ category: '', level: '', direct: true });
+                this.renderContributions();
+            },
+
+            removeContribution(memberId, idx) {
+                this.contributions[memberId].splice(idx, 1);
+                this.renderContributions();
+            },
+
+            updateContribution(memberId, idx, field, value) {
+                if (!this.contributions[memberId]) this.contributions[memberId] = [];
+                this.contributions[memberId][idx][field] = value;
+               
+                // If changing category, reset dependent fields
+                if (field === 'category') {
+                    this.contributions[memberId][idx].level = '';
+                    this.contributions[memberId][idx].openCloseType = '';
+                    this.contributions[memberId][idx].extensionType = '';
+                }
+               
+                this.renderContributions();
+            },
+
+            calculateBaseWB(contribution) {
+                if (contribution.direct === false) return 0;
+               
+                const category = this.categories.find(c => c.id === contribution.category);
+                if (!category) return 0;
+               
+                if (category.id === 'open_close' && contribution.openCloseType === 'anticipated') {
+                    return null; // Special handling needed - use original split
+                }
+               
+                if (category.id === 'extension' && contribution.extensionType === 'no_selling') {
+                    return null; // Keep original
+                }
+               
+                const levelMap = { 'NIL': 0, '25%': 25, '50%': 50, '75%': 75, '100%': 100 };
+                return levelMap[contribution.level] || 0;
+            },
+
+            updateCurrentBaseTotal() {
+                let total = 0;
+                Object.keys(this.contributions).forEach(memberId => {
+                    const memberTotal = this.contributions[memberId].reduce((sum, c) => {
+                        const wb = this.calculateBaseWB(c);
+                        return sum + (wb || 0);
+                    }, 0);
+                    total += memberTotal;
+                    const el = document.getElementById(`member-total-${memberId}`);
+                    if (el) el.textContent = memberTotal + '%';
+                });
+                const el = document.getElementById('current-base-total');
+                if (el) el.textContent = total + '%';
+            },
+
+            validateStep2() {
+                // Check all contributions are properly filled
+                let valid = true;
+                Object.keys(this.contributions).forEach(memberId => {
+                    this.contributions[memberId].forEach(c => {
+                        if (!c.category) valid = false;
+                        if (c.direct !== false) {
+                            const cat = this.categories.find(x => x.id === c.category);
+                            if (cat && !cat.special && !c.level) valid = false;
+                        }
+                    });
+                });
+               
+                if (!valid) {
+                    alert('Please complete all contribution entries (category and level).');
+                    return;
+                }
+               
+                this.goToStep(3);
+            },
+
+            toggleDollarBasis() {
+                const isPer100 = document.getElementById('basis-per100').checked;
+                document.getElementById('dollar-label-suffix').textContent = isPer100 ? 'per 100% WB' : 'for 200% team cap';
+            },
+
+            calculateAndShowResults() {
+                const dollarAmount = parseFloat(document.getElementById('dollar-amount').value) || 0;
+                const scalePct = parseFloat(document.getElementById('scale-value').value) || 100;
+                const isPer100 = document.getElementById('basis-per100').checked;
+               
+                if (dollarAmount <= 0) {
+                    alert('Please enter a valid dollar amount.');
+                    return;
+                }
+               
+                const wbPer100 = isPer100 ? dollarAmount : dollarAmount / 2;
+               
+                // Calculate base WB for each person
+                const baseWB = {};
+                this.team.forEach(member => {
+                    const contribs = this.contributions[member.id] || [];
+                    let total = 0;
+                    const details = [];
+                   
+                    contribs.forEach(c => {
+                        const wb = this.calculateBaseWB(c);
+                        if (wb !== null && wb > 0) {
+                            total += wb;
+                            details.push({
+                                category: this.categories.find(cat => cat.id === c.category)?.label || c.category,
+                                wb: wb,
+                                rationale: `Mapped to ${c.level} level`
+                            });
+                        } else if (wb === null) {
+                            details.push({
+                                category: this.categories.find(cat => cat.id === c.category)?.label || c.category,
+                                wb: 0,
+                                rationale: 'Use original split (special case)'
+                            });
+                        }
+                    });
+                   
+                    baseWB[member.id] = { total: Math.min(total, 100), details }; // Preliminary cap at 100
+                });
+               
+                // Apply individual caps (100%)
+                const cappedWB = {};
+                let totalCapped = 0;
+                let houseSurplus = 0;
+               
+                this.team.forEach(member => {
+                    const base = baseWB[member.id].total;
+                    const capped = Math.min(base, 100);
+                    cappedWB[member.id] = capped;
+                    totalCapped += capped;
+                    if (base > 100) houseSurplus += (base - 100);
+                });
+               
+                // Apply team scaling (200% cap)
+                let scaleFactor = 1;
+                if (totalCapped > 200) {
+                    scaleFactor = 200 / totalCapped;
+                }
+               
+                const scaledWB = {};
+                this.team.forEach(member => {
+                    scaledWB[member.id] = Math.round(cappedWB[member.id] * scaleFactor * 100) / 100;
+                });
+               
+                // Calculate dollars
+                const finalResults = this.team.map(member => {
+                    const wb = scaledWB[member.id];
+                    const beforeScale = wbPer100 * (wb / 100);
+                    const final = beforeScale * (scalePct / 100);
+                    return {
+                        member,
+                        baseWB: baseWB[member.id].total,
+                        cappedWB: cappedWB[member.id],
+                        scaledWB: wb,
+                        awardBeforeScale: beforeScale,
+                        finalAward: final,
+                        contributions: baseWB[member.id].details
+                    };
+                });
+               
+                this.calculation = {
+                    inputs: {
+                        wb_dollars_per_100: wbPer100,
+                        scale_pct: scalePct,
+                        notes: ''
+                    },
+                    team: this.team.map(m => ({
+                        team_member_name: m.name,
+                        role: m.role,
+                        contributions: (this.contributions[m.id] || []).map(c => ({
+                            category: this.categories.find(cat => cat.id === c.category)?.label || c.category,
+                            grid_level: c.level || c.openCloseType || c.extensionType || 'N/A',
+                            wb_pct: this.calculateBaseWB(c) || 0,
+                            rationale: c.direct === false ? 'Indirect contribution excluded' : 'Direct contribution mapped to grid'
+                        }))
+                    })),
+                    calculation: {
+                        base_wb_pct_by_person: finalResults.map(r => ({ team_member_name: r.member.name, base_wb_pct: r.baseWB })),
+                        capped_wb_pct_by_person: finalResults.map(r => ({ team_member_name: r.member.name, capped_wb_pct: r.cappedWB })),
+                        team_total_capped_wb_pct: totalCapped,
+                        scale_factor_if_any: scaleFactor,
+                        scaled_wb_pct_by_person: finalResults.map(r => ({ team_member_name: r.member.name, scaled_wb_pct: r.scaledWB })),
+                        house_surplus_wb_pct: houseSurplus
+                    },
+                    results: finalResults.map(r => ({
+                        team_member_name: r.member.name,
+                        final_wb_pct: r.scaledWB,
+                        award_before_scale: r.awardBeforeScale,
+                        final_award: r.finalAward
+                    }))
+                };
+               
+                this.renderResults(finalResults, totalCapped, scaleFactor, houseSurplus, wbPer100, scalePct);
+                this.goToStep(4);
+            },
+
+            renderResults(results, totalCapped, scaleFactor, houseSurplus, wbPer100, scalePct) {
+                // Table
+                const tbody = document.getElementById('results-table-body');
+                tbody.innerHTML = results.map(r => `
+                    <tr class="hover:bg-slate-50">
+                        <td class="py-3 px-3 font-medium text-slate-900">${r.member.name}</td>
+                        <td class="text-right py-3 px-3 text-slate-600">${r.baseWB}%</td>
+                        <td class="text-right py-3 px-3 ${r.cappedWB < r.baseWB ? 'text-amber-600 font-medium' : 'text-slate-600'}">${r.cappedWB}%</td>
+                        <td class="text-right py-3 px-3 font-semibold text-blue-600">${r.scaledWB}%</td>
+                        <td class="text-right py-3 px-3 font-bold text-green-600">${this.formatMoney(r.finalAward)}</td>
+                    </tr>
+                `).join('');
+               
+                document.getElementById('total-base').textContent = results.reduce((s, r) => s + r.baseWB, 0) + '%';
+                document.getElementById('total-capped').textContent = totalCapped + '%';
+                document.getElementById('total-scaled').textContent = results.reduce((s, r) => s + r.scaledWB, 0).toFixed(2) + '%';
+                document.getElementById('total-dollars').textContent = this.formatMoney(results.reduce((s, r) => s + r.finalAward, 0));
+               
+                // Notices
+                const scalingNotice = document.getElementById('scaling-notice');
+                if (scaleFactor < 1) {
+                    scalingNotice.classList.remove('hidden');
+                    document.getElementById('scale-factor-display').textContent = scaleFactor.toFixed(3);
+                } else {
+                    scalingNotice.classList.add('hidden');
+                }
+               
+                const cappingNotice = document.getElementById('capping-notice');
+                if (houseSurplus > 0) {
+                    cappingNotice.classList.remove('hidden');
+                } else {
+                    cappingNotice.classList.add('hidden');
+                }
+               
+                // Contribution details
+                document.getElementById('contribution-details').innerHTML = results.map(r => `
+                    <div class="border-l-4 border-blue-500 pl-4 py-2">
+                        <div class="font-semibold text-slate-900 mb-1">${r.member.name}</div>
+                        <ul class="text-sm text-slate-600 space-y-1">
+                            ${r.contributions.map(c => `<li>• ${c.category}: ${c.wb}% - ${c.rationale}</li>`).join('')}
+                        </ul>
+                    </div>
+                `).join('');
+               
+                // JSON
+                document.getElementById('json-output').textContent = JSON.stringify(this.calculation, null, 2);
+               
+                // Update preview in step 3
+                document.getElementById('preview-per100').textContent = this.formatMoney(wbPer100);
+                document.getElementById('preview-scale').textContent = scalePct + '%';
+            },
+
+            formatMoney(amount) {
+                return new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD', maximumFractionDigits: 0 }).format(amount);
+            },
+
+            copyJSON() {
+                const json = document.getElementById('json-output').textContent;
+                navigator.clipboard.writeText(json).then(() => {
+                    alert('JSON copied to clipboard!');
+                });
+            },
+
+            goToStep(n) {
+                document.querySelectorAll('.step-content').forEach(el => el.classList.add('hidden'));
+                document.getElementById(`step-${n}`).classList.remove('hidden');
+               
+                document.querySelectorAll('.step-btn').forEach((btn, idx) => {
+                    btn.className = 'step-btn step-inactive w-10 h-10 rounded-full border-2 flex items-center justify-center font-semibold text-sm transition-all';
+                    if (idx + 1 === n) btn.classList.add('step-active');
+                    if (idx + 1 < n) btn.classList.add('step-completed');
+                });
+               
+                this.currentStep = n;
+               
+                // Update button states
+                for (let i = 1; i <= 4; i++) {
+                    const btn = document.getElementById(`step-${i}-btn`);
+                    if (i < n) {
+                        btn.innerHTML = '✓';
+                        btn.classList.add('step-completed');
+                    } else {
+                        btn.textContent = i;
+                    }
+                }
+            },
+
+            reset() {
+                if (confirm('Start a new calculation? All current data will be lost.')) {
+                    this.team = [];
+                    this.contributions = {};
+                    this.calculation = null;
+                    this.addTeamMember();
+                    this.goToStep(1);
+                    document.getElementById('dollar-amount').value = '';
+                    document.getElementById('scale-value').value = '100';
+                    document.getElementById('scale-slider').value = '100';
+                }
+            }
+        };
+
+        // Initialize
+        app.init();
+    </script>
+</body>
+</html>
