@@ -1,0 +1,506 @@
+8 of 11
+￼
+￼
+￼
+Expand all
+￼
+Print all
+￼
+In new window
+calculator
+￼
+Inbox
+Search for all messages with label Inbox
+Remove label Inbox from this conversation
+￼
+Smack Fu USA
+Fri, Jan 30, 1:13 PM
+<!DOCTYPE html><html lang="en"><head> <meta charset="UTF-8"> <meta name="viewport" content="width=device-width, initial-scale=1.0"> <title>Winning Business Awar
+￼
+Smack Fu USA <smackfunyc@gmail.com>
+Fri, Jan 30, 1:25 PM
+￼
+Add reaction
+￼
+Reply
+￼
+More
+to me
+￼
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Winning Business Award Calculator | RRA WB User's Guide 2024</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Inter', sans-serif; background-color: #f8fafc; }
+        .step-active { background-color: #3b82f6; color: white; border-color: #3b82f6; }
+        .step-inactive { background-color: white; color: #64748b; border-color: #cbd5e1; }
+        .step-completed { background-color: #10b981; color: white; border-color: #10b981; }
+        .contribution-card { transition: all 0.2s; }
+        .contribution-card:hover { transform: translateY(-2px); box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1); }
+        .range-slider::-webkit-slider-thumb { -webkit-appearance: none; appearance: none; width: 20px; height: 20px; background: #3b82f6; cursor: pointer; border-radius: 50%; }
+        .fade-in { animation: fadeIn 0.3s ease-in; }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+        .json-output { font-family: 'Courier New', monospace; background: #1e293b; color: #e2e8f0; }
+        .reference-grid { font-size: 0.75rem; line-height: 1.4; }
+        .reference-grid th { background: #f1f5f9; font-weight: 600; padding: 8px; border: 1px solid #cbd5e1; }
+        .reference-grid td { padding: 8px; border: 1px solid #e2e8f0; vertical-align: top; }
+    </style>
+</head>
+<body class="min-h-screen text-slate-800">
+
+    <!-- Header -->
+    <header class="bg-white border-b border-slate-200 sticky top-0 z-50">
+        <div class="max-w-6xl mx-auto px-4 py-4 flex justify-between items-center">
+            <div class="flex items-center gap-3">
+                <div class="w-10 h-10 bg-blue-600 rounded-lg flex items-center justify-center text-white font-bold text-xl">WB</div>
+                <div>
+                    <h1 class="text-xl font-bold text-slate-900">Winning Business Award Calculator</h1>
+                    <p class="text-xs text-slate-500">Based on <span class="font-semibold text-blue-600">WB User's Guide 2024 (2)</span> | Pages 8-16</p>
+                </div>
+            </div>
+            <div class="flex items-center gap-4">
+                <button onclick="app.toggleReference()" class="text-sm text-blue-600 hover:text-blue-800 font-medium flex items-center gap-1 bg-blue-50 px-3 py-1.5 rounded-lg transition-colors">
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path></svg>
+                    View Source Grid
+                </button>
+                <div class="text-sm text-slate-600 hidden sm:block">
+                    <span class="font-semibold">Policy Caps:</span> Individual 100% | Team 200%
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Reference Panel (Collapsible) -->
+    <div id="reference-panel" class="hidden bg-slate-50 border-b border-slate-200 max-h-[60vh] overflow-y-auto">
+        <div class="max-w-6xl mx-auto px-4 py-6">
+            <div class="flex justify-between items-center mb-4">
+                <h2 class="text-lg font-semibold text-slate-900">WB Contribution Guideline Grid Reference</h2>
+                <button onclick="app.toggleReference()" class="text-slate-500 hover:text-slate-700">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+                </button>
+            </div>
+            <p class="text-sm text-slate-600 mb-4">Source: <em>WB User's Guide 2024 (2), Pages 9-11</em>. This grid provides the standard WB % allocations for common contribution scenarios.</p>
+           
+            <div class="overflow-x-auto bg-white rounded-lg shadow-sm border border-slate-200">
+                <table class="reference-grid w-full text-left">
+                    <thead>
+                        <tr>
+                            <th class="w-1/6">Contribution Category</th>
+                            <th class="text-center w-[12%]">NIL (0%)</th>
+                            <th class="text-center w-[12%]">25%</th>
+                            <th class="text-center w-[12%]">50%</th>
+                            <th class="text-center w-[12%]">75%</th>
+                            <th class="text-center w-[12%]">100%</th>
+                        </tr>
+                    </thead>
+                    <tbody class="text-slate-700">
+                        <tr>
+                            <td class="font-semibold">1. Random Lead/Referral</td>
+                            <td>PNB from unknown contact simply forwarded</td>
+                            <td>Call-forward: Pitches RRA, constructs team, doesn't attend follow-on</td>
+                            <td>—</td>
+                            <td>—</td>
+                            <td>Full pitch: Pitches RRA, constructs right team, expertise pivotal to win</td>
+                        </tr>
+                        <tr>
+                            <td class="font-semibold">2. Existing Client/Relationships</td>
+                            <td>Disconnected: Passively informed of engagement with another RRA team</td>
+                            <td>Pick-up: Existing client reaches out to someone not previously engaged, they pass lead</td>
+                            <td>In-take: Introducing past client through brief intake to colleagues who engage in competitive pitch</td>
+                            <td>Proactive: Actively introducing client contacts to colleagues in new markets (initial opportunity only)</td>
+                            <td>Foundational: Project not competitive due to extensive recent work managed by consultant or preferred relationship</td>
+                        </tr>
+                        <tr>
+                            <td class="font-semibold">3. Prior Work Related</td>
+                            <td>—</td>
+                            <td>Relevant: Securing new work where previous work is dated (>2yrs) or different space/market</td>
+                            <td>—</td>
+                            <td>Disconnected: Securing new work on back of previous work (<2yrs, same space) but client executives changed</td>
+                            <td>Follow-on: Creating follow-on work as direct result of previous good work AND requires active engagement in delivery</td>
+                        </tr>
+                        <tr>
+                            <td class="font-semibold">4. Acquiring New Client</td>
+                            <td>—</td>
+                            <td>—</td>
+                            <td>—</td>
+                            <td>Traditional BD: Through proactive BD/market activity develops new relationship leading to pitch/win</td>
+                            <td>—</td>
+                        </tr>
+                        <tr>
+                            <td class="font-semibold">6. Market Reputation</td>
+                            <td>—</td>
+                            <td>Creating awareness: Client approaches because of reputation on specific assignment</td>
+                            <td>—</td>
+                            <td>Proxy: Not attending pitch but colleagues demonstrated specific expertise based on prior agreement*</td>
+                            <td>Reputational Leadership: Client referral based on market reputation getting RRA invited to opportunity otherwise not in consideration; or asked for directly by name*</td>
+                        </tr>
+                        <tr>
+                            <td class="font-semibold">6. Pitch/Expertise</td>
+                            <td>Participant: Kick-off call to meet client; attending for apprenticeship; agreeing to execute when expertise wasn't discussed as reason for win</td>
+                            <td>Useful: Developing engagement scope/search strategy to reasonably fair need; pitching to existing client in non-competitive situation where expertise was confirmation</td>
+                            <td>Helpful: Developing complex search strategy/calibration profiles; developing customized engagement strategy (not boilerplate)</td>
+                            <td>—</td>
+                            <td>Meaningful: Demonstrating expertise/credentials that truly set us apart; client feels they have very strong partner (bespoke frameworks, etc.)</td>
+                        </tr>
+                        <tr>
+                            <td class="font-semibold">7. MSA Situation</td>
+                            <td>Past MSA: Negotiated >2 yrs ago</td>
+                            <td>—</td>
+                            <td>—</td>
+                            <td>—</td>
+                            <td>Market expansion: Negotiated approved MSA in last 2 years creating opportunities in new markets (first project only)</td>
+                        </tr>
+                        <tr>
+                            <td class="font-semibold">8. Open/Close</td>
+                            <td colspan="5" class="text-center italic">Anticipated: Same WB split as original project | Unanticipated: WB in proportion of execution involvement toward additional hire</td>
+                        </tr>
+                        <tr>
+                            <td class="font-semibold">9. Project Extensions</td>
+                            <td colspan="5" class="text-center italic">If no further selling needed: Original WB split continues | If scope changed/more colleagues involved: Use grid to determine new splits</td>
+                        </tr>
+                        <tr>
+                            <td class="font-semibold">10. Relationship Management</td>
+                            <td>Little effort: Client knows RRA consultants and reaches out directly; not related to specific client strategy</td>
+                            <td>Some notable effort: Client defaults and relies on RM team to advise best RRA consultants for assignment</td>
+                            <td>—</td>
+                            <td>Extensive: Global client with several executives needing regular meetings; RM team is "single neck to choke" for all work and escalations</td>
+                            <td>n/a</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="mt-4 text-xs text-slate-500">
+                <p>*Consultant remains actively involved in managing project going forward and has responsibility for work product.</p>
+                <p>Source Document: WB User's Guide 2024 (2), Russell Reynolds Associates. Private & Confidential.</p>
+            </div>
+        </div>
+    </div>
+                            Map Contributions to Grid
+                        </h2>
+                        <p class="text-sm text-slate-600 mt-1">Map each person's direct impact to the <a href="#" onclick="app.toggleReference(); return false;" class="text-blue-600 hover:underline">WB Contribution Guideline Grid</a> (Pages 9-11).</p>
+                    </div>
+                    <div class="text-right text-sm bg-slate-50 px-4 py-2 rounded-lg border border-slate-200">
+                        <div class="font-medium text-slate-900">Current Base Total</div>
+                            <strong>Scaling Applied:</strong> Team total exceeded 200%. Awards scaled down by factor of <span id="scale-factor-display">0.00</span>x to meet policy cap (per Page 5 of User's Guide).
+                        </div>
+
+                        <div id="capping-notice" class="mt-4 p-3 bg-amber-50 border border-amber-200 rounded-lg text-sm text-amber-800 hidden">
+                            <strong>Individual Capping:</strong> One or more team members exceeded 100% individual cap per policy. Excess moved to house/surplus.
+                        </div>
+                    </div>
+
+                    <!-- Contribution Details -->
+                    <div class="bg-white rounded-xl shadow-sm border border-slate-200 p-6">
+                        <h3 class="font-semibold mb-4">Contribution Breakdown</h3>
+                        <div id="contribution-details" class="space-y-4">
+                            <!-- Detailed breakdown -->
+                        </div>
+                    </div>
+                </div>
+
+                <!-- JSON Output -->
+                <div class="lg:col-span-1">
+                    <div class="bg-white rounded-xl shadow-sm border border-slate-200 p-6 sticky top-24">
+                        <div class="flex justify-between items-center mb-4">
+                            <h3 class="font-semibold">Machine-Readable JSON</h3>
+                            <button onclick="app.copyJSON()" class="text-xs bg-slate-100 hover:bg-slate-200 px-3 py-1 rounded font-medium transition-colors">Copy</button>
+                        </div>
+                        <pre id="json-output" class="json-output p-4 rounded-lg text-xs overflow-x-auto max-h-[600px] overflow-y-auto"></pre>
+                        <p class="text-xs text-slate-500 mt-2">Schema follows WB User's Guide 2024 specification (Pages 8-16).</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="mt-8 flex justify-between items-center bg-white p-4 rounded-lg border border-slate-200">
+                <div class="text-xs text-slate-500">
+                    <strong>Reference:</strong> WB User's Guide 2024 (2), Russell Reynolds Associates<br>
+                    <em>Private & Confidential • Pages 8-16</em>
+                </div>
+                <div class="flex gap-3">
+                    <button onclick="app.reset()" class="text-red-600 hover:text-red-700 font-medium px-4 py-2 text-sm">Start New Calculation</button>
+                    <button onclick="window.print()" class="bg-slate-800 text-white px-6 py-2.5 rounded-lg hover:bg-slate-900 transition-colors font-medium">
+                        Print / Save PDF
+                    </button>
+                </div>
+            </div>
+        </div>
+
+    </main>
+
+    <script>
+        const app = {
+            currentStep: 1,
+            team: [],
+            contributions: {},
+            calculation: null,
+           
+            categories: [
+                { id: 'random_lead', label: 'Random Lead / Referral', levels: ['NIL (Forward only)', '25% (Call-forward)', '50%', '75%', '100% (Full pitch)'] },
+                { id: 'existing_client', label: 'Existing Client or Relationships', levels: ['NIL (Disconnected/Passive)', '25% (Pick-up/Pass on)', '50% (In-take)', '75% (Proactive)', '100% (Foundational)'] },
+                { id: 'prior_work', label: 'Prior Work Related', levels: ['NIL', '25% (Relevant/Dated)', '50%', '75% (Disconnected/Recent)', '100% (Follow-on)'] },
+                { id: 'new_client', label: 'Acquiring a New Client', levels: ['NIL', '25%', '50%', '75% (Traditional BD)', '100%'] },
+                { id: 'market_rep', label: 'Market Reputation Related', levels: ['NIL', '25% (Creating awareness)', '50%', '75% (Proxy)', '100% (Reputational Leadership)'] },
+                { id: 'pitch_help', label: 'Helping with Pitch / Providing Expertise', levels: ['NIL (Participant only)', '25% (Useful)', '50% (Helpful)', '75%', '100% (Meaningful/Mastery)'] },
+                { id: 'msa', label: 'MSA Situation', levels: ['NIL (Past MSA >2yrs)', '25%', '50%', '75%', '100% (Market expansion <2yrs)'] },
+                { id: 'open_close', label: 'Open/Close (anticipated/unanticipated)', special: true },
+                { id: 'extension', label: 'Project Extensions & SREA', special: true },
+                { id: 'rm_team', label: 'Relationship Management Contribution', levels: ['NIL (Little effort)', '25% (Some notable effort)', '50%', '75% (Extensive/Global)', '100%'] }
+            ],
+
+            init() {
+                this.addTeamMember();
+            },
+
+            toggleReference() {
+                const panel = document.getElementById('reference-panel');
+                panel.classList.toggle('hidden');
+                        <button onclick="app.removeTeamMember(${member.id})" class="text-red-500 hover:text-red-700 p-2" ${this.team.length === 1 ? 'disabled style="opacity:0.5"' : ''}>
+                    const levels = category.levels.map(l => {
+                        const val = l.split(' ')[0];
+                        return `<option value="${val}" ${contrib.level === val ? 'selected' : ''}>${l}</option>`;
+                    }).join('');
+                    levelSelector = `
+                        <select onchange="app.updateContribution(${memberId}, ${idx}, 'level', this.value)" class="px-3 py-2 border border-slate-300 rounded-md text-sm focus:ring-2 focus:ring-blue-500 outline-none w-full">
+                            <option value="">Select Grid Level...</option>
+                            ${levels}
+                        </select>
+                    `;
+                } else if (category && category.special) {
+                    if (category.id === 'open_close') {
+                        levelSelector = `
+                            <select onchange="app.updateContribution(${memberId}, ${idx}, 'openCloseType', this.value)" class="px-3 py-2 border border-slate-300 rounded-md text-sm focus:ring-2 focus:ring-blue-500 outline-none w-full">
+                                <option value="">Select Type...</option>
+                                <option value="anticipated" ${contrib.openCloseType === 'anticipated' ? 'selected' : ''}>Anticipated (same WB split as original per P.11)</option>
+                                <option value="unanticipated" ${contrib.openCloseType === 'unanticipated' ? 'selected' : ''}>Unanticipated (execution involvement %)</option>
+                            </select>
+                            ${contrib.openCloseType === 'unanticipated' ? `
+                                <select onchange="app.updateContribution(${memberId}, ${idx}, 'level', this.value)" class="px-3 py-2 border border-slate-300 rounded-md text-sm focus:ring-2 focus:ring-blue-500 outline-none mt-2 w-full">
+                                    <option value="">Relative Involvement...</option>
+                                    <option value="25%" ${contrib.level === '25%' ? 'selected' : ''}>25% - Minor involvement</option>
+                                    <option value="50%" ${contrib.level === '50%' ? 'selected' : ''}>50% - Moderate involvement</option>
+                                    <option value="75%" ${contrib.level === '75%' ? 'selected' : ''}>75% - Significant involvement</option>
+                                    <option value="100%" ${contrib.level === '100%' ? 'selected' : ''}>100% - Primary execution</option>
+                                </select>
+                            ` : ''}
+                        `;
+                    } else if (category.id === 'extension') {
+                        levelSelector = `
+                            <select onchange="app.updateContribution(${memberId}, ${idx}, 'extensionType', this.value)" class="px-3 py-2 border border-slate-300 rounded-md text-sm focus:ring-2 focus:ring-blue-500 outline-none w-full">
+                                <option value="">Select Scenario...</option>
+                                <option value="no_selling" ${contrib.extensionType === 'no_selling' ? 'selected' : ''}>No additional selling (original WB split continues)</option>
+                                <option value="new_scope" ${contrib.extensionType === 'new_scope' ? 'selected' : ''}>New scope/additional colleagues involved</option>
+                            </select>
+                            ${contrib.extensionType === 'new_scope' ? `
+                                <div class="mt-2 text-xs text-amber-700 bg-amber-50 p-2 rounded">Treat as new allocation using standard grid above</div>
+                            ` : ''}
+                        `;
+                    }
+                }
+
+                return `
+                    <div class="contribution-row bg-white p-4 rounded-lg border border-slate-200 shadow-sm">
+                        <div class="grid md:grid-cols-2 gap-3 mb-3">
+                            <select onchange="app.updateContribution(${memberId}, ${idx}, 'category', this.value)" class="w-full px-3 py-2 border border-slate-300 rounded-md text-sm focus:ring-2 focus:ring-blue-500 outline-none">
+                                <option value="">Select Category from Grid...</option>
+                                ${categories}
+                            </select>
+                            ${levelSelector}
+                        </div>
+                        <div class="flex items-center justify-between bg-slate-50 p-2 rounded">
+                            <label class="flex items-center gap-2 text-sm cursor-pointer">
+                                <input type="checkbox" onchange="app.updateContribution(${memberId}, ${idx}, 'direct', this.checked)" ${contrib.direct !== false ? 'checked' : ''}
+                                    class="w-4 h-4 text-blue-600 rounded focus:ring-blue-500">
+                                <span class="text-slate-700 font-medium">Directly influenced the win (User's Guide P.6)</span>
+                            </label>
+                            <button onclick="app.removeContribution(${memberId}, ${idx})" class="text-red-500 hover:text-red-700 text-sm font-medium px-2">Remove</button>
+                        </div>
+                        ${contrib.direct === false ? '<div class="mt-2 text-xs text-red-600 bg-red-50 p-2 rounded border border-red-100">￼ Only direct contributions should be awarded WB per policy (Page 6: "WB should only be awarded when there is a clear and DIRECT contribution").</div>' : ''}
+                    </div>
+                `;
+            },
+
+            addContribution(memberId) {
+                if (!this.contributions[memberId]) this.contributions[memberId] = [];
+                this.contributions[memberId].push({ category: '', level: '', direct: true });
+                this.renderContributions();
+            },
+
+            removeContribution(memberId, idx) {
+                this.contributions[memberId].splice(idx, 1);
+                this.renderContributions();
+            },
+
+            updateContribution(memberId, idx, field, value) {
+                if (!this.contributions[memberId]) this.contributions[memberId] = [];
+                this.contributions[memberId][idx][field] = value;
+               
+                if (field === 'category') {
+                    this.contributions[memberId][idx].level = '';
+                    this.contributions[memberId][idx].openCloseType = '';
+                    this.contributions[memberId][idx].extensionType = '';
+                }
+               
+                this.renderContributions();
+            },
+
+            calculateBaseWB(contribution) {
+                if (contribution.direct === false) return 0;
+               
+                const category = this.categories.find(c => c.id === contribution.category);
+                if (!category) return 0;
+               
+                if (category.id === 'open_close' && contribution.openCloseType === 'anticipated') {
+                    return null;
+                }
+               
+                if (category.id === 'extension' && contribution.extensionType === 'no_selling') {
+                    return null;
+                }
+               
+                const levelMap = { 'NIL': 0, '25%': 25, '50%': 50, '75%': 75, '100%': 100 };
+                return levelMap[contribution.level] || 0;
+            },
+
+            updateCurrentBaseTotal() {
+                let total = 0;
+                Object.keys(this.contributions).forEach(memberId => {
+                    const memberTotal = this.contributions[memberId].reduce((sum, c) => {
+                        const wb = this.calculateBaseWB(c);
+                        return sum + (wb || 0);
+                    }, 0);
+                    total += memberTotal;
+                    const el = document.getElementById(`member-total-${memberId}`);
+                    if (el) el.textContent = memberTotal + '%';
+                });
+                const el = document.getElementById('current-base-total');
+                if (el) el.textContent = total + '%';
+            },
+
+            validateStep2() {
+                const baseWB = {};
+                this.team.forEach(member => {
+                    const contribs = this.contributions[member.id] || [];
+                    let total = 0;
+                    const details = [];
+                   
+                    contribs.forEach(c => {
+                        const wb = this.calculateBaseWB(c);
+                        if (wb !== null && wb > 0) {
+                            total += wb;
+                            details.push({
+                                category: this.categories.find(cat => cat.id === c.category)?.label || c.category,
+                                wb: wb,
+                                rationale: `Mapped to ${c.level} level per Guideline Grid`
+                            });
+                        } else if (wb === null) {
+                            details.push({
+                                category: this.categories.find(cat => cat.id === c.category)?.label || c.category,
+                                wb: 0,
+                                rationale: 'Special case: Use original split or execution proportion (Page 11)'
+                            });
+                        }
+                    });
+                   
+                    baseWB[member.id] = { total: Math.min(total, 100), details };
+                });
+               
+                const cappedWB = {};
+                let totalCapped = 0;
+                let houseSurplus = 0;
+               
+                this.team.forEach(member => {
+                    const base = baseWB[member.id].total;
+                    const capped = Math.min(base, 100);
+                    cappedWB[member.id] = capped;
+                    totalCapped += capped;
+                    if (base > 100) houseSurplus += (base - 100);
+                });
+               
+                let scaleFactor = 1;
+                if (totalCapped > 200) {
+                    scaleFactor = 200 / totalCapped;
+                }
+               
+                const scaledWB = {};
+                this.team.forEach(member => {
+                    scaledWB[member.id] = Math.round(cappedWB[member.id] * scaleFactor * 100) / 100;
+                });
+               
+                const finalResults = this.team.map(member => {
+                    const wb = scaledWB[member.id];
+                    const beforeScale = wbPer100 * (wb / 100);
+                    const final = beforeScale * (scalePct / 100);
+                    return {
+                        member,
+                        baseWB: baseWB[member.id].total,
+                        cappedWB: cappedWB[member.id],
+                        scaledWB: wb,
+                        awardBeforeScale: beforeScale,
+                        finalAward: final,
+                        contributions: baseWB[member.id].details
+                    };
+                });
+               
+                this.calculation = {
+                    source_document: "WB User's Guide 2024 (2), Russell Reynolds Associates, Pages 8-16",
+                    inputs: {
+                        wb_dollars_per_100: wbPer100,
+                        scale_pct: scalePct,
+                        notes: ''
+                    },
+                    team: this.team.map(m => ({
+                        team_member_name: m.name,
+                        role: m.role,
+                        contributions: (this.contributions[m.id] || []).map(c => ({
+                            category: this.categories.find(cat => cat.id === c.category)?.label || c.category,
+                            grid_level: c.level || c.openCloseType || c.extensionType || 'N/A',
+                            wb_pct: this.calculateBaseWB(c) || 0,
+                            rationale: c.direct === false ? 'Indirect contribution excluded per Page 6' : 'Direct contribution mapped to Guideline Grid'
+                        }))
+                    })),
+                    calculation: {
+                        base_wb_pct_by_person: finalResults.map(r => ({ team_member_name: r.member.name, base_wb_pct: r.baseWB })),
+                        capped_wb_pct_by_person: finalResults.map(r => ({ team_member_name: r.member.name, capped_wb_pct: r.cappedWB })),
+                        team_total_capped_wb_pct: totalCapped,
+                        scale_factor_if_any: scaleFactor,
+                        scaled_wb_pct_by_person: finalResults.map(r => ({ team_member_name: r.member.name, scaled_wb_pct: r.scaledWB })),
+                        house_surplus_wb_pct: houseSurplus
+                    },
+                    results: finalResults.map(r => ({
+                        team_member_name: r.member.name,
+                        final_wb_pct: r.scaledWB,
+                        award_before_scale: r.awardBeforeScale,
+                        final_award: r.finalAward
+                    }))
+                };
+               
+                this.renderResults(finalResults, totalCapped, scaleFactor, houseSurplus, wbPer100, scalePct);
+                this.goToStep(4);
+            },
+
+            renderResults(results, totalCapped, scaleFactor, houseSurplus, wbPer100, scalePct) {
+                const tbody = document.getElementById('results-table-body');
+                tbody.innerHTML = results.map(r => `
+                    <tr class="hover:bg-slate-50">
+                        <td class="py-3 px-3 font-medium text-slate-900">${r.member.name}</td>
+                        <td class="text-right py-3 px-3 text-slate-600">${r.baseWB}%</td>
+                        <td class="text-right py-3 px-3 ${r.cappedWB < r.baseWB ? 'text-amber-600 font-medium' : 'text-slate-600'}">${r.cappedWB}%</td>
+                        <td class="text-right py-3 px-3 font-semibold text-blue-600">${r.scaledWB}%</td>
+                        <td class="text-right py-3 px-3 font-bold text-green-600">${this.formatMoney(r.finalAward)}</td>
+                    </tr>
+                `).join('');
+               
+                document.getElementById('total-base').textContent = results.reduce((s, r) => s + r.baseWB, 0) + '%';
+                document.getElementById('total-capped').textContent = totalCapped + '%';
+                document.getElementById('total-scaled').textContent = results.reduce((s, r) => s + r.scaledWB, 0).toFixed(2) + '%';
+                document.getElementById('total-dollars').textContent = this.formatMoney(results.reduce((s, r) => s + r.finalAward, 0));
+               
+                const scalingNotice = document.getElementById('scaling-notice');
+                if (scaleFactor < 1) {
+                    scalingNotice.classList.remove('hidden');
+                    document.getElem
