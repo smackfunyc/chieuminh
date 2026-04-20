@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI SDR Pipeline</title>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Mono:wght@300;400;500&family=DM+Sans:wght@300;400;600&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --bg: #0a0c10;
+    --panel: #10141a;
+    --border: #1e2530;
+    --ig: #00c2ff;
+    --sm: #00e5a0;
+    --ap: #ff6b35;
+    --ai: #c084fc;
+    --clay: #fbbf24;
+    --text: #e2e8f0;
+    --muted: #64748b;
+  }
+
+  body {
+    background: var(--bg);
+    font-family: 'DM Sans', sans-serif;
+    color: var(--text);
+    min-height: 100vh;
+    overflow-x: hidden;
+    padding: 48px 24px;
+  }
+
+  /* Noise overlay */
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
+    pointer-events: none;
+    z-index: 0;
+    opacity: 0.6;
+  }
+
+  .wrapper {
+    max-width: 900px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 1;
+  }
+
+  header {
+    margin-bottom: 56px;
+    animation: fadeUp 0.6s ease both;
+  }
+
+  .label {
+    font-family: 'DM Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.2em;
+    color: var(--muted);
+    text-transform: uppercase;
+    margin-bottom: 8px;
+  }
+
+  h1 {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(48px, 8vw, 80px);
+    line-height: 0.9;
+    letter-spacing: 0.03em;
+    background: linear-gradient(135deg, #fff 0%, #94a3b8 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .subtitle {
+    margin-top: 16px;
+    font-size: 14px;
+    color: var(--muted);
+    font-weight: 300;
+  }
+
+  /* Timeline */
+  .timeline {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+  }
+
+  /* Vertical connector line */
+  .timeline::before {
+    content: '';
+    position: absolute;
+    left: 28px;
+    top: 32px;
+    bottom: 32px;
+    width: 1px;
+    background: linear-gradient(to bottom, var(--ig), var(--sm), var(--ap), var(--ai), var(--clay));
+    opacity: 0.4;
+  }
+
+  .step {
+    display: grid;
+    grid-template-columns: 56px 1fr;
+    gap: 24px;
+    align-items: start;
+    padding-bottom: 40px;
+    animation: fadeUp 0.5s ease both;
+  }
+
+  .step:nth-child(1) { animation-delay: 0.1s; }
+  .step:nth-child(2) { animation-delay: 0.2s; }
+  .step:nth-child(3) { animation-delay: 0.3s; }
+  .step:nth-child(4) { animation-delay: 0.4s; }
+  .step:nth-child(5) { animation-delay: 0.5s; }
+  .step:nth-child(6) { animation-delay: 0.6s; }
+
+  .node {
+    width: 56px;
+    height: 56px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'DM Mono', monospace;
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.05em;
+    position: relative;
+    z-index: 1;
+    flex-shrink: 0;
+  }
+
+  .step--ig .node  { background: rgba(0,194,255,0.12); border: 1px solid rgba(0,194,255,0.4); color: var(--ig); box-shadow: 0 0 20px rgba(0,194,255,0.15); }
+  .step--sm .node  { background: rgba(0,229,160,0.12); border: 1px solid rgba(0,229,160,0.4); color: var(--sm); box-shadow: 0 0 20px rgba(0,229,160,0.15); }
+  .step--ap .node  { background: rgba(255,107,53,0.12); border: 1px solid rgba(255,107,53,0.4); color: var(--ap); box-shadow: 0 0 20px rgba(255,107,53,0.15); }
+  .step--ai .node  { background: rgba(192,132,252,0.12); border: 1px solid rgba(192,132,252,0.4); color: var(--ai); box-shadow: 0 0 20px rgba(192,132,252,0.15); }
+  .step--clay .node { background: rgba(251,191,36,0.12); border: 1px solid rgba(251,191,36,0.4); color: var(--clay); box-shadow: 0 0 20px rgba(251,191,36,0.15); }
+  .step--out .node { background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.2); color: #fff; }
+
+  .card {
+    background: var(--panel);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 24px 28px;
+    position: relative;
+    overflow: hidden;
+    transition: border-color 0.2s, transform 0.2s;
+  }
+
+  .card:hover {
+    transform: translateX(4px);
+  }
+
+  .step--ig .card:hover  { border-color: rgba(0,194,255,0.4); }
+  .step--sm .card:hover  { border-color: rgba(0,229,160,0.4); }
+  .step--ap .card:hover  { border-color: rgba(255,107,53,0.4); }
+  .step--ai .card:hover  { border-color: rgba(192,132,252,0.4); }
+  .step--clay .card:hover { border-color: rgba(251,191,36,0.4); }
+  .step--out .card:hover { border-color: rgba(255,255,255,0.25); }
+
+  /* Accent stripe */
+  .card::before {
+    content: '';
+    position: absolute;
+    left: 0; top: 0; bottom: 0;
+    width: 3px;
+    border-radius: 16px 0 0 16px;
+  }
+
+  .step--ig .card::before  { background: var(--ig); }
+  .step--sm .card::before  { background: var(--sm); }
+  .step--ap .card::before  { background: var(--ap); }
+  .step--ai .card::before  { background: var(--ai); }
+  .step--clay .card::before { background: var(--clay); }
+  .step--out .card::before { background: linear-gradient(to bottom, var(--ig), var(--clay)); }
+
+  .tool-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    padding: 3px 10px;
+    border-radius: 99px;
+    margin-bottom: 10px;
+  }
+
+  .step--ig .tool-badge  { background: rgba(0,194,255,0.1); color: var(--ig); border: 1px solid rgba(0,194,255,0.25); }
+  .step--sm .tool-badge  { background: rgba(0,229,160,0.1); color: var(--sm); border: 1px solid rgba(0,229,160,0.25); }
+  .step--ap .tool-badge  { background: rgba(255,107,53,0.1); color: var(--ap); border: 1px solid rgba(255,107,53,0.25); }
+  .step--ai .tool-badge  { background: rgba(192,132,252,0.1); color: var(--ai); border: 1px solid rgba(192,132,252,0.25); }
+  .step--clay .tool-badge { background: rgba(251,191,36,0.1); color: var(--clay); border: 1px solid rgba(251,191,36,0.25); }
+  .step--out .tool-badge { background: rgba(255,255,255,0.06); color: #94a3b8; border: 1px solid rgba(255,255,255,0.15); }
+
+  .card-title {
+    font-size: 16px;
+    font-weight: 600;
+    margin-bottom: 6px;
+    color: #f1f5f9;
+  }
+
+  .card-desc {
+    font-size: 13px;
+    color: var(--muted);
+    line-height: 1.6;
+    font-weight: 300;
+  }
+
+  .tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin-top: 14px;
+  }
+
+  .tag {
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    padding: 3px 8px;
+    border-radius: 4px;
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(255,255,255,0.08);
+    color: #64748b;
+    letter-spacing: 0.05em;
+  }
+
+  .arrow-connector {
+    display: flex;
+    align-items: center;
+    margin-left: 28px;
+    padding-bottom: 40px;
+    animation: fadeUp 0.5s ease both;
+  }
+
+  /* Optional section */
+  .optional-note {
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    color: var(--clay);
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    margin-bottom: 4px;
+    opacity: 0.8;
+  }
+
+  /* Win callout */
+  .win-box {
+    margin-top: 48px;
+    padding: 24px 28px;
+    background: linear-gradient(135deg, rgba(0,194,255,0.06) 0%, rgba(192,132,252,0.06) 100%);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 16px;
+    animation: fadeUp 0.5s ease 0.7s both;
+  }
+
+  .win-box .label { color: var(--ai); margin-bottom: 10px; }
+  .win-box p { font-size: 13px; color: #94a3b8; line-height: 1.7; }
+  .win-box strong { color: #e2e8f0; font-weight: 600; }
+
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(16px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+</style>
+</head>
+<body>
+<div class="wrapper">
+  <header>
+    <div class="label">// Automation Blueprint</div>
+    <h1>AI SDR<br>Pipeline</h1>
+    <p class="subtitle">ImportGenius → Seamless.AI → Apollo · End-to-end outbound intelligence</p>
+  </header>
+
+  <div class="timeline">
+
+    <!-- Step 1 -->
+    <div class="step step--ig">
+      <div class="node">01</div>
+      <div class="card">
+        <div class="tool-badge">● ImportGenius</div>
+        <div class="card-title">Source Intent Signals</div>
+        <div class="card-desc">Filter active importers/exporters by product category, origin country, and shipment frequency. Export companies showing growth patterns — these are your warm signals.</div>
+        <div class="tags">
+          <span class="tag">product category</span>
+          <span class="tag">country of origin</span>
+          <span class="tag">shipment frequency</span>
+          <span class="tag">growth patterns</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Clay optional -->
+    <div class="step step--clay">
+      <div class="node">↓</div>
+      <div class="card">
+        <div class="optional-note">Optional Enhancement</div>
+        <div class="tool-badge">● Clay</div>
+        <div class="card-title">Waterfall Enrichment</div>
+        <div class="card-desc">Run AI enrichment across multiple data sources and waterfall-verify contacts before sequencing. Dramatically improves deliverability and reduces bounce rates.</div>
+        <div class="tags">
+          <span class="tag">waterfall verify</span>
+          <span class="tag">AI enrichment</span>
+          <span class="tag">deduplication</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Step 2 -->
+    <div class="step step--sm">
+      <div class="node">02</div>
+      <div class="card">
+        <div class="tool-badge">● Seamless.AI</div>
+        <div class="card-title">Pull Verified Contacts</div>
+        <div class="card-desc">Upload company list, enrich with verified decision-maker contacts. Target VP Logistics, Head of Supply Chain, and COO-level buyers in your space.</div>
+        <div class="tags">
+          <span class="tag">VP Logistics</span>
+          <span class="tag">Head of Supply Chain</span>
+          <span class="tag">COO</span>
+          <span class="tag">email verify</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Step 3: AI Layer -->
+    <div class="step step--ai">
+      <div class="node">03</div>
+      <div class="card">
+        <div class="tool-badge">● AI Layer · Claude / GPT</div>
+        <div class="card-title">Generate Personalized Openers</div>
+        <div class="card-desc">Feed shipment data into an AI prompt at scale. Input: company name, product, origin country, frequency. Output: a unique, data-backed first line for every contact — "I noticed you've been importing X from Y…"</div>
+        <div class="tags">
+          <span class="tag">prompt template</span>
+          <span class="tag">bulk generation</span>
+          <span class="tag">signal-based personalization</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Step 4: Apollo -->
+    <div class="step step--ap">
+      <div class="node">04</div>
+      <div class="card">
+        <div class="tool-badge">● Apollo</div>
+        <div class="card-title">Sequence & Automate Outreach</div>
+        <div class="card-desc">Import enriched contacts with AI-generated first lines. Build sequences triggered by import data signals. Automate follow-ups across email and LinkedIn with dynamic personalization fields.</div>
+        <div class="tags">
+          <span class="tag">email sequences</span>
+          <span class="tag">LinkedIn steps</span>
+          <span class="tag">trigger automation</span>
+          <span class="tag">A/B testing</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Step 5: Output -->
+    <div class="step step--out">
+      <div class="node">→</div>
+      <div class="card">
+        <div class="tool-badge">● Output</div>
+        <div class="card-title">Qualified Pipeline · Autopilot</div>
+        <div class="card-desc">Warm, signal-qualified leads moving through automated outreach with genuinely personalized messaging — running continuously without manual SDR effort.</div>
+        <div class="tags">
+          <span class="tag">warm leads</span>
+          <span class="tag">intent-qualified</span>
+          <span class="tag">automated follow-up</span>
+          <span class="tag">CRM handoff</span>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="win-box">
+    <div class="label">// The Differentiator</div>
+    <p>ImportGenius gives you <strong>real trade activity as intent data</strong> — companies literally moving goods are actively buying. Combined with AI-generated openers referencing that data, your outreach feels researched and relevant, not generic. <strong>That's the signal most SDRs never have access to.</strong></p>
+  </div>
+
+</div>
+</body>
+</html>
